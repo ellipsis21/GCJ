@@ -1,0 +1,80 @@
+body {
+	text-align: center;
+}
+
+form {
+	width: 95%;
+	display: inline-block;
+}
+
+input {
+	text-align:center;
+	font-size: 20px;
+	margin-top: 5px;
+}
+
+ul {
+	list-style: none;
+}
+
+.textbox {
+	width: 95%;
+}
+
+.subbut {
+	width: 95%;
+}
+
+.button::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.button:before {
+  content: 'Select a Picture';
+  text-align: center;
+  width: 67%;
+  display: inline-block;
+  background: -webkit-linear-gradient(top, #f9f9f9, #e3e3e3);
+  border: 1px solid #999;
+  border-radius: 3px;
+  padding: 5px 8px;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  text-shadow: 1px 1px #fff;
+  font-weight: 700;
+  font-size: 10pt;
+}
+.button:hover:before {
+  border-color: black;
+}
+.button:active:before {
+  background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+}
+
+.button2::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.button2:before {
+  content: 'Select a Video';
+  text-align: center;
+  width: 67%;
+  display: inline-block;
+  background: -webkit-linear-gradient(top, #f9f9f9, #e3e3e3);
+  border: 1px solid #999;
+  border-radius: 3px;
+  padding: 5px 8px;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  text-shadow: 1px 1px #fff;
+  font-weight: 700;
+  font-size: 10pt;
+}
+.button2:hover:before {
+  border-color: black;
+}
+.button2:active:before {
+  background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+}
