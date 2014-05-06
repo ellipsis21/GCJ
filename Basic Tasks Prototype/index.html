@@ -3,30 +3,13 @@
 		<title>CS 247 Basic Prototype</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
 		<meta name="viewport" content="width=device-width, target-densitydpi=high-dpi" />
-		<script language="javascript">
-			function add() {
-				var element = document.createElement("input");
-				element.setAttribute("type", "text");
-				element.setAttribute("name", "entry");
-				element.setAttribute("class", "textbox");
-				var form = getElementById("myform");
-				form.appendChild(element);
-			}
-		</script>
 	</head>
 	<body>
-		<h2 style="text-align: center;">Define your Friend Groups</h1>
-		<p style="text-align: center;">So you can later ask them their opinion!</p>
-			<form id="myform" name="input" action="send.php" enctype='multipart/form-data' method="post" style = "display: inline-block; text-align: center;">
-				<input type='text' name='entry1' class='textbox' placeholder='Ex: Programmer Friends'>
-				<input type='text' name='entry2' class='textbox' placeholder='Optional Category'>
-				<input type='text' name='entry3' class='textbox' placeholder='Optional Category'>
-				<input type='text' name='entry4' class='textbox' placeholder='Optional Category'>
-				<input type='text' name='entry5' class='textbox' placeholder='Optional Category'>
-				<input type='text' name='entry6' class='textbox' placeholder='Optional Category'>
-				<input type='text' name='entry7' class='textbox' placeholder='Optional Category'>
-				<input type='text' name='entry8' class='textbox' placeholder='Optional Category'>
-				<input type="submit" class="subbut" value="Submit"/>
+		<h2 style="text-align: center;">Get Your Friends Opinions!</h2>
+		<p style="text-align: center;">An easy way to organize and survey friends!</p>
+			<form id="myform" name="input" action="login.php" enctype='multipart/form-data' method="post" style = "display: inline-block; text-align: center;">
+				<input type='text' name='name' class='textbox' placeholder='NAME'>
+				<input type="submit" class="subbut" value="Login"/>
 			</form>
 		</div>
 	</body>

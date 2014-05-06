@@ -25,13 +25,24 @@ ul {
 	width: 95%;
 }
 
+.catbut {
+	width: 85%;
+}
+.removebut {
+	width: 60%;
+}
+
+.closebut {
+	width: 4%;
+}
+
 .button::-webkit-file-upload-button {
   visibility: hidden;
 }
 .button:before {
   content: 'Select a Picture';
   text-align: center;
-  width: 67%;
+  width: 61%;
   display: inline-block;
   background: -webkit-linear-gradient(top, #f9f9f9, #e3e3e3);
   border: 1px solid #999;
@@ -58,7 +69,7 @@ ul {
 .button2:before {
   content: 'Select a Video';
   text-align: center;
-  width: 67%;
+  width: 61%;
   display: inline-block;
   background: -webkit-linear-gradient(top, #f9f9f9, #e3e3e3);
   border: 1px solid #999;

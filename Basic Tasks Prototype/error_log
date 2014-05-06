@@ -1,0 +1,37 @@
+[28-Apr-2014 19:02:12 America/Chicago] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/send.php on line 14
+[29-Apr-2014 02:25:36 America/Chicago] PHP Parse error:  syntax error, unexpected '{' in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/send.php on line 42
+[04-May-2014 23:17:38 America/Chicago] PHP Warning:  mysqli_connect(): (28000/1045): Access denied for user 'g'@'192.185.16.23' (using password: YES) in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/connect.php on line 3
+[04-May-2014 23:17:38 America/Chicago] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, boolean given in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/connect.php on line 13
+[04-May-2014 23:17:38 America/Chicago] PHP Warning:  mysqli_error() expects parameter 1 to be mysqli, boolean given in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/connect.php on line 16
+[04-May-2014 23:18:00 America/Chicago] PHP Warning:  mysqli_connect(): (28000/1045): Access denied for user 'g'@'192.185.16.23' (using password: YES) in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/connect.php on line 3
+[04-May-2014 23:18:00 America/Chicago] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, boolean given in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/connect.php on line 13
+[04-May-2014 23:18:00 America/Chicago] PHP Warning:  mysqli_error() expects parameter 1 to be mysqli, boolean given in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/connect.php on line 16
+[04-May-2014 23:47:34 America/Chicago] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/login.php on line 14
+[05-May-2014 00:01:14 America/Chicago] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/login.php on line 12
+[05-May-2014 00:14:48 America/Chicago] PHP Fatal error:  Call to undefined function setItem() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/login.php on line 13
+[05-May-2014 00:25:40 America/Chicago] PHP Warning:  session_start(): Cannot send session cookie - headers already sent by (output started at /home2/ggreiner/public_html/ggreiner.com/cs247/bp/login.php:9) in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/login.php on line 11
+[05-May-2014 00:25:40 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home2/ggreiner/public_html/ggreiner.com/cs247/bp/login.php:9) in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/login.php on line 11
+[05-May-2014 00:34:11 America/Chicago] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/login.php on line 13
+[05-May-2014 00:38:18 America/Chicago] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/login.php on line 19
+[05-May-2014 00:38:18 America/Chicago] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/login.php on line 20
+[05-May-2014 00:38:18 America/Chicago] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/login.php on line 22
+[05-May-2014 00:38:18 America/Chicago] PHP Warning:  mysqli_error() expects parameter 1 to be mysqli, null given in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/login.php on line 22
+[05-May-2014 00:39:11 America/Chicago] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/login.php on line 19
+[05-May-2014 00:39:11 America/Chicago] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/login.php on line 20
+[05-May-2014 00:39:11 America/Chicago] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/login.php on line 22
+[05-May-2014 00:39:11 America/Chicago] PHP Warning:  mysqli_error() expects parameter 1 to be mysqli, null given in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/login.php on line 22
+[05-May-2014 01:29:43 America/Chicago] PHP Parse error:  syntax error, unexpected ')' in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/login.php on line 28
+[05-May-2014 01:30:03 America/Chicago] PHP Parse error:  syntax error, unexpected '$all' (T_VARIABLE) in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/login.php on line 30
+[05-May-2014 01:31:47 America/Chicago] PHP Warning:  explode() expects at least 2 parameters, 1 given in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/login.php on line 30
+[05-May-2014 01:31:47 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/login.php on line 31
+[05-May-2014 01:31:47 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/login.php on line 32
+[05-May-2014 01:31:47 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/login.php on line 40
+[05-May-2014 01:49:58 America/Chicago] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/send.php on line 32
+[05-May-2014 01:49:58 America/Chicago] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/send.php on line 37
+[05-May-2014 01:51:57 America/Chicago] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/send.php on line 33
+[05-May-2014 01:51:57 America/Chicago] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/send.php on line 39
+[05-May-2014 15:44:49 America/Chicago] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO), expecting ',' or ';' in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/message.php on line 12
+[05-May-2014 15:45:37 America/Chicago] PHP Warning:  move_uploaded_file(/var/www/uploads/bigsigma.png): failed to open stream: No such file or directory in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/message.php on line 24
+[05-May-2014 15:45:37 America/Chicago] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phpcSbQAa' to '/var/www/uploads/bigsigma.png' in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/message.php on line 24
+[05-May-2014 15:55:21 America/Chicago] PHP Parse error:  syntax error, unexpected '{' in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/message.php on line 21
+[05-May-2014 16:44:41 America/Chicago] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO), expecting ',' or ';' in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/message.php on line 86
