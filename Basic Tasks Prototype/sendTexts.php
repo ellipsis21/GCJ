@@ -8,13 +8,13 @@
  
   
     $body= "";
-    if (isset($_POST["question"])){
+    if (isset($_GET["question"])){
         $question = $_GET["question"];
         $body.=$question . " ";
     }
     for ($count = 1; $count <= 6; $count++) {
         if (isset($_GET["response$count"])) {
-            if($_GET["response$count"] != "")$body.= "Option $count :" . $_POST["response$count"] . "  ";
+            if($_GET["response$count"] != "")$body.= "Respond $count for:" . $_GET["response$count"] . "  ";
         }
     }
     $url= "http://ggreiner.com/cs247/bp/" . $_GET["img"];
@@ -27,8 +27,8 @@
     //    "+14158675310" => "Boots",
     //    "+14158675311" => "Virgil",
     );
-    echo $body
-    echo $url
+    echo $body;
+    echo $url;
 
     // Step 5: Loop over all our friends
     foreach ($people as $number => $name) {
@@ -43,7 +43,7 @@
             $number,
  
             // the sms body
-            $body
+            $body,
 //GCJ want to allow for multiple meadia?
             // Step 7: Add a url to the image media you want to send
            // array("https://demo.twilio.com/owl.png", "https://demo.twilio.com/logo.png")
