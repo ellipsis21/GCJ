@@ -35,3 +35,38 @@
 [05-May-2014 15:45:37 America/Chicago] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phpcSbQAa' to '/var/www/uploads/bigsigma.png' in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/message.php on line 24
 [05-May-2014 15:55:21 America/Chicago] PHP Parse error:  syntax error, unexpected '{' in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/message.php on line 21
 [05-May-2014 16:44:41 America/Chicago] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO), expecting ',' or ';' in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/message.php on line 86
+[06-May-2014 11:52:34 America/Chicago] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/login.php on line 33
+[06-May-2014 16:56:05 America/Chicago] PHP Parse error:  syntax error, unexpected 'table' (T_STRING) in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/connect.php on line 14
+[06-May-2014 17:03:37 America/Chicago] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/login.php on line 38
+[06-May-2014 17:03:37 America/Chicago] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/login.php on line 38
+[06-May-2014 17:03:37 America/Chicago] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/login.php on line 38
+[06-May-2014 17:16:29 America/Chicago] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/login.php on line 38
+[06-May-2014 17:16:29 America/Chicago] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/login.php on line 38
+[06-May-2014 17:16:29 America/Chicago] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/login.php on line 38
+[06-May-2014 17:17:13 America/Chicago] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/login.php on line 38
+[06-May-2014 17:17:13 America/Chicago] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/login.php on line 38
+[06-May-2014 17:17:13 America/Chicago] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/login.php on line 38
+[06-May-2014 17:19:32 America/Chicago] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/login.php on line 39
+[06-May-2014 17:19:32 America/Chicago] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/login.php on line 39
+[06-May-2014 17:19:32 America/Chicago] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/login.php on line 39
+[06-May-2014 17:20:01 America/Chicago] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, object given in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/login.php on line 39
+[06-May-2014 17:20:01 America/Chicago] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, object given in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/login.php on line 39
+[06-May-2014 17:20:01 America/Chicago] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, object given in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/login.php on line 39
+[06-May-2014 17:21:27 America/Chicago] PHP Warning:  mysql_query() expects parameter 1 to be string, object given in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/login.php on line 38
+[06-May-2014 17:21:27 America/Chicago] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, null given in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/login.php on line 39
+[06-May-2014 17:21:27 America/Chicago] PHP Warning:  mysql_query() expects parameter 1 to be string, object given in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/login.php on line 38
+[06-May-2014 17:21:27 America/Chicago] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, null given in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/login.php on line 39
+[06-May-2014 17:21:27 America/Chicago] PHP Warning:  mysql_query() expects parameter 1 to be string, object given in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/login.php on line 38
+[06-May-2014 17:21:27 America/Chicago] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, null given in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/login.php on line 39
+[06-May-2014 17:22:05 America/Chicago] PHP Warning:  mysql_query(): Access denied for user 'ggreiner'@'localhost' (using password: NO) in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/login.php on line 38
+[06-May-2014 17:22:05 America/Chicago] PHP Warning:  mysql_query(): A link to the server could not be established in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/login.php on line 38
+[06-May-2014 17:22:05 America/Chicago] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/login.php on line 39
+[06-May-2014 17:22:05 America/Chicago] PHP Warning:  mysql_query(): Access denied for user 'ggreiner'@'localhost' (using password: NO) in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/login.php on line 38
+[06-May-2014 17:22:05 America/Chicago] PHP Warning:  mysql_query(): A link to the server could not be established in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/login.php on line 38
+[06-May-2014 17:22:05 America/Chicago] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/login.php on line 39
+[06-May-2014 17:22:05 America/Chicago] PHP Warning:  mysql_query(): Access denied for user 'ggreiner'@'localhost' (using password: NO) in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/login.php on line 38
+[06-May-2014 17:22:05 America/Chicago] PHP Warning:  mysql_query(): A link to the server could not be established in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/login.php on line 38
+[06-May-2014 17:22:05 America/Chicago] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/login.php on line 39
+[06-May-2014 17:40:04 America/Chicago] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/login.php on line 33
+[06-May-2014 19:29:01 America/Chicago] PHP Parse error:  syntax error, unexpected 'table' (T_STRING) in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/connect.php on line 14
+[06-May-2014 19:29:13 America/Chicago] PHP Parse error:  syntax error, unexpected 'table' (T_STRING) in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/connect.php on line 14

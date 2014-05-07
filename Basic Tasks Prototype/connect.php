@@ -12,7 +12,15 @@
 	  // }
 	
 	// Create table
-	// $sql = "CREATE TABLE UQuestions(PID INT NOT NULL AUTO_INCREMENT, PRIMARY KEY(PID), Question CHAR(10),Response1 CHAR(30),Response2 CHAR(30),Response3 CHAR(30),Response4 CHAR(30),Response5 CHAR(30),Response6 CHAR(30),PicPath CHAR(100),VidPath CHAR(100),UserId INT, CatId INT)";
+	$sql = "CREATE TABLE Responses(Response CHAR(100), FriendId INT, QuestionID Int)";
+
+	if (mysqli_query($con,$sql)) {
+	  echo "Table categories created successfully";
+	} else {
+	  echo "Error creating table: " . mysqli_error($con);
+	}
+	
+	// $sql = "DELETE FROM Persons";
 
 	// if (mysqli_query($con,$sql)) {
 	  // echo "Table categories created successfully";
@@ -20,13 +28,12 @@
 	  // echo "Error creating table: " . mysqli_error($con);
 	// }
 	
-	$sql = "DELETE FROM UQuestions";
+	// $result = mysqli_query($con,"SELECT * FROM Friends");
 
-	if (mysqli_query($con,$sql)) {
-	  echo "Table categories created successfully";
-	} else {
-	  echo "Error creating table: " . mysqli_error($con);
-	}
+	// while($row = mysqli_fetch_array($result)) {
+	  // print_r($row);
+	  // echo "<br>";
+	// }
 	
 	
 ?>

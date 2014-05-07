@@ -24,18 +24,26 @@ if (mysqli_connect_errno()) {
 				 $_SESSION['name'] = $name;
 			}
 			else $name = $_SESSION['name'];
-			if (isset($_POST['numbers'])) {
+			if (isset($_POST['number1'])) {
 				$category = $_POST['category'];
-				$numbers = $_POST['numbers'];
+				$all = array();
+				for ($i = 1; $i <= 10; $i++) {
+					$all[] = $_POST["number$i"];
+				}
 				$id = $_SESSION['id'];
-				$all = explode(",", $numbers);
 				$result = mysqli_query($con,"SELECT * FROM Categories WHERE FirstName='$category' AND UserId=$id");
 				$row = mysqli_fetch_array($result);
 				$catId = $row["PID"];
 				foreach ($all as $number) {
 					trim($number);
-					if ($number != "")
-						if(!mysqli_query($con,"INSERT INTO Friends (FirstName, LastName, Phone, UserId, CatId) VALUES ('John', 'Doe', '$number', $id, $catId)")) echo "failure! " . mysqli_error($con);
+					$num = 0;
+					$result = mysqli_query($con,"SELECT * FROM Friends WHERE Phone='$number'");
+					$num = mysqli_num_rows($result);
+					if ($num == 0) {
+						if ($number != "")
+							if(!mysqli_query($con,"INSERT INTO Friends (FirstName, LastName, Phone, UserId, CatId) VALUES ('John', 'Doe', '$number', $id, $catId)")) echo "failure! " . mysqli_error($con);
+							if(!mysqli_query($con,"INSERT INTO FCategories (Phone, UserId, CatId) VALUES ('$number', $id, $catId)")) echo "failure! " . mysqli_error($con);
+					}
 				}
 			}
 			if (isset($_GET['remove'])) {

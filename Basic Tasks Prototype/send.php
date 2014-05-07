@@ -16,10 +16,6 @@ if (mysqli_connect_errno()) {
 		<meta name="viewport" content="width=device-width, target-densitydpi=high-dpi" />
 		<script language="javascript">
 			var count = 3;
-			function focus() {
-				document.getElementById("question").focus();
-				document.getElementById("question").select();
-			}
 			function AddResOpt() {
 				if (count > 6) alert("You can only add 6 options!");
 				else {
