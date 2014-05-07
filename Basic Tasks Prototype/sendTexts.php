@@ -1,7 +1,12 @@
 <?php
 //page between send.php and message.php (maybe replaces message,php)
     require "twilio-php-latest/Services/Twilio.php";
- 
+    session_start(); 
+    $con=mysqli_connect("ggreiner.com","ggreiner_g","volley3","ggreiner_247");
+    // Check connection
+    if (mysqli_connect_errno()) {
+      echo "Failed to connect to MySQL: " . mysqli_connect_error();
+    }
     $account_sid = 'ACe45cbecec1c4d969f362becc4dae5ce1'; 
     $auth_token = '2920745a17eb488e173b7ffe2310f958'; 
     $client = new Services_Twilio($account_sid, $auth_token); 
@@ -23,10 +28,22 @@
 //GCJ still need to add numbers may need to use sandbox numbers with free account 
      // Step 4: make an array of people we know, to send them a message. 
     // Feel free to change/add your own phone number and name here.
-    $people = array(
-        "+16502836850" => "JC",
-        "+17143308621" => "Greg"
-    );
+    $people;
+    if(isset($_GET["userId"]) && $_GET["cat"])){
+        $cat= $_GET["cat"];
+        $user= $_GET["userId"];
+        $result = mysqli_query($con,"SELECT * FROM Friends WHERE CatId= $cat AND UserId=$user");
+        while($row = mysqli_fetch_array($result)) {
+            $number= $row['Phone'];
+            $name= $row['FirstName'];
+            $people['$number']= $name; //GCJ should I have put the ''?
+        }
+    }
+
+  //  $people = array(
+  //      "+16502836850" => "JC",
+  //      "+17143308621" => "Greg"
+  //  );
 
     // Step 5: Loop over all our friends
     foreach ($people as $number => $name) {

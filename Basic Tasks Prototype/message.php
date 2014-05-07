@@ -56,7 +56,7 @@
 				}
 				else $vidFile = "";
 				if(!mysqli_query($con,"INSERT INTO UQuestions (Question, Response1, Response2, Response3, Response4, Response5, Response6, PicPath, VidPath, UserId, CatId) VALUES ('$question', '".$responses[0]."', '".$responses[1]."', '".$responses[2]."', '".$responses[3]."', '".$responses[4]."', '".$responses[5]."', '$picFile', '$vidFile', $id, $category)")) echo "failure! " . mysqli_error($con);
-				$url = "sendTexts.php?question=".urlencode($question)."&response1=".urlencode($responses[0])."&response2=".urlencode($responses[1])."&response3=".urlencode($responses[2])."&response4=".urlencode($responses[3])."&response5=".urlencode($responses[4])."&response6=".urlencode($responses[5])."&img=".urlencode($picFile);
+				$url = "sendTexts.php?question=".urlencode($question)."&response1=".urlencode($responses[0])."&response2=".urlencode($responses[1])."&response3=".urlencode($responses[2])."&response4=".urlencode($responses[3])."&response5=".urlencode($responses[4])."&response6=".urlencode($responses[5])."&img=".urlencode($picFile)."&userId=".urlencode($picFile)."&userId=".urlencode($id)."&cat=".urlencode($catgegory);
 				echo "<script>window.location = '$url'</script>";
 			}
 			$id = $_SESSION['id'];
