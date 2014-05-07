@@ -91,3 +91,152 @@ Stack trace:
 #2 /home2/ggreiner/public_html/ggreiner.com/cs247/bp/twilio-php-latest/Services/Twilio/Rest/Messages.php(24): Services_Twilio_ListResource->_create(Array)
 #3 /home2/ggreiner/public_html/ggreiner.com/cs247/bp/twilio-php-latest/Services/Twilio/Rest/Messages.php(71): Services_Twilio_Rest_Messages->create(Array)
 #4 /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php(50): Services_Twilio_Rest_Messages->sendMessage('+17542108538', '+16502836850', 'Testing Questio...', 'http://ggreiner. in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/twilio-php-latest/Services/Twilio.php on line 305
+[07-May-2014 00:56:21 America/Chicago] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/send.php on line 38
+[07-May-2014 12:19:51 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/results.php on line 168
+[07-May-2014 12:19:56 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/results.php on line 168
+[07-May-2014 12:22:02 America/Chicago] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/login.php on line 35
+[07-May-2014 12:25:47 America/Chicago] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/login.php on line 51
+[07-May-2014 12:29:52 America/Chicago] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/login.php on line 51
+[07-May-2014 12:31:27 America/Chicago] PHP Parse error:  syntax error, unexpected ')', expecting '(' in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 25
+[07-May-2014 12:33:07 America/Chicago] PHP Parse error:  syntax error, unexpected ')', expecting '(' in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 25
+[07-May-2014 12:43:47 America/Chicago] PHP Parse error:  syntax error, unexpected ')', expecting '(' in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 50
+[07-May-2014 12:46:06 America/Chicago] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/messageReceived.php on line 36
+[07-May-2014 12:46:06 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/ggreiner/public_html/ggreiner.com/cs247/bp/messageReceived.php:36) in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/messageReceived.php on line 44
+[07-May-2014 12:52:08 America/Chicago] PHP Fatal error:  Uncaught exception 'Services_Twilio_RestException' with message 'Number: +17542108538 has not been enabled for MMS' in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/twilio-php-latest/Services/Twilio.php:305
+Stack trace:
+#0 /home2/ggreiner/public_html/ggreiner.com/cs247/bp/twilio-php-latest/Services/Twilio.php(229): Services_Twilio->_processResponse(Array)
+#1 /home2/ggreiner/public_html/ggreiner.com/cs247/bp/twilio-php-latest/Services/Twilio/ListResource.php(92): Services_Twilio->createData('/2010-04-01/Acc...', Array)
+#2 /home2/ggreiner/public_html/ggreiner.com/cs247/bp/twilio-php-latest/Services/Twilio/Rest/Messages.php(24): Services_Twilio_ListResource->_create(Array)
+#3 /home2/ggreiner/public_html/ggreiner.com/cs247/bp/twilio-php-latest/Services/Twilio/Rest/Messages.php(71): Services_Twilio_Rest_Messages->create(Array)
+#4 /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php(52): Services_Twilio_Rest_Messages->sendMessage('+17542108538', '+17143308621', 'Is this a good ...', 'http://ggreiner. in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/twilio-php-latest/Services/Twilio.php on line 305
+[07-May-2014 13:00:32 America/Chicago] PHP Parse error:  syntax error, unexpected 'foreach' (T_FOREACH) in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 56
+[07-May-2014 13:04:22 America/Chicago] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/messageReceived.php on line 36
+[07-May-2014 13:04:22 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/ggreiner/public_html/ggreiner.com/cs247/bp/messageReceived.php:36) in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/messageReceived.php on line 45
+[07-May-2014 13:07:10 America/Chicago] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/messageReceived.php on line 35
+[07-May-2014 13:07:10 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/ggreiner/public_html/ggreiner.com/cs247/bp/messageReceived.php:35) in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/messageReceived.php on line 45
+[07-May-2014 13:08:00 America/Chicago] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/messageReceived.php on line 35
+[07-May-2014 13:08:00 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/ggreiner/public_html/ggreiner.com/cs247/bp/messageReceived.php:35) in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/messageReceived.php on line 45
+[07-May-2014 13:08:31 America/Chicago] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/messageReceived.php on line 36
+[07-May-2014 13:08:31 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/ggreiner/public_html/ggreiner.com/cs247/bp/messageReceived.php:35) in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/messageReceived.php on line 46
+[07-May-2014 13:09:16 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/ggreiner/public_html/ggreiner.com/cs247/bp/messageReceived.php:35) in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/messageReceived.php on line 46
+[07-May-2014 13:48:31 America/Chicago] PHP Parse error:  syntax error, unexpected '}', expecting ',' or ';' in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/message.php on line 30
+[07-May-2014 13:52:07 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:07 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:08 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:08 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:08 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:09 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:09 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:09 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:10 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:10 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:10 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:11 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:11 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:11 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:12 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:12 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:12 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:13 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:13 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:13 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:14 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:14 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:15 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:15 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:15 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:16 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:16 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:16 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:17 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:17 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:18 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:18 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:18 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:19 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:19 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:19 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:20 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:20 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:20 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:21 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:21 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:22 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:22 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:22 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:23 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:24 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:24 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:25 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:25 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:25 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:26 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:26 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:27 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:27 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:27 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:28 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:28 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:28 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:29 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:29 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:29 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:30 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:30 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:30 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:31 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:31 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:32 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:32 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:33 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:33 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:33 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:34 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:34 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:35 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:35 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:35 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:35 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:36 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:36 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:52:36 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:53:31 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:53:31 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:53:32 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:53:32 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:53:32 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:53:33 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:53:33 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:53:33 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:53:34 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:53:34 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:53:34 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:53:35 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:53:35 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:53:35 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:53:36 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:53:36 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:53:36 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:53:37 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:53:37 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:53:37 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:53:38 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:53:38 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:53:38 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:53:39 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:53:39 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:53:39 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:53:40 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:53:40 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:53:41 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:53:41 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:53:42 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:53:42 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:53:43 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:53:43 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:53:43 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:53:44 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 60
+[07-May-2014 13:58:43 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/message.php on line 119
+[07-May-2014 14:01:26 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/message.php on line 120
+[07-May-2014 14:03:26 America/Chicago] PHP Parse error:  syntax error, unexpected '$result' (T_VARIABLE), expecting ',' or ';' in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/message.php on line 100
+[07-May-2014 14:04:07 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/message.php on line 121

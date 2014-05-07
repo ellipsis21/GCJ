@@ -41,14 +41,18 @@ if (mysqli_connect_errno()) {
 					$num = mysqli_num_rows($result);
 					if ($num == 0) {
 						if ($number != "")
-							if(!mysqli_query($con,"INSERT INTO Friends (FirstName, LastName, Phone, UserId, CatId) VALUES ('John', 'Doe', '$number', $id, $catId)")) echo "failure! " . mysqli_error($con);
+							if(!mysqli_query($con,"INSERT INTO Friends (FirstName, LastName, Phone, UserId, CatId) VALUES ('John', 'Doe', '+1$number', $id, $catId)")) echo "failure! " . mysqli_error($con);
 							if(!mysqli_query($con,"INSERT INTO FCategories (Phone, UserId, CatId) VALUES ('+1$number', $id, $catId)")) echo "failure! " . mysqli_error($con);
 					}
 				}
 			}
 			if (isset($_GET['remove'])) {
+				$result = mysqli_query($con,"SELECT * FROM Categories WHERE FirstName='$category' AND UserId=$id");
+				$row = mysqli_fetch_array($result);
+				$catId = $row["PID"];
 				$remove = $_GET['remove'];
 				$id = $_SESSION['id'];
+				if(!mysqli_query($con,"DELETE FROM Friends WHERE UserId=$id AND CatId=$catId")) echo "failure! " . mysqli_error($con);
 				if(!mysqli_query($con,"DELETE FROM Categories WHERE Firstname='$remove' AND UserId=$id")) echo "failure! " . mysqli_error($con);
 			}
 
@@ -65,7 +69,7 @@ if (mysqli_connect_errno()) {
 			  }
 			}
 			else {
-			  echo '<p style="text-align: center;">Thanks for signing up'.$name.'!</p>';
+			  echo '<p style="text-align: center;">Thanks for signing up '.$name.'!</p>';
 			  if(!mysqli_query($con,"INSERT INTO Persons (FirstName) VALUES ('$name')")) echo "failure! " . mysqli_error($con);
 			}
 		?>
