@@ -1,7 +1,12 @@
 <?php
- 
+    session_start(); 
+    $con=mysqli_connect("ggreiner.com","ggreiner_g","volley3","ggreiner_247");
+    // Check connection
+    if (mysqli_connect_errno()) {
+      echo "Failed to connect to MySQL: " . mysqli_connect_error();
+    }
     // start the session
-    session_start();
+  //  session_start();
  
 
  	//example of session variable(dont worry about it for now)
@@ -20,8 +25,9 @@
     $message= $_REQUEST['Body'];
     $number= $_REQUEST['From'];
 
+
     //GCJ put responce in DB
-    
+    $res = mysqli_query($con,"SELECT * FROM Friends WHERE number=$number");
 
 
     header("content-type: text/xml");
