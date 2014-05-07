@@ -27,7 +27,19 @@
 
 
     //GCJ put responce in DB
-    $res = mysqli_query($con,"SELECT * FROM Friends WHERE number=$number");
+    $res = mysqli_query($con,"SELECT * FROM Friends WHERE Phone=$number");
+    //assumes phone number is unique
+    while($row = mysqli_fetch_array($res)) {
+        $friendID= $row['PID'];
+        $cat= $row['CatId'];
+        $user= $row['UserId'];
+        $result = mysqli_query($con,"SELECT * FROM UQuestion WHERE CatId= $cat AND UserId=$user");
+        while($column = mysqli_fetch_array($result)) {
+            $questionID= $column['PID'];
+            if(!mysqli_query($con,"INSERT INTO Responses (Response, QuestionID, FriendID) VALUES ('$question', '$questionID', '$friendID')")) echo "failure! " . mysqli_error($con);
+        }
+
+    }
 
 
     header("content-type: text/xml");
