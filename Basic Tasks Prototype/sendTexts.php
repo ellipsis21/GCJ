@@ -9,15 +9,15 @@
   
     $body= "";
     if (isset($_POST["question"])){
-        $question = $_POST["question"];
-        $body.=$question;
+        $question = $_GET["question"];
+        $body.=$question . " ";
     }
     for ($count = 1; $count <= 6; $count++) {
-        if (isset($_POST["response$count"])) {
-            $body.= "Option $count :" $_POST["response$count"] "  ";
+        if (isset($_GET["response$count"])) {
+            if($_GET["response$count"] != "")$body.= "Option $count :" . $_POST["response$count"] . "  ";
         }
     }
-
+    $url= "http://ggreiner.com/cs247/bp/" . $_GET["img"];
 
 //GCJ still need to add numbers may need to use sandbox numbers with free account 
      // Step 4: make an array of people we know, to send them a message. 
@@ -27,7 +27,8 @@
     //    "+14158675310" => "Boots",
     //    "+14158675311" => "Virgil",
     );
-
+    echo $body
+    echo $url
 
     // Step 5: Loop over all our friends
     foreach ($people as $number => $name) {
@@ -45,8 +46,10 @@
             $body
 //GCJ want to allow for multiple meadia?
             // Step 7: Add a url to the image media you want to send
-            array("https://demo.twilio.com/owl.png", "https://demo.twilio.com/logo.png")
+           // array("https://demo.twilio.com/owl.png", "https://demo.twilio.com/logo.png")
             //or just "https://demo.twilio.com/owl.png"
+
+            $url
         );
  
         // Display a confirmation message on the screen
