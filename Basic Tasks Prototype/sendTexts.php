@@ -55,3 +55,7 @@
         // Display a confirmation message on the screen
         echo "Sent message to $name";
     }
+	
+	echo "<script>window.location = 'message.php'</script>";
+	
+?>
