@@ -32,16 +32,11 @@ if (mysqli_connect_errno()) {
 	if(isset($_GET["cat"])) {
 		$category = $_GET["cat"];
 		$id = $_SESSION['id']; 
-		echo "<h2>Get the $category' Opinions</h2>\n";
+		echo '<p><a href = "login.php">Home</a> - <a href = "message.php">Questions</a></p>';
+		echo "<h2>Get the Opinions of your Group: $category</h2>\n";
 		$result = mysqli_query($con,"SELECT * FROM Categories WHERE FirstName='$category' AND UserId=$id");
 		$row = mysqli_fetch_array($result);
 		$catId = $row["PID"];
-		$result = mysqli_query($con,"SELECT * FROM Friends WHERE UserId=$id AND CatId=$catId");
-		echo "<p>Sending to ";
-		while($row = mysqli_fetch_array($result)) {
-			echo $row['Phone']." ";
-		}
-		echo "</p>\n";
 		echo '<form id="myform" name="messager" action="message.php" enctype="multipart/form-data" method="post" style = "display: inline-block; text-align: center;">';
 		echo "<input type='text' id='question' name='question' class='textbox' placeholder='Question' />\n";
 		echo "<input type='text' name='response1' class='textbox' placeholder='Response Option' />\n";

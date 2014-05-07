@@ -48,8 +48,9 @@ if(!mysqli_query($con,"INSERT INTO Categories (FirstName, UserId) VALUES ('$cate
 			<input type='hidden' id='number8' name='number8' class='textbox' placeholder='10 digit numbers'/>
 			<input type='hidden' id='number9' name='number9' class='textbox' placeholder='10 digit numbers'/>
 			<input type='hidden' id='number10' name='number10' class='textbox' placeholder='10 digit numbers'/>
-			<input type='button' class='subbut' value = 'Add Option' onclick='AddResOpt()'/>
+			<input type='button' class='subbut' value = 'Add Number' onclick='AddResOpt()'/>
 			<input type='hidden' name='category' value='<?php echo $cat ?>'/>
+			<br>
 			<input type="submit" class="subbut" value="Add"/>
 		</form>
 	</body>
