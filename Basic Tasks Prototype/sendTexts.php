@@ -40,13 +40,13 @@
             $number,
  
             // the sms body
-            $body,
+            $body
 //GCJ want to allow for multiple meadia?
             // Step 7: Add a url to the image media you want to send
            // array("https://demo.twilio.com/owl.png", "https://demo.twilio.com/logo.png")
             //or just "https://demo.twilio.com/owl.png"
 
-            $url
+            //$url
         );
  
         // Display a confirmation message on the screen

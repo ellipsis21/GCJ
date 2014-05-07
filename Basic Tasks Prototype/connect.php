@@ -28,22 +28,22 @@
 	  // echo "Error creating table: " . mysqli_error($con);
 	// }
 	
-	if(!mysqli_query($con,"INSERT INTO Responses (Response, QuestionId, FriendId) VALUES ('1 COMMENT', 14, 64)")) echo "failure! " . mysqli_error($con);
-	if(!mysqli_query($con,"INSERT INTO Responses (Response, QuestionId, FriendId) VALUES ('2 COMMENT', 14, 65)")) echo "failure! " . mysqli_error($con);
-	if(!mysqli_query($con,"INSERT INTO Responses (Response, QuestionId, FriendId) VALUES ('3 COMMENT', 14, 66)")) echo "failure! " . mysqli_error($con);
-	if(!mysqli_query($con,"INSERT INTO Responses (Response, QuestionId, FriendId) VALUES ('3 COMMENT', 14, 67)")) echo "failure! " . mysqli_error($con);
-	if(!mysqli_query($con,"INSERT INTO Responses (Response, QuestionId, FriendId) VALUES ('3 COMMENT', 14, 68)")) echo "failure! " . mysqli_error($con);
-	if(!mysqli_query($con,"INSERT INTO Responses (Response, QuestionId, FriendId) VALUES ('2 COMMENT', 14, 69)")) echo "failure! " . mysqli_error($con);
-	if(!mysqli_query($con,"INSERT INTO Responses (Response, QuestionId, FriendId) VALUES ('3 COMMENT', 14, 70)")) echo "failure! " . mysqli_error($con);
-	if(!mysqli_query($con,"INSERT INTO Responses (Response, QuestionId, FriendId) VALUES ('2 COMMENT', 14, 71)")) echo "failure! " . mysqli_error($con);
-	if(!mysqli_query($con,"INSERT INTO Responses (Response, QuestionId, FriendId) VALUES ('1 COMMENT', 14, 72)")) echo "failure! " . mysqli_error($con);
+	// if(!mysqli_query($con,"INSERT INTO Responses (Response, QuestionId, FriendId) VALUES ('1 COMMENT', 14, 64)")) echo "failure! " . mysqli_error($con);
+	// if(!mysqli_query($con,"INSERT INTO Responses (Response, QuestionId, FriendId) VALUES ('2 COMMENT', 14, 65)")) echo "failure! " . mysqli_error($con);
+	// if(!mysqli_query($con,"INSERT INTO Responses (Response, QuestionId, FriendId) VALUES ('3 COMMENT', 14, 66)")) echo "failure! " . mysqli_error($con);
+	// if(!mysqli_query($con,"INSERT INTO Responses (Response, QuestionId, FriendId) VALUES ('3 COMMENT', 14, 67)")) echo "failure! " . mysqli_error($con);
+	// if(!mysqli_query($con,"INSERT INTO Responses (Response, QuestionId, FriendId) VALUES ('3 COMMENT', 14, 68)")) echo "failure! " . mysqli_error($con);
+	// if(!mysqli_query($con,"INSERT INTO Responses (Response, QuestionId, FriendId) VALUES ('2 COMMENT', 14, 69)")) echo "failure! " . mysqli_error($con);
+	// if(!mysqli_query($con,"INSERT INTO Responses (Response, QuestionId, FriendId) VALUES ('3 COMMENT', 14, 70)")) echo "failure! " . mysqli_error($con);
+	// if(!mysqli_query($con,"INSERT INTO Responses (Response, QuestionId, FriendId) VALUES ('2 COMMENT', 14, 71)")) echo "failure! " . mysqli_error($con);
+	// if(!mysqli_query($con,"INSERT INTO Responses (Response, QuestionId, FriendId) VALUES ('1 COMMENT', 14, 72)")) echo "failure! " . mysqli_error($con);
 	
-	// $result = mysqli_query($con,"SELECT * FROM UQuestions");
+	$result = mysqli_query($con,"SELECT * FROM Friends");
 
-	// while($row = mysqli_fetch_array($result)) {
-	  // print_r($row);
-	  // echo "<br>";
-	// }
+	while($row = mysqli_fetch_array($result)) {
+	  print_r($row);
+	  echo "<br>";
+	}
 	
 	
 ?>

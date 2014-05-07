@@ -24,10 +24,9 @@
 	//get user responce
     $message= $_REQUEST['Body'];
     $number= $_REQUEST['From'];
-
-
+	$num = substr($number, 1);
     //GCJ put responce in DB
-    $res = mysqli_query($con,"SELECT * FROM Friends WHERE Phone=$number");
+    $res = mysqli_query($con,"SELECT * FROM Friends WHERE Phone='$number'");
     //assumes phone number is unique
     while($row = mysqli_fetch_array($res)) {
         $friendID= $row['PID'];
@@ -47,3 +46,7 @@
 
     //can have Responce after php code depending on cost of texts
 ?> 
+
+<Response>
+	<Message><?php echo "$message $number" ?> - message</Message>
+</Response>

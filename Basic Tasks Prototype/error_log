@@ -77,3 +77,17 @@
 [06-May-2014 20:02:23 America/Chicago] PHP Warning:  require(twilio-php-latest/Services/Twilio.php): failed to open stream: No such file or directory in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 3
 [06-May-2014 20:02:23 America/Chicago] PHP Warning:  require(twilio-php-latest/Services/Twilio.php): failed to open stream: No such file or directory in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 3
 [06-May-2014 20:02:23 America/Chicago] PHP Fatal error:  require(): Failed opening required 'twilio-php-latest/Services/Twilio.php' (include_path='.:/opt/php54/lib/php') in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php on line 3
+[06-May-2014 20:51:03 America/Chicago] PHP Fatal error:  Uncaught exception 'Services_Twilio_RestException' with message 'Number: +17542108538 has not been enabled for MMS' in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/twilio-php-latest/Services/Twilio.php:305
+Stack trace:
+#0 /home2/ggreiner/public_html/ggreiner.com/cs247/bp/twilio-php-latest/Services/Twilio.php(229): Services_Twilio->_processResponse(Array)
+#1 /home2/ggreiner/public_html/ggreiner.com/cs247/bp/twilio-php-latest/Services/Twilio/ListResource.php(92): Services_Twilio->createData('/2010-04-01/Acc...', Array)
+#2 /home2/ggreiner/public_html/ggreiner.com/cs247/bp/twilio-php-latest/Services/Twilio/Rest/Messages.php(24): Services_Twilio_ListResource->_create(Array)
+#3 /home2/ggreiner/public_html/ggreiner.com/cs247/bp/twilio-php-latest/Services/Twilio/Rest/Messages.php(71): Services_Twilio_Rest_Messages->create(Array)
+#4 /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php(50): Services_Twilio_Rest_Messages->sendMessage('+17542108538', '+16502836850', 'Is my head to b...', 'http://ggreiner. in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/twilio-php-latest/Services/Twilio.php on line 305
+[06-May-2014 20:52:28 America/Chicago] PHP Fatal error:  Uncaught exception 'Services_Twilio_RestException' with message 'Number: +17542108538 has not been enabled for MMS' in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/twilio-php-latest/Services/Twilio.php:305
+Stack trace:
+#0 /home2/ggreiner/public_html/ggreiner.com/cs247/bp/twilio-php-latest/Services/Twilio.php(229): Services_Twilio->_processResponse(Array)
+#1 /home2/ggreiner/public_html/ggreiner.com/cs247/bp/twilio-php-latest/Services/Twilio/ListResource.php(92): Services_Twilio->createData('/2010-04-01/Acc...', Array)
+#2 /home2/ggreiner/public_html/ggreiner.com/cs247/bp/twilio-php-latest/Services/Twilio/Rest/Messages.php(24): Services_Twilio_ListResource->_create(Array)
+#3 /home2/ggreiner/public_html/ggreiner.com/cs247/bp/twilio-php-latest/Services/Twilio/Rest/Messages.php(71): Services_Twilio_Rest_Messages->create(Array)
+#4 /home2/ggreiner/public_html/ggreiner.com/cs247/bp/sendTexts.php(50): Services_Twilio_Rest_Messages->sendMessage('+17542108538', '+16502836850', 'Testing Questio...', 'http://ggreiner. in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/twilio-php-latest/Services/Twilio.php on line 305

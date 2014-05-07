@@ -42,7 +42,7 @@ if (mysqli_connect_errno()) {
 					if ($num == 0) {
 						if ($number != "")
 							if(!mysqli_query($con,"INSERT INTO Friends (FirstName, LastName, Phone, UserId, CatId) VALUES ('John', 'Doe', '$number', $id, $catId)")) echo "failure! " . mysqli_error($con);
-							if(!mysqli_query($con,"INSERT INTO FCategories (Phone, UserId, CatId) VALUES ('$number', $id, $catId)")) echo "failure! " . mysqli_error($con);
+							if(!mysqli_query($con,"INSERT INTO FCategories (Phone, UserId, CatId) VALUES ('+1$number', $id, $catId)")) echo "failure! " . mysqli_error($con);
 					}
 				}
 			}
