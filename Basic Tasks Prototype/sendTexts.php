@@ -23,12 +23,9 @@
      // Step 4: make an array of people we know, to send them a message. 
     // Feel free to change/add your own phone number and name here.
     $people = array(
-    //    "+14158675309" => "Curious George",
-    //    "+14158675310" => "Boots",
-    //    "+14158675311" => "Virgil",
+        "+16502836850" => "JC",
+        "+17143308621" => "Greg"
     );
-    echo $body;
-    echo $url;
 
     // Step 5: Loop over all our friends
     foreach ($people as $number => $name) {
