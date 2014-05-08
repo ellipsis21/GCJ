@@ -114,13 +114,15 @@
 					  //  );
 
 						// Step 5: Loop over all our friends
-						foreach ($people as $n) {
-							// if($url != ""){
-								// $sms = $client->account->messages->sendMessage("+17542108538", $number, $body, $url);
-							// } else {
-								$sms = $client->account->messages->sendMessage("+17542108538", $n, $body);
-							//}
-							// Display a confirmation message on the screen
+						if (!empty($people)) {
+							foreach ($people as $n) {
+								// if($url != ""){
+									// $sms = $client->account->messages->sendMessage("+17542108538", $number, $body, $url);
+								// } else {
+									$sms = $client->account->messages->sendMessage("+17542108538", $n, $body);
+								//}
+								// Display a confirmation message on the screen
+							}
 						}
 				}
 			}

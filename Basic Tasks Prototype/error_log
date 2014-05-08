@@ -240,3 +240,5 @@ Stack trace:
 [07-May-2014 14:01:26 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/message.php on line 120
 [07-May-2014 14:03:26 America/Chicago] PHP Parse error:  syntax error, unexpected '$result' (T_VARIABLE), expecting ',' or ';' in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/message.php on line 100
 [07-May-2014 14:04:07 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/message.php on line 121
+[07-May-2014 18:23:28 America/Chicago] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/login.php on line 51
+[07-May-2014 18:42:06 America/Chicago] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home2/ggreiner/public_html/ggreiner.com/cs247/bp/login.php on line 51
