@@ -13,8 +13,11 @@ if (mysqli_connect_errno()) {
 	<head>
 		<title>CS 247 Basic Prototype</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
-		<meta name="viewport" content="width=device-width, target-densitydpi=high-dpi" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 		<script language="javascript">
+			function scroll() {
+				window.scrollTo(0,0);
+			}
 			var count = 3;
 			function AddResOpt() {
 				if (count > 6) alert("You can only add 6 options!");
@@ -27,7 +30,7 @@ if (mysqli_connect_errno()) {
 			}
 		</script>
 	</head>
-	<body>
+	<body onload="scroll()">
 <?php
 	if(isset($_GET["cat"])) {
 		$category = $_GET["cat"];
@@ -38,6 +41,7 @@ if (mysqli_connect_errno()) {
 		$row = mysqli_fetch_array($result);
 		$catId = $row["PID"];
 		echo '<form id="myform" name="messager" action="message.php" enctype="multipart/form-data" method="post" style = "display: inline-block; text-align: center;">';
+		echo "<input type='hidden' id='hidden' name='hidden' class='textbox' placeholder='hidden' />\n";
 		echo "<input type='text' id='question' name='question' class='textbox' placeholder='Question' />\n";
 		echo "<input type='text' name='response1' class='textbox' placeholder='Response Option' />\n";
 		echo "<input type='text' name='response2' class='textbox' placeholder='Response Option' />\n";

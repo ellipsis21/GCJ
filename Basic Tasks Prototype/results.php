@@ -19,6 +19,7 @@ if (mysqli_connect_errno()) {
 
 	</head>
 	<body>
+	<p><a href = "login.php">Home</a> - <a href = "message.php">Questions</a></p>
 	<?php
 		if(isset($_GET["qId"])) {
 			$questionID = $_GET["qId"]; //14
@@ -53,9 +54,10 @@ if (mysqli_connect_errno()) {
 			while($row = mysqli_fetch_array($result)) {
 				$response = $row["Response"];
 				$friendId = $row["FriendId"];
-				$friendresult = mysqli_query($con,"SELECT * FROM Friends WHERE UserId = $friendId");
+				$friendresult = mysqli_query($con,"SELECT * FROM Friends WHERE PID = $friendId");
 				$friend = mysqli_fetch_array($friendresult);
 				$friendName = $friend["FirstName"] + " " + $friend["LastName"];
+				$friendNum = $friend['Phone'];
 
 				$comment = $response;
 				if (preg_match('/(^\d+)\s*(.*)/',$response, $matches)) {
@@ -67,7 +69,7 @@ if (mysqli_connect_errno()) {
 				}
 
 				if ($comment) {
-					$comments[]= array('comment' => $comment, 'friend' => $friendName);
+					$comments[]= array('comment' => $comment, 'number' => $friendNum, 'name' => $friendName);
 				}
 			}
 
@@ -173,10 +175,10 @@ if (mysqli_connect_errno()) {
     </script>
 
     <div class = "commentheader"> Comments </div>
-
+	<br>
 	<?php
 		foreach ($comments as $value) {
-			echo "<div class='comment'>".$value['comment']."<span class='friend'>".$value['friend']."</span></div>";
+			echo "<div class='comment'>".$value['comment']." - ".$value['number']."</div>";
 		}
 	?>
 

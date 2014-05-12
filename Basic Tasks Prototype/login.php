@@ -41,7 +41,7 @@ if (mysqli_connect_errno()) {
 					$num = mysqli_num_rows($result);
 					if ($num == 0) {
 						if ($number != "")
-							if(!mysqli_query($con,"INSERT INTO Friends (FirstName, LastName, Phone, UserId, CatId) VALUES ('John', 'Doe', '$number', $id, $catId)")) echo "failure! " . mysqli_error($con);
+							if(!mysqli_query($con,"INSERT INTO Friends (FirstName, LastName, Phone, UserId, CatId) VALUES ('John', 'Doe', '+1$number', $id, $catId)")) echo "failure! " . mysqli_error($con);
 							if(!mysqli_query($con,"INSERT INTO FCategories (Phone, UserId, CatId) VALUES ('+1$number', $id, $catId)")) echo "failure! " . mysqli_error($con);
 					}
 				}
@@ -49,7 +49,17 @@ if (mysqli_connect_errno()) {
 			if (isset($_GET['remove'])) {
 				$remove = $_GET['remove'];
 				$id = $_SESSION['id'];
+				$result = mysqli_query($con,"SELECT * FROM Categories WHERE FirstName='$remove' AND UserId=$id");
+				$row = mysqli_fetch_array($result);
+				$catId = $row["PID"];
+				$friends = mysqli_query($con,"SELECT * FROM Friends WHERE UserId=$id AND CatId=$catId");
+				while($friend = mysqli_fetch_array($friends)) {
+					$fid = $friend['PID'];
+					if(!mysqli_query($con,"DELETE FROM Responses WHERE FriendId=$fid")) echo "failure! " . mysqli_error($con);
+				}
+				if(!mysqli_query($con,"DELETE FROM Friends WHERE UserId=$id AND CatId=$catId")) echo "failure! " . mysqli_error($con);
 				if(!mysqli_query($con,"DELETE FROM Categories WHERE Firstname='$remove' AND UserId=$id")) echo "failure! " . mysqli_error($con);
+				if(!mysqli_query($con,"DELETE FROM UQuestions WHERE UserId=$id AND CatId=$catId")) echo "failure! " . mysqli_error($con);
 			}
 
 			$result = mysqli_query($con,"SELECT * FROM Persons
@@ -65,8 +75,13 @@ if (mysqli_connect_errno()) {
 			  }
 			}
 			else {
-			  echo '<p style="text-align: center;">Thanks for signing up'.$name.'!</p>';
 			  if(!mysqli_query($con,"INSERT INTO Persons (FirstName) VALUES ('$name')")) echo "failure! " . mysqli_error($con);
+			  echo '<p style="text-align: center;">Thanks for signing up '.$name.'!</p>';
+			  $result = mysqli_query($con,"SELECT * FROM Persons WHERE FirstName='$name'");
+			  if($row = mysqli_fetch_array($result)) {
+				  $id = $row["PID"];
+				  $_SESSION['id'] = $id;
+			  }
 			}
 		?>
 		<form id="myform" name="input" action="cat.php" enctype='multipart/form-data' method="post" style = "display: inline-block; text-align: center;">

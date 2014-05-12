@@ -27,6 +27,42 @@
 	// } else {
 	  // echo "Error creating table: " . mysqli_error($con);
 	// }
+	// $sql = "DELETE FROM UQuestions";
+
+	// if (mysqli_query($con,$sql)) {
+	  // echo "Table categories created successfully";
+	// } else {
+	  // echo "Error creating table: " . mysqli_error($con);
+	// }
+	// $sql = "DELETE FROM Friends";
+
+	// if (mysqli_query($con,$sql)) {
+	  // echo "Table categories created successfully";
+	// } else {
+	  // echo "Error creating table: " . mysqli_error($con);
+	// }
+	// $sql = "DELETE FROM Categories";
+
+	// if (mysqli_query($con,$sql)) {
+	  // echo "Table categories created successfully";
+	// } else {
+	  // echo "Error creating table: " . mysqli_error($con);
+	// }
+	// $sql = "DELETE FROM Persons";
+
+	// if (mysqli_query($con,$sql)) {
+	  // echo "Table categories created successfully";
+	// } else {
+	  // echo "Error creating table: " . mysqli_error($con);
+	// }
+	
+	// $sql = "ALTER TABLE Friends MODIFY Phone CHAR(12)";
+
+	// if (mysqli_query($con,$sql)) {
+	  // echo "Table categories created successfully";
+	// } else {
+	  // echo "Error creating table: " . mysqli_error($con);
+	// }
 	
 	// if(!mysqli_query($con,"INSERT INTO Responses (Response, QuestionId, FriendId) VALUES ('1 COMMENT', 14, 64)")) echo "failure! " . mysqli_error($con);
 	// if(!mysqli_query($con,"INSERT INTO Responses (Response, QuestionId, FriendId) VALUES ('2 COMMENT', 14, 65)")) echo "failure! " . mysqli_error($con);
