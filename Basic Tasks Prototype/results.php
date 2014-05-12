@@ -57,11 +57,15 @@ if (mysqli_connect_errno()) {
 				$friend = mysqli_fetch_array($friendresult);
 				$friendName = $friend["FirstName"] + " " + $friend["LastName"];
 
-				if (preg_match('/(^\d+)\s+(.*)/',$response, $matches)) {
+				$comment = $response;
+				if (preg_match('/(^\d+)\s*(.*)/',$response, $matches)) {
 					$num = (int)$matches[1]-1;
-					$responses[$num]['value']++;
+					if ($num < count($responses)) {
+						$responses[$num]['value']++;
+					}
+					$comment = $matches[2];
 				}
-				$comment = $matches[2];
+
 				if ($comment) {
 					$comments[]= array('comment' => $comment, 'friend' => $friendName);
 				}
@@ -72,7 +76,7 @@ if (mysqli_connect_errno()) {
 
 			echo "<h2> Results for: ".$question["Question"]."</h2>";
 
-			echo "<h2> Your friends recommend ".$responses[0]['response']." (".$responses[0]['value']." votes) </h2>";
+			//echo "<h2> Your friends recommend ".$responses[0]['response']." (".$responses[0]['value']." votes) </h2>";
 
 		}
 	?>
@@ -81,8 +85,8 @@ if (mysqli_connect_errno()) {
 	<div class="pie"></div>
 
 	<script>
-	rawdata = <?php echo json_encode($responses); ?>	
-
+	//rawdata = <?php echo json_encode($responses); ?>	
+	rawdata = [{'response': 'A', 'value': 5}, {'response': 'B', 'value': 0}, {'response': 'C', 'value': 0}];
 	colors = ["#11F3E7","#B4E50D","#E6DF2C", "#FF7C44", "#FF4785"];
 
 	data = [];
@@ -91,6 +95,9 @@ if (mysqli_connect_errno()) {
 		data.push(rawdata[i].value);
 		options.push(rawdata[i].response);
 	}
+
+
+	/* Bar Chart */
 
 	var w = d3.scale.linear()
 		.domain([0, d3.max(data)])
@@ -110,7 +117,7 @@ if (mysqli_connect_errno()) {
 	  .data(data)
 	  .enter().append("svg:rect")
 	  .attr("width", w)
-	  .attr("height", y.rangeBand()-10)
+	  .attr("height", 200/rawdata.length-10)
 	  .attr("y", y)
 	  .attr("fill", function(d, i) { return colors[i]; });
 
@@ -118,7 +125,7 @@ if (mysqli_connect_errno()) {
 	    .data(data)
 	    .enter().append("svg:text")
 	    .attr("x", w)
-	    .attr("y", function(d) { return y(d) + y.rangeBand() / 2; })
+	    .attr("y", function(d) { return y(d) + 200/rawdata.length / 2; })
 	    .attr("dx", -20) // padding-right
 	    .attr("dy", ".1em") // vertical-align: middle
 	    .attr("text-anchor", "end") // text-align: right
@@ -159,6 +166,9 @@ if (mysqli_connect_errno()) {
 	     .attr("y1", 0)
 	     .attr("y2", 190)
 	     .attr("stroke", "#000");
+
+
+	/* Pie Chart */
 
     </script>
 
