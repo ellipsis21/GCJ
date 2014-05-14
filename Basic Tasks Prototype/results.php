@@ -19,7 +19,6 @@ if (mysqli_connect_errno()) {
 
 	</head>
 	<body>
-	<p><a href = "login.php">Home</a> - <a href = "message.php">Questions</a></p>
 	<?php
 		if(isset($_GET["qId"])) {
 			$questionID = $_GET["qId"]; //14
@@ -54,10 +53,9 @@ if (mysqli_connect_errno()) {
 			while($row = mysqli_fetch_array($result)) {
 				$response = $row["Response"];
 				$friendId = $row["FriendId"];
-				$friendresult = mysqli_query($con,"SELECT * FROM Friends WHERE PID = $friendId");
+				$friendresult = mysqli_query($con,"SELECT * FROM Friends WHERE UserId = $friendId");
 				$friend = mysqli_fetch_array($friendresult);
 				$friendName = $friend["FirstName"] + " " + $friend["LastName"];
-				$friendNum = $friend['Phone'];
 
 				$comment = $response;
 				if (preg_match('/(^\d+)\s*(.*)/',$response, $matches)) {
@@ -69,7 +67,7 @@ if (mysqli_connect_errno()) {
 				}
 
 				if ($comment) {
-					$comments[]= array('comment' => $comment, 'number' => $friendNum, 'name' => $friendName);
+					$comments[]= array('comment' => $comment, 'friend' => $friendName);
 				}
 			}
 
@@ -87,8 +85,8 @@ if (mysqli_connect_errno()) {
 	<div class="pie"></div>
 
 	<script>
-	//rawdata = <?php echo json_encode($responses); ?>	
-	rawdata = [{'response': 'A', 'value': 5}, {'response': 'B', 'value': 0}, {'response': 'C', 'value': 0}];
+	rawdata = <?php echo json_encode($responses); ?>	
+	//rawdata = [{'response': 'A', 'value': 5}, {'response': 'B', 'value': 0}, {'response': 'C', 'value': 0}];
 	colors = ["#11F3E7","#B4E50D","#E6DF2C", "#FF7C44", "#FF4785"];
 
 	data = [];
@@ -175,10 +173,10 @@ if (mysqli_connect_errno()) {
     </script>
 
     <div class = "commentheader"> Comments </div>
-	<br>
+
 	<?php
 		foreach ($comments as $value) {
-			echo "<div class='comment'>".$value['comment']." - ".$value['number']."</div>";
+			echo "<div class='comment'>".$value['comment']."<span class='friend'>".$value['friend']."</span></div>";
 		}
 	?>
 
