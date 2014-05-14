@@ -86,7 +86,7 @@ if (mysqli_connect_errno()) {
 
 	<script>
 	rawdata = <?php echo json_encode($responses); ?>	
-	//rawdata = [{'response': 'A', 'value': 5}, {'response': 'B', 'value': 0}, {'response': 'C', 'value': 0}];
+	//rawdata = [{'response': 'A', 'value': 5}, {'response': 'B', 'value': 0}, {'response': 'C', 'value': 1}, {'response': 'C', 'value': 6}, {'response': 'C', 'value': 0}];
 	colors = ["#11F3E7","#B4E50D","#E6DF2C", "#FF7C44", "#FF4785"];
 
 	data = [];
@@ -118,14 +118,14 @@ if (mysqli_connect_errno()) {
 	  .enter().append("svg:rect")
 	  .attr("width", w)
 	  .attr("height", 200/rawdata.length-10)
-	  .attr("y", y)
+	  .attr("y",  function(d, i) { return 200/rawdata.length * i; })
 	  .attr("fill", function(d, i) { return colors[i]; });
 
 	chart.selectAll("text")
 	    .data(data)
 	    .enter().append("svg:text")
 	    .attr("x", w)
-	    .attr("y", function(d) { return y(d) + 200/rawdata.length / 2; })
+	    .attr("y", function(d, i) { return 200/rawdata.length * i + 200/rawdata.length / 2; })
 	    .attr("dx", -20) // padding-right
 	    .attr("dy", ".1em") // vertical-align: middle
 	    .attr("text-anchor", "end") // text-align: right
@@ -138,7 +138,7 @@ if (mysqli_connect_errno()) {
 	chart.selectAll("text.label")
 	    .data(options)
 	    .enter().append("svg:text")
-	   	.attr("y", function(d) { return y2(d) + y2.rangeBand() / 2; })
+	   	.attr("y", function(d, i) { return 200/rawdata.length * i + 200/rawdata.length / 2; })
 	    .attr("dx", 20) // padding-right
 	    .attr("dy", ".1em") // vertical-align: middle
 	    .text(String);
