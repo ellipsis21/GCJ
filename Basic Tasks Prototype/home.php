@@ -16,7 +16,7 @@
 	</head>
 	<body>
 		<p><a href = "home.php">Home</a> - <a href = "message.php">Questions</a></p>
-		<h2 style="text-align: center;">Select/Create a Friend Category to Send To!</h2>
+		<h2 style="text-align: center;">Select a group to manage:</h2>
 		<?php
 			/*
 			$name = "";
@@ -65,7 +65,6 @@
 			*/
 			
 			$UserId = $_SESSION['UserId'];
-			echo $UserId;
 			$result = mysqli_query($con,"SELECT * FROM Users WHERE UserId='$UserId'");
 			if($row = mysqli_fetch_array($result)) {
 				if ($_SESSION["NewUser"]) {
