@@ -17,8 +17,10 @@
 	*/
 
 
-	$result = mysqli_query($con,"SELECT * FROM Admins");
-	
+	//$result = mysqli_query($con,"CREATE TABLE Questions(QuestionId INT NOT NULL AUTO_INCREMENT, PRIMARY KEY(QuestionId), Type CHAR(2), Question VARCHAR(200), PicPath VARCHAR(200), VidPath VARCHAR(200), GroupId INT, UserId INT)");
+	$result = mysqli_query($con,"SELECT * FROM Members");
+
+
 	while($row = mysqli_fetch_array($result)) {
 	  print_r($row);
 	  echo "<br>";

@@ -8,20 +8,31 @@
 	session_start(); 
 	$userid = $_SESSION['UserId'];
 	if (isset($_POST['groupname'])) {
+		// Insert new group
 		$groupname = $_POST['groupname'];
 		if(!mysqli_query($con,"INSERT INTO Groups (Name) VALUES ('$groupname')")) echo "failure! " . mysqli_error($con);
 
 		$result = mysqli_fetch_array(mysqli_query($con, "SELECT MAX(GroupId) FROM Groups"));
 		$groupid = $result[0];
 
+		// Insert members into Members
 		for ($i = 1; $i <= $_POST['numMembers']; $i++) {
-			$membername = $_POST["name$i"];
-			$memberphone = $_POST["number$i"];
-			if(!mysqli_query($con,"INSERT INTO Members (GroupId, Name, Phone) VALUES ('$groupid', '$membername', '$memberphone')")) echo "failure! " . mysqli_error($con);
+			if (isset($_POST['number$i']) && isset($_POST['name$i'])) {
+				$membername = $_POST["name$i"];
+				$memberphone = $_POST["number$i"];
+				if(!mysqli_query($con,"INSERT INTO Members (GroupId, Name, Phone) VALUES ('$groupid', '$membername', '$memberphone')")) echo "failure! " . mysqli_error($con);
+			}
 		}
 
+		// Insert self into Members
+		$result = mysqli_fetch_array(mysqli_query($con, "SELECT * FROM Users WHERE UserId = '$userid'"));
+		$name = $result["Name"];
+		$phone = $result["Phone"];
+		if(!mysqli_query($con,"INSERT INTO Members (GroupId, Name, Phone) VALUES ('$groupid','$name','$phone')")) echo "failure! " . mysqli_error($con);
+
+		// Insert self into Admins
 		if(!mysqli_query($con,"INSERT INTO Admins (GroupId, UserId) VALUES ('$groupid', '$userid')")) echo "failure! " . mysqli_error($con);
-		//header("Location: home.php");
+		header("Location: home.php");
 	}
 ?>
 

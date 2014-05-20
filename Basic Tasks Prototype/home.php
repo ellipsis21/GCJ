@@ -75,7 +75,7 @@
 
 				$result = mysqli_query($con,"SELECT * FROM Groups NATURAL JOIN Admins WHERE UserId = '$UserId'");
 				while ($row = mysqli_fetch_array($result)) {
-					echo "<form><input type='button' class='catbut' value = '".$row['Name']."' onclick=\"location.href='send.php?cat=".$row['Name']."'\"/></form>\n";
+					echo "<a href='grouphome.php?groupid=".$row['GroupId']."'><div>".$row['Name']."</div><a>";
 			  	}
 			}
 		?>
