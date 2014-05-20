@@ -15,8 +15,9 @@
 		echo "Login failed.";
 	} else {
 		session_start(); 
-		$_SESSION['UserId'] = $UserId;
-		header("Location: login.php");
+		$_SESSION['UserId'] = $row["UserId"];
+		$_SESSION['NewUser'] = False;
+		header("Location: home.php");
 	}
 
 ?>

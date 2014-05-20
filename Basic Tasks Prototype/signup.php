@@ -20,7 +20,8 @@
 
 	session_start(); 
 	$_SESSION['UserId'] = $UserId;
+	$_SESSION['NewUser'] = True;
 
-	header("Location: login.php");
+	header("Location: home.php");
 
 ?>
