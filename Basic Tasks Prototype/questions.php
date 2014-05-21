@@ -19,7 +19,7 @@
 	$groupname = $result['Name'];
 	
 	$query = mysqli_query($con,"SELECT * FROM Questions WHERE GroupId='$GroupId' AND Open=1");
-	if($questions = mysqli_fetch_array($query){
+	if($questions = mysqli_fetch_array($query)) {
 		$qId = $questions['QuestionId'];
 		$q = $questions['Question'];
 		echo "<h3>Open Question</h3>\n";

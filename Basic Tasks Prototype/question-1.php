@@ -47,6 +47,7 @@ if (mysqli_connect_errno()) {
 			<input type='hidden' id='response6' name='response6' class='textbox' placeholder='Response 6' />
 			<input type='hidden' name='group' value='<?php echo $GroupId ?>' />
 			<input type='hidden' name='id' value='<?php echo $id ?>' />
+			<input type='hidden' name='type' value='MC' />
 			<a class='question-5'onclick='AddResOpt()'>Add Option</a>
 			<br>
 			<br><input name = "pic" type="file" accept="image/*" capture="camera" class="button">
