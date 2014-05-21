@@ -16,6 +16,7 @@ if (mysqli_connect_errno()) {
 	<head>
 		<title>CS 247 Basic Prototype</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="stylesheet" type="text/css" href="questions.css">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 	</head>
 	<body>

@@ -56,3 +56,55 @@
 	border-radius: 3px;
 	padding: 1px 5px 1px 5px;
 }
+
+.pielabel {
+	font-family: 'Source Sans Pro Bold';
+	font-size: 22pt;
+	text-transform: uppercase;
+	fill: white;
+}
+
+svg {
+	margin-bottom: 30px;
+}
+
+#summary {
+	font-size: 16pt;
+}
+
+#members {
+	font-size: 15pt;
+	padding: 10px;
+	width: 70%;
+	margin: 10px auto 0px auto;
+	background-color: #84CBC5;
+	color: white;
+	font-family: 'Source Sans Pro Bold';
+	box-shadow: 2px 2px 2px #C0C0C0;
+}
+
+#membersresponse {
+	display: none;
+	width: 85%;
+	margin: 0 auto;
+	margin-top: 15px;
+	font-size: 12pt;
+	text-align: left;
+}
+
+.option {
+	text-transform: uppercase;
+	border-bottom: 2px solid;
+	border-right: 2px solid;
+	font-weight: bold;
+	font-family: 'Source Sans Pro Bold';
+	padding-left: 10px;
+	padding-right: 10px;
+	font-size: 17pt;
+	background-color: #FEFEFE;
+	margin-right: 10px;
+}
+
+.options {
+	margin-bottom: 10px;
+}

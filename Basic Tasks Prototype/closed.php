@@ -38,7 +38,7 @@
 	else echo "<h3>No Closed Questions for $groupname</h3>\n";
 ?>
 	<div class="buffer"></div>
-	<a class='group-home' href='grouphome.php?groupid=<?php echo $GroupId ?>'>Group Home</a>
+	<?php echo "<a class='group-home' href='grouphome.php?groupid=".$GroupId."'>".$groupname."</a>" ?>
 	</body>
 </html>
 <?php mysqli_close($con); ?>

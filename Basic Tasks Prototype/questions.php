@@ -23,12 +23,12 @@
 		$qId = $questions['QuestionId'];
 		$q = $questions['Question'];
 		if (isset($_GET['reminder'])) echo "<div class='announcement'>Reminder Sent!</div>";
-		echo "<h3>Open Question</h3>\n";
-		echo "<h4>$q</h4>\n";
+		echo "<h2>Open Question</h2>\n";
+		echo "<h3>$q</h3>\n";
 		echo '<a class="question-1" href="results.php?qId='.$qId.'">Results</a>';
 		echo '<a class="question-2" href="reminder.php?qId='.$qId.'&gId='.$GroupId.'">Send Reminder</a>';
-		echo '<a class="question-5" href="close.php?qId='.$qId.'&gId='.$GroupId.'" style="margin:20px">Close</a>';
-		echo "<a class='group-home' href='grouphome.php?groupid=".$GroupId."'>Group Home</a>";
+		echo '<a class="question-5" href="close.php?qId='.$qId.'&gId='.$GroupId.'" style="margin:20px">Close Poll</a>';
+		echo "<a class='group-home' href='grouphome.php?groupid=".$GroupId."'>".$groupname."</a>";
 	}
 	else {
 ?>
