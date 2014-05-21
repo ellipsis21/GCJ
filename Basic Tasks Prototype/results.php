@@ -24,6 +24,10 @@
 		$result = mysqli_query($con,"SELECT * FROM Questions WHERE QuestionId = $QuestionId");
 		$question = mysqli_fetch_array($result);
 
+		$GroupId = $question["GroupId"];
+		$result = mysqli_query($con,"SELECT * FROM Groups WHERE GroupId = $GroupId");
+		$group = mysqli_fetch_array($result);
+
 		$result = mysqli_query($con,"SELECT * FROM Options WHERE QuestionId = $QuestionId");
 		$responses = array();
 		while ($row = mysqli_fetch_array($result)) {
@@ -72,7 +76,6 @@
 		function cmp($a, $b) { return count($b["value"]) - count($a["value"]);};
 		usort($responses, "cmp");
 
-		echo "<h2> Results for: ".$question["Question"]."</h2>";
 
 		//echo "<h2> Your friends recommend ".$responses[0]['response']." (".$responses[0]['value']." votes) </h2>";
 
@@ -84,17 +87,22 @@
 	<head>
 		<title>CS 247 Basic Prototype</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
-		<link rel="stylesheet" type="text/css" href="stylesheets/resultsstyle.css">
+		<link rel="stylesheet" type="text/css" href="resultsstyle.css">
 		<meta name="viewport" content="width=device-width, target-densitydpi=high-dpi" />
 		<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
 	</head>
 	<body>
+	<div class = "main-header"><a href="home.php"><img class="logo" src = "images/logo.png" /></a></div>
+
+	<?php echo "<div class='firstline'><span class='asked'> You asked </span> <span class='groupname'>".$group["Name"]." </span></div> <div class='question'>".$question["Question"]."</div>" ?>
+
 
 	<svg class="chart"></svg>
 	<div class="pie"></div>
 
 	<script>
+
 	rawdata = <?php echo json_encode($responses); ?>	
 	//rawdata = [{'response': 'A', 'value': 5}, {'response': 'B', 'value': 0}, {'response': 'C', 'value': 1}, {'response': 'C', 'value': 6}, {'response': 'C', 'value': 0}];
 	colors = ["#11F3E7","#B4E50D","#E6DF2C", "#FF7C44", "#FF4785"];
@@ -119,23 +127,23 @@
 
 	var chart = d3.select(".chart")
 		.attr("width", '95%')
-		.attr("height", 220)
+		.attr("height", 350)
 		.append("svg:g")
-		.attr("transform", "translate(3,20)")
+		.attr("transform", "translate(4,20)")
 
 	chart.selectAll("rect")
 	  .data(data)
 	  .enter().append("svg:rect")
 	  .attr("width", w)
-	  .attr("height", 200/rawdata.length-10)
-	  .attr("y",  function(d, i) { return 200/rawdata.length * i; })
-	  .attr("fill", function(d, i) { return colors[i]; });
+	  .attr("height", 300/rawdata.length-40)
+	  .attr("y",  function(d, i) { return 300/rawdata.length * i + 40; })
+	  .attr("fill", function(d, i) { return colors[i%5]; });
 
 	chart.selectAll("text")
 	    .data(data)
 	    .enter().append("svg:text")
 	    .attr("x", w)
-	    .attr("y", function(d, i) { return 200/rawdata.length * i + 200/rawdata.length / 2; })
+	    .attr("y", function(d, i) { return 300/rawdata.length * i + 40 + (300/rawdata.length-40)/ 1.9; })
 	    .attr("dx", -20) // padding-right
 	    .attr("dy", ".1em") // vertical-align: middle
 	    .attr("text-anchor", "end") // text-align: right
@@ -148,9 +156,10 @@
 	chart.selectAll("text.label")
 	    .data(options)
 	    .enter().append("svg:text")
-	   	.attr("y", function(d, i) { return 200/rawdata.length * i + 200/rawdata.length / 2; })
+	   	.attr("y", function(d, i) { return 300/rawdata.length * i + 30; })
 	    .attr("dx", 20) // padding-right
 	    .attr("dy", ".1em") // vertical-align: middle
+	    .attr("class", "labels")
 	    .text(String);
 
 	chart.selectAll("line")
@@ -159,7 +168,7 @@
 	    .attr("x1", w)
 	    .attr("x2", w)
 	    .attr("y1", 0)
-		.attr("y2", 190)
+		.attr("y2", 330)
 		.attr("stroke", "#ccc");
 
 	chart.selectAll("text.rule")
@@ -174,7 +183,7 @@
 
 	chart.append("svg:line")
 	     .attr("y1", 0)
-	     .attr("y2", 190)
+	     .attr("y2", 330)
 	     .attr("stroke", "#000");
 
 
@@ -186,10 +195,11 @@
 
 	<?php
 		foreach ($comments as $value) {
-			echo "<div class='comment'>".$value['comment']."<span class='friend'>".$value['friend']."</span></div>";
+			echo "<div class='comment'><span class='member'>".$value['member']."</span>".$value['comment']."</div>";
 		}
 	?>
-
+	<div class='buffer'/>
+	<a class='group-home' href='grouphome.php?groupid=".$groupid."'>Group Home</a>
 
 	</body>
 </html>
