@@ -5,36 +5,20 @@
     if (mysqli_connect_errno()) {
       echo "Failed to connect to MySQL: " . mysqli_connect_error();
     }
-    // start the session
-  //  session_start();
- 
-
- 	//example of session variable(dont worry about it for now)
-    // get the session varible if it exists
-    $counter = $_SESSION['counter'];
-    // if it doesnt, user has not yet responded
-    if(!strlen($counter)) {
-        $counter = 0;         
-    }
-	$counter++;
-	$_SESSION['counter'] = $counter;
-
-	//example over
 
 	//get user responce
     $message= $_REQUEST['Body'];
     $number= $_REQUEST['From'];
+	$number = substr($number, 2);
     //GCJ put responce in DB
-    $res = mysqli_query($con,"SELECT * FROM Friends WHERE Phone='$number'");
+    $res = mysqli_query($con,"SELECT * FROM Members WHERE Phone='$number'");
     //assumes phone number is unique
-    while($row = mysqli_fetch_array($res)) {
-        $friendID= $row['PID'];
-        $cat= $row['CatId'];
-        $user= $row['UserId'];
-        $result = mysqli_query($con,"SELECT * FROM UQuestions WHERE CatId=$cat AND UserId=$user");
-        while($column = mysqli_fetch_array($result)) {
-            $questionID= $column['PID'];
-            if(!mysqli_query($con,"INSERT INTO Responses (Response, QuestionID, FriendID) VALUES ('$message', '$questionID', '$friendID')")) echo "failure! " . mysqli_error($con);
+    if($row = mysqli_fetch_array($res)) {
+        $GroupId= $row['GroupId'];
+        $result = mysqli_query($con,"SELECT * FROM Questions WHERE GroupId=$GroupId AND Open=1");
+        if($column = mysqli_fetch_array($result)) {
+            $qId= $column['QuestionId'];
+            if(!mysqli_query($con,"INSERT INTO Responses (QuestionID, Phone, Response) VALUES ('$qId', '$number', '$message')")) echo "failure! " . mysqli_error($con);
         }
 
     }
