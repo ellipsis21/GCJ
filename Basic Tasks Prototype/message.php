@@ -16,7 +16,6 @@
 		$num = rand();
 		$name = $_FILES["pic"]["name"][$key];
 		$uploadfile = "$uploaddir$num.jpg";
-		echo "$uploadfile<br>";
 		if (move_uploaded_file($_FILES['pic']['tmp_name'], $uploadfile)) {
 			$picFile = $uploadfile;
 		} else {
@@ -57,7 +56,6 @@
 		$count = 1;
 		foreach($responses as $response) {
 			if(!mysqli_query($con,"INSERT INTO Options (QuestionId, OptionNum, OptionText, Max) VALUES ($qId, $count, '$response', 0)")) echo "failure! " . mysqli_error($con);
-			echo "Added option to DB<br>";
 			$count++;
 		}
 		$account_sid = 'ACe45cbecec1c4d969f362becc4dae5ce1'; 
@@ -103,5 +101,5 @@
 			}
 		}
 	}
-	//header("Location: questions.php?groupid=$GroupId");
+	header("Location: questions.php?groupid=$GroupId");
 ?>

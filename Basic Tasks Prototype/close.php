@@ -8,7 +8,8 @@
 	
 	$qid = $_GET['qId'];
 	
-	mysqli_query($con,"UPDATE Questions SET Open=0 WHERE QuestionId=$qId");
+	mysqli_query($con,"UPDATE Questions SET Open=0
+	WHERE QuestionId=$qid");
 	
 	mysqli_close($con);
 	$GroupId = $_GET['gId'];
