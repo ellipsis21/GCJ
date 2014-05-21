@@ -79,12 +79,6 @@ a:visited.secondary {
 	text-decoration:none;
 }
 
-a:active.secondary {
-	background: #CCCCCC;
-	color: white;
-	text-decoration:none;
-}
-
 .index-buttons {
 	margin-top: 10px;
 }
@@ -143,54 +137,52 @@ a:active.main {
   visibility: hidden;
 }
 .button:before {
-  content: 'Select a Picture';
-  text-align: center;
-  width: 61%;
-  display: inline-block;
-  background: -webkit-linear-gradient(top, #f9f9f9, #e3e3e3);
-  border: 1px solid #999;
-  border-radius: 3px;
-  padding: 5px 8px;
-  outline: none;
-  white-space: nowrap;
-  -webkit-user-select: none;
-  cursor: pointer;
-  text-shadow: 1px 1px #fff;
-  font-weight: 700;
-  font-size: 10pt;
+	content: 'Add a Picture';
+	display: inline-block;
+	width: 180px;
+	padding: 10px 20px;
+	margin-left: 28px;
+	font-weight: bold;
+	font-size: 18px;
+	border:2px solid #F8D35E;
+	background: #F8D35E;
+	color: white;
+	text-decoration:none;
+	text-align: center;
+	outline: none;
+	white-space: nowrap;
+	-webkit-user-select: none;
 }
 .button:hover:before {
-  border-color: black;
-}
-.button:active:before {
-  background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+	color: #F8D35E;
+	background: white;
+	text-decoration:none;
 }
 
 .button2::-webkit-file-upload-button {
   visibility: hidden;
 }
 .button2:before {
-  content: 'Select a Video';
-  text-align: center;
-  width: 61%;
-  display: inline-block;
-  background: -webkit-linear-gradient(top, #f9f9f9, #e3e3e3);
-  border: 1px solid #999;
-  border-radius: 3px;
-  padding: 5px 8px;
-  outline: none;
-  white-space: nowrap;
-  -webkit-user-select: none;
-  cursor: pointer;
-  text-shadow: 1px 1px #fff;
-  font-weight: 700;
-  font-size: 10pt;
+	content: 'Add a Video';
+	display: inline-block;
+	width: 180px;
+	padding: 10px 20px;
+	margin-left: 28px;
+	font-weight: bold;
+	font-size: 18px;
+	border:2px solid #F47264;
+	background: #F47264;
+	color: white;
+	text-decoration:none;
+	text-align: center;
+	outline: none;
+	white-space: nowrap;
+	-webkit-user-select: none;
 }
 .button2:hover:before {
-  border-color: black;
-}
-.button2:active:before {
-  background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+	color: #F47264;
+	background: white;
+	text-decoration:none;
 }
 
 .questions {
@@ -307,9 +299,27 @@ a:visited.question-4 {
 	text-decoration:none;
 }
 
-a:active.question-4 {
-	background: #1B6AA3;
+a.question-5 {
+	display: inline-block;
+	width: 180px;
+	padding: 10px 20px;
+	margin: 5px;
+	margin-bottom: 20px;
+	font-weight: bold;
+	background: white;
+	font-size: 18px;
+	color: #CCCCCC;
+	border:2px solid #CCCCCC;
+	text-decoration:none;
+}
+
+a:hover.question-5 {
+	background: #CCCCCC;
 	color: white;
+	text-decoration:none;
+}
+
+a:visited.question-5 {
 	text-decoration:none;
 }
 

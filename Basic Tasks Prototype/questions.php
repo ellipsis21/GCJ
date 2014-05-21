@@ -17,7 +17,7 @@
 		<meta name="viewport" content="width=device-width, target-densitydpi=high-dpi" />
 	</head>
 	<body>
-		<div class = "main-header"><a href="index.php"><img class="logo" src = "images/logo.png" /></a></div>
+		<div class = "main-header"><a href="home.php"><img class="logo" src = "images/logo.png" /></a></div>
 		<h3>Choose a Question Type</h3>
 		<a class="question-1" href="question-1.php?groupid=<?php echo $GroupId ?>">Multiple Choice</a>
 		<a class="question-2" href="question-2.php?groupid=<?php echo $GroupId ?>">Yes/No</a>
