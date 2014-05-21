@@ -43,11 +43,20 @@
 
 		<h2 style="text-align: center;">Current Members of <?php echo $groupname ?></h2>
 		<?php
+			echo "<table align='center' style='text-align:center' cellpadding='5'>\n";
+			echo "<tr>\n";
+			echo "<th>Name</th>\n";
+			echo "<th>Number</th>\n";
+			echo "<th>Remove</th>\n";
+			echo "</tr>\n";
 			while ($row = mysqli_fetch_array($result)) {
-				echo "<div><span class='name'>".$row["Name"]."</span>";
-				echo "<span class='phone'>".$row["Phone"]."</span>";
-				echo "<span class='removebtn'><a href='manage.php?groupid=".$groupid."&remove=".$row['Phone']."'>X</a></span></div>";
+				echo "<tr>\n";
+				echo "<td>".$row["Name"]."</td>";
+				echo "<td>".$row["Phone"]." </td>";
+				echo "<td><a href='manage.php?groupid=".$groupid."&remove=".$row['Phone']."'>X</a></td>";
+				echo "</tr>\n";
 			}
+			echo "</table>\n";
 			echo "<div class='buffer'></div>";
 			echo "<a class='group-home' href='grouphome.php?groupid=".$groupid."'>Group Home</a>";
 		?>
