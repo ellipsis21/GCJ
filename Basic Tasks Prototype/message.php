@@ -6,6 +6,13 @@
 	if (mysqli_connect_errno()) {
 	  echo "Failed to connect to MySQL: " . mysqli_connect_error();
 	}
+	
+	if (isset($_GET['groupid'])) {
+		$GroupId = $_GET['groupid'];
+		$result = mysqli_fetch_array(mysqli_query($con,"SELECT * FROM Groups WHERE GroupId='$GroupId'"));
+		$groupname = $result['Name'];
+	}
+	$id = $_SESSION["UserId"];
 ?>
 <html>
 	<head>
@@ -14,8 +21,8 @@
 		<meta name="viewport" content="width=device-width, target-densitydpi=high-dpi" />
 	</head>
 	<body>
-		<p><a href = "login.php">Home</a> - <a href = "message.php">Questions</a></p>
-		<h2 style="text-align: center;">Open Questions</h2>
+		<div class = "main-header"><a href="home.php"><img class="logo" src = "images/logo.png" /></a></div>
+		<h4>Open Questions</h4>
 			<?php
 			if (isset($_GET["remove"])){
 				$remove = intval($_GET['remove']);
