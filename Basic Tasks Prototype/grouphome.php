@@ -21,7 +21,7 @@
 	<body>
 		<div class = "main-header"><a href="home.php"><img class="logo" src = "images/logo.png" /></a></div>
 		<h2><?php echo $groupname?></h2>
-		<div><a class="group-1" href='question.php?groupid=<?php echo $GroupId ?>'>Ask Question to Members</a></div>
+		<div><a class="group-1" href='questions.php?groupid=<?php echo $GroupId ?>'>Ask Question to Members</a></div>
 		<div><a class="group-2" href='announcement.php?groupid=<?php echo $GroupId ?>'>Send Announcement to Members</a></div>
 		<div><a class="group-3" href='admin.php?groupid=<?php echo $GroupId ?>'>Invite Admin</a></div>
 		<div><a class="group-4" href='manage.php?groupid=<?php echo $GroupId ?>'>Manage Members</a></div>
