@@ -1,3 +1,14 @@
+<?php
+	$con=mysqli_connect("ggreiner.com","ggreiner_g","volley3","ggreiner_247");
+	// Check connection
+	if (mysqli_connect_errno()) {
+	  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+	}
+
+	$GroupId = $_GET['groupid'];
+	$result = mysqli_fetch_array(mysqli_query($con,"SELECT * FROM Groups WHERE GroupId='$GroupId'"));
+	$groupname = $result['Name'];
+?>
 <html>
 	<head>
 		<title>CS 247 Basic Prototype</title>
@@ -8,9 +19,9 @@
 	<body>
 		<div class = "main-header"><a href="index.php"><img class="logo" src = "images/logo.png" /></a></div>
 		<h3>Choose a Question Type</h3>
-		<a class="question-1" href="question-1.html">Multiple Choice</a>
-		<a class="question-2" href="question-2.html">Yes/No</a>
-		<a class="question-3" href="question-3.html">Task Assignment</a>
-		<a class="question-4" href="question-4.html">Date Choice</a>
+		<a class="question-1" href="question-1.php?groupid=<?php echo $GroupId ?>">Multiple Choice</a>
+		<a class="question-2" href="question-2.php?groupid=<?php echo $GroupId ?>">Yes/No</a>
+		<a class="question-3" href="question-3.php?groupid=<?php echo $GroupId ?>">Task Assignment</a>
+		<a class="question-4" href="question-4.php?groupid=<?php echo $GroupId ?>">Date Choice</a>
 	</body>
 </html>
