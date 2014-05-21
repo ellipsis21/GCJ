@@ -12,6 +12,7 @@ body {
 	font-family: 'Pontano Sans', sans-serif;
 	text-align: center;
 	color: #424242;
+	margin: 3%;
 }
 
 input[type='text'],input[type='tel'],input[type='password'],textarea {
@@ -86,7 +87,8 @@ h3 {
 }
 
 .logo {
-	width: 95%;
+	width: 85%;
+	margin-top: 15px;
 	max-width: 546px;
 }
 
@@ -518,8 +520,10 @@ a.group-home {
 	padding: 10px 0;
 	z-index: 99;
 	font-weight: bold;
-	font-size: 18px;
+	text-transform: uppercase;
+	font-size: 19px;
 	background: #84CBC5;
+	font-family: "Source Sans Pro Bold";
 	color: white;
 	border:2px solid #84CBC5;
 	text-decoration:none;
@@ -546,7 +550,7 @@ a:active.group-home {
 }
 
 .topbuffer {
-	height: 100px;
+	height: 150px;
 }
 
 .outer {
