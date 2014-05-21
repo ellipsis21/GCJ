@@ -32,8 +32,8 @@
 <html>
 	<head>
 		<title>CS 247 Basic Prototype</title>
-		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="style.css">
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 		<meta name="viewport" content="width=device-width, target-densitydpi=high-dpi" />
 	</head>
 	<body>
@@ -49,7 +49,7 @@
 
 		<h3 style="text-align: center;">Current Members of <?php echo $groupname ?></h3>
 		<?php
-			echo "<table align='center' style='text-align:center' cellpadding='5'>\n";
+			echo "<table class='mytable' align='center' style='text-align:center' cellpadding='5'>\n";
 			echo "<tr>\n";
 			echo "<th>Name</th>\n";
 			echo "<th>Number</th>\n";
@@ -61,7 +61,7 @@
 				echo "<td>".$row["Phone"]." </td>";
 				echo "<td>";
 				if ($row["Phone"] != $userphone) {
-					echo "<a href='manage.php?groupid=".$groupid."&remove=".$row['Phone']."'><span style='color: #84CBC5;' class='glyphicon glyphicon-remove'/></a>";
+					echo "<a href='manage.php?groupid=".$groupid."&remove=".$row['Phone']."'>x</a>";
 				}
 				echo "</td>";
 				echo "</tr>\n";
