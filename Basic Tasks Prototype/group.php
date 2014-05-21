@@ -32,11 +32,7 @@
 
 		// Insert self into Admins
 		if(!mysqli_query($con,"INSERT INTO Admins (GroupId, UserId) VALUES ('$groupid', '$userid')")) echo "failure! " . mysqli_error($con);
-<<<<<<< HEAD
 		header("Location: manage.php?groupid=$groupid");
-=======
-		//header("Location: home.php");
->>>>>>> 0cc00e3171f4a9a06ea38cda9f0941c9bd92508c
 	}
 ?>
 

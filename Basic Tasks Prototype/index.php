@@ -21,11 +21,7 @@
 			$_SESSION['NewUser'] = False;
 			header("Location: home.php");
 		}
-<<<<<<< HEAD
 	} 
-=======
-	}
->>>>>>> 0cc00e3171f4a9a06ea38cda9f0941c9bd92508c
 ?>
 
 <html>
