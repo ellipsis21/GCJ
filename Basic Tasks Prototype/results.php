@@ -1,11 +1,82 @@
 <?php 
 
-session_start(); 
-$con=mysqli_connect("ggreiner.com","ggreiner_g","volley3","ggreiner_247");
-// Check connection
-if (mysqli_connect_errno()) {
-  echo "Failed to connect to MySQL: " . mysqli_connect_error();
-}
+	session_start(); 
+	$con=mysqli_connect("ggreiner.com","ggreiner_g","volley3","ggreiner_247");
+	// Check connection
+	if (mysqli_connect_errno()) {
+	  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+	}
+
+	function deepsearch($array, $key, $value)
+	{
+		for ($i = 0; $i < count($array); $i++) {
+			$subarray = $array[$i];
+    		if (isset($subarray[$key]) && $subarray[$key] == $value) {
+    			return $i;
+    		}
+		}
+	    return -1;
+	}
+
+	if(isset($_GET["qId"])) {
+		$QuestionId = $_GET["qId"];
+
+		$result = mysqli_query($con,"SELECT * FROM Questions WHERE QuestionId = $QuestionId");
+		$question = mysqli_fetch_array($result);
+
+		$result = mysqli_query($con,"SELECT * FROM Options WHERE QuestionId = $QuestionId");
+		$responses = array();
+		while ($row = mysqli_fetch_array($result)) {
+			$optionNum = $row["OptionNum"];
+			$optionText = $row["OptionText"];
+			$value = array();
+			$responses[] = array('optionNum' => $optionNum, 'optionText' => $optionText, 'value' => $value);
+		}
+
+		$comments = array();
+		$result = mysqli_query($con,"SELECT * FROM Responses NATURAL JOIN Members WHERE QuestionId = $QuestionId");
+
+		while($row = mysqli_fetch_array($result)) {
+			$response = $row["Response"];
+			$member = $row["Name"];
+			$comment = $response;
+
+			if ($question["Type"] == 'YN') {
+				if (preg_match('/(^[YyNn])\s*(.*)/',$response, $matches)) {
+					$res = strtolower($matches[1]);
+					if ($res == 'y') {
+						$num == 1;
+					} else {
+						$num == 2;
+					}
+					$index = deepsearch($responses,'optionNum', $num);
+					$responses[$index]['value'][] = $member;
+					$comment = $matches[2];
+				}
+			} else {
+				if (preg_match('/(^\d+)\s*(.*)/',$response, $matches)) {
+					$num = (int)$matches[1];
+					$index = deepsearch($responses,'optionNum', $num);
+					if ($index >= 0) {
+						$responses[$index]['value'][] = $member;
+					}
+					$comment = $matches[2];
+				}
+			}
+
+			if ($comment) {
+				$comments[]= array('comment' => $comment, 'member' => $member);
+			}
+		}
+
+		function cmp($a, $b) { return count($b["value"]) - count($a["value"]);};
+		usort($responses, "cmp");
+
+		echo "<h2> Results for: ".$question["Question"]."</h2>";
+
+		//echo "<h2> Your friends recommend ".$responses[0]['response']." (".$responses[0]['value']." votes) </h2>";
+
+	}
 
 ?>
 
@@ -19,67 +90,6 @@ if (mysqli_connect_errno()) {
 
 	</head>
 	<body>
-	<?php
-		if(isset($_GET["qId"])) {
-			$questionID = $_GET["qId"]; //14
-
-			$result = mysqli_query($con,"SELECT * FROM UQuestions WHERE PID = $questionID");
-			$question = mysqli_fetch_array($result);
-
-			$responses = array();
-			if ($question["Response1"] != null) {
-				$responses[] = array('response' => $question["Response1"], 'value' => 0);
-			}
-			if ($question["Response2"] != null) {
-				$responses[] = array('response' => $question["Response2"], 'value' => 0);
-			}
-			if ($question["Response3"] != null) {
-				$responses[] = array('response' => $question["Response3"], 'value' => 0);
-			}
-			if ($question["Response4"] != null) {
-				$responses[] = array('response' => $question["Response4"], 'value' => 0);
-			}
-			if ($question["Response5"] != null) {
-				$responses[] = array('response' => $question["Response5"], 'value' => 0);
-			}
-			if ($question["Response6"] != null) {
-				$responses[] = array('response' => $question["Response6"], 'value' => 0);
-			}
-
-			$count = array(0, count($responses), 0);
-			$comments = array();
-
-			$result = mysqli_query($con,"SELECT * FROM Responses WHERE QuestionId = $questionID");
-			while($row = mysqli_fetch_array($result)) {
-				$response = $row["Response"];
-				$friendId = $row["FriendId"];
-				$friendresult = mysqli_query($con,"SELECT * FROM Friends WHERE UserId = $friendId");
-				$friend = mysqli_fetch_array($friendresult);
-				$friendName = $friend["FirstName"] + " " + $friend["LastName"];
-
-				$comment = $response;
-				if (preg_match('/(^\d+)\s*(.*)/',$response, $matches)) {
-					$num = (int)$matches[1]-1;
-					if ($num < count($responses)) {
-						$responses[$num]['value']++;
-					}
-					$comment = $matches[2];
-				}
-
-				if ($comment) {
-					$comments[]= array('comment' => $comment, 'friend' => $friendName);
-				}
-			}
-
-			function cmp($a, $b) { return $b["value"] - $a["value"]; };
-			usort($responses, "cmp");
-
-			echo "<h2> Results for: ".$question["Question"]."</h2>";
-
-			//echo "<h2> Your friends recommend ".$responses[0]['response']." (".$responses[0]['value']." votes) </h2>";
-
-		}
-	?>
 
 	<svg class="chart"></svg>
 	<div class="pie"></div>
@@ -92,8 +102,8 @@ if (mysqli_connect_errno()) {
 	data = [];
 	options = [];
 	for (var i = 0; i < rawdata.length; i++) {
-		data.push(rawdata[i].value);
-		options.push(rawdata[i].response);
+		data.push(rawdata[i].value.length);
+		options.push(rawdata[i].optionText);
 	}
 
 
