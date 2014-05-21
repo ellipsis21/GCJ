@@ -33,7 +33,7 @@
 				$result = mysqli_query($con,"SELECT * FROM Groups NATURAL JOIN Admins WHERE UserId = '$UserId'");
 				$count = 1;
 				while ($row = mysqli_fetch_array($result)) {
-					echo "<a class='group-$count' href='grouphome.php?groupid=".$row['GroupId']."'><div>".$row['Name']."</div><a>";
+					echo "<div><a class='group-$count' href='grouphome.php?groupid=".$row['GroupId']."'><div>".$row['Name']."</div><a></div>";
 					if ($count == 5) $count = 1;
 					else $count++;
 			  	}
