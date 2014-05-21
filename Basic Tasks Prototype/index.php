@@ -5,6 +5,7 @@
       echo "Failed to connect to MySQL: " . mysqli_connect_error();
     }
 
+    $message = "";
     if (isset($_POST['username']) and $_POST['password']) {
 		$username = mysqli_real_escape_string($con, $_POST['username']);
 		$password = mysqli_real_escape_string($con, $_POST['password']);
@@ -20,7 +21,11 @@
 			$_SESSION['NewUser'] = False;
 			header("Location: home.php");
 		}
+<<<<<<< HEAD
 	} 
+=======
+	}
+>>>>>>> 0cc00e3171f4a9a06ea38cda9f0941c9bd92508c
 ?>
 
 <html>
