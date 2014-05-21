@@ -38,7 +38,7 @@
 		?>
 			<input type='text' name='name' class='textbox' required placeholder='Member name'/>
 			<input type='tel' name='number' class='textbox' required placeholder='10 digit numbers'/>
-			<a class="main" onclick="document.getElementById('myform').submit();">Add Member</a>
+			<a class="question-1" onclick="document.getElementById('myform').submit();">Add Member</a>
 		</form>
 
 		<h2 style="text-align: center;">Current Members of <?php echo $groupname ?></h2>
