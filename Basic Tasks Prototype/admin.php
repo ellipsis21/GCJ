@@ -35,7 +35,7 @@
 	<body>
 		<p><a href = "home.php">Home</a> - <a href = "message.php">Questions</a></p>
 
-		<h2> List of admins for <?php echo $groupname ?> </h2>
+		<h3> List of admins for <?php echo $groupname ?> </h3>
 		<?php 
 			$result = mysqli_query($con,"SELECT * FROM Admins NATURAL JOIN Users WHERE GroupId = '$groupid'");
 			while ($row =  mysqli_fetch_array($result)) {
@@ -45,7 +45,7 @@
 
 
 
-		<h2> Add a user to be a group admin </h2>
+		<h3> Add a user to be a group admin </h3>
 		<?php echo "<form id='myform' name='input' action='admin.php?groupid=".$groupid."' enctype='multipart/form-data' method='post' style = 'display: inline-block; text-align: center;'>"?>
 			<input type='text' name='admin' class='textbox' required placeholder='Username' maxlength='10'/>
 			<input type="submit" class="subbut" value="Add Admin"/>

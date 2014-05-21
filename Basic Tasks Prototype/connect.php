@@ -47,12 +47,15 @@
 	}
 	
 	$result = mysqli_query($con,"INSERT INTO Responses (QuestionId, Response, Phone) VALUES (1, '2', '2222')");
-	$result = mysqli_query($con,"INSERT INTO Responses (QuestionId, Response, Phone) VALUES (1, '3', '3333')");
-	$result = mysqli_query($con,"INSERT INTO Responses (QuestionId, Response, Phone) VALUES (1, '1', '4444')");
+	$result = mysqli_query($con,"INSERT INTO Responses (QuestionId, Response, Phone) VALUES (1, '2', '3333')");
+	$result = mysqli_query($con,"INSERT INTO Responses (QuestionId, Response, Phone) VALUES (1, '2', '4444')");
+	$result = mysqli_query($con,"INSERT INTO Responses (QuestionId, Response, Phone) VALUES (1, 'Hello! This is cool', '4444')");
+	$result = mysqli_query($con,"INSERT INTO Responses (QuestionId, Response, Phone) VALUES (1, 'Much cool Much cool', '4444')");
+	$result = mysqli_query($con,"INSERT INTO Responses (QuestionId, Response, Phone) VALUES (1, '2 Much cool Much cool', '4444')");
+
 	
-		
 	*/
-	$result = mysqli_query($con, "SELECT * FROM Questions");
+	$result = mysqli_query($con, "SELECT * FROM Responses");
 	while($row = mysqli_fetch_array($result)) {
 	  print_r($row);
 	  echo "<br>";

@@ -32,6 +32,7 @@
 		<meta name="viewport" content="width=device-width, target-densitydpi=high-dpi" />
 	</head>
 	<body>
+		<div class='topbuffer'></div>
 		<div class = "header"><a href="index.php"><img class="logo" src = "images/logo.png" /></a></div>
 		<p class = "subheader">An easy way gather data from student groups!</p>
 			<div class="warning"><?php echo $message ?></div>
