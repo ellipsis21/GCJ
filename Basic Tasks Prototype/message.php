@@ -16,7 +16,6 @@
 		$num = rand();
 		$name = $_FILES["pic"]["name"][$key];
 		$uploadfile = "$uploaddir$num.jpg";
-		echo "$uploadfile<br>";
 		if (move_uploaded_file($_FILES['pic']['tmp_name'], $uploadfile)) {
 			$picFile = $uploadfile;
 		} else {
@@ -51,13 +50,24 @@
 		$responses[0] = "yes";
 		$responses[1] = "no";
 	}
+	if ($type == 'TD') {
+		for ($count = 1; $count <= 6; $count++) {
+			if (isset($_POST["date$count"])) {
+				$date = $_POST["date$count"];
+				if ($date != "") {
+					$date = date("D, M jS", strtotime($date));
+					$responses[$count-1] = $date." at ".$_POST["time$count"];
+				}
+				else $responses[$count-1] = "";
+			}
+		}
+	}
 	$query = mysqli_query($con,"SELECT * FROM Questions WHERE GroupId='$GroupId' AND UserId='$id' AND Open=1");
 	if($questions = mysqli_fetch_array($query)) {
 		$qId = $questions['QuestionId'];
 		$count = 1;
 		foreach($responses as $response) {
 			if(!mysqli_query($con,"INSERT INTO Options (QuestionId, OptionNum, OptionText, Max) VALUES ($qId, $count, '$response', 0)")) echo "failure! " . mysqli_error($con);
-			echo "Added option to DB<br>";
 			$count++;
 		}
 		$account_sid = 'ACe45cbecec1c4d969f362becc4dae5ce1'; 
@@ -77,7 +87,7 @@
 		$body.=$question . ": " . $url . "\n$vid\n\n";
 		for ($count = 0; $count < 6; $count++) {
 			$num = $count+1;
-			if($responses[$count] != "")$body.= "Respond $num for:" . $responses[$count] . " \n\n";
+			if($responses[$count] != "")$body.= "Respond $num for: " . $responses[$count] . " \n\n";
 			
 		}
 
@@ -95,7 +105,8 @@
 		}
 		
 		$body = "Question from $userName: \n\n".$body;
-		$body .= " (You can enter a comment after your # response).";
+		if ($type == 'TD') $body.= " (Enter every date that works in the format '1,3,5')";
+		else $body .= " (You can enter a comment after your # response).";
 
 		if (!empty($numbers)) {
 			foreach ($numbers as $n) {
@@ -103,5 +114,5 @@
 			}
 		}
 	}
-	//header("Location: questions.php?groupid=$GroupId");
+	header("Location: questions.php?groupid=$GroupId");
 ?>
