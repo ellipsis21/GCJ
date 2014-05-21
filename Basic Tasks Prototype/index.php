@@ -32,7 +32,9 @@
 		<meta name="viewport" content="width=device-width, target-densitydpi=high-dpi" />
 	</head>
 	<body>
-		<div class='topbuffer'></div>
+		<div class="outer">
+		<div class="middle">
+		<div class="inner">
 		<div class = "header"><a href="index.php"><img class="logo" src = "images/logo.png" /></a></div>
 		<p class = "subheader">An easy way gather data from student groups!</p>
 			<div class="warning"><?php echo $message ?></div>
@@ -40,8 +42,10 @@
 				<input type='text' name='username' class='textbox' placeholder='Username' autocapitalize="off" required>
 				<input type='password' name='password' class='textbox' placeholder='Password' required>
 				<a class="main" onclick="document.getElementById('myform').submit();">Sign In</a>
-				<a class="secondary" href="signup.html">Sign Up</a></div>
+				<a class="secondary" href="signup.html">Sign Up</a>
 			</form>
+		</div>
+		</div>
 		</div>
 	</body>
 </html>
