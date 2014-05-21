@@ -7,6 +7,11 @@
 	  echo "Failed to connect to MySQL: " . mysqli_connect_error();
 	}
 
+	$userid = $_SESSION['UserId'];
+	$result = mysqli_fetch_array(mysqli_query($con,"SELECT * FROM Users WHERE UserId='$userid'"));
+	$userphone = $result['Phone'];
+
+
 	$groupid = $_GET['groupid'];
 	if (isset($_GET['remove'])) {
 		$memberphone = $_GET['remove'];
@@ -46,7 +51,9 @@
 			while ($row = mysqli_fetch_array($result)) {
 				echo "<div><span class='name'>".$row["Name"]."</span>";
 				echo "<span class='phone'>".$row["Phone"]."</span>";
-				echo "<span class='removebtn'><a href='manage.php?groupid=".$groupid."&remove=".$row['Phone']."'>X</a></span></div>";
+				if ($row["Phone"] != $userphone) {
+					echo "<span class='removebtn'><a href='manage.php?groupid=".$groupid."&remove=".$row['Phone']."'>X</a></span></div>";
+				}
 			}
 			echo "<div class='buffer'></div>";
 			echo "<a class='group-home' href='grouphome.php?groupid=".$groupid."'>Group Home</a>";
