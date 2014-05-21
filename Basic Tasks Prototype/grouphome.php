@@ -30,7 +30,7 @@
 		<div class = "main-header"><a href="home.php"><img class="logo" src = "images/logo.png" /></a></div>
 		<h2><?php echo $groupname?></h2>
 		<div><a class="group-1" href='questions.php?groupid=<?php echo $GroupId ?>'><?php echo $message?></a></div>
-		<div><a class="group-2" href='announcement.php?groupid=<?php echo $GroupId ?>'>Send Announcement</a></div>
+		<div><a class="group-2" href='closed.php?groupid=<?php echo $GroupId ?>'>Closed Questions</a></div>
 		<div><a class="group-3" href='admin.php?groupid=<?php echo $GroupId ?>'>Invite Admin</a></div>
 		<div><a class="group-4" href='manage.php?groupid=<?php echo $GroupId ?>'>Manage Members</a></div>
 		<div><a class="question-1" href='quitgroup.php?groupid=<?php echo $GroupId ?>'>Quit Group</a></div>

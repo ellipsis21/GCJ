@@ -26,7 +26,7 @@
 		echo "<h4>$q</h4>\n";
 		echo '<a class="question-1" href="results.php?qId='.$qId.'">Results</a>';
 		echo '<a class="question-5" href="close.php?qId='.$qId.'&gId='.$GroupId.'">Close</a>';
-		echo "<a class='group-home' href='grouphome.php?groupid=".$groupid."'>Group Home</a>";
+		echo "<a class='group-home' href='grouphome.php?groupid=".$GroupId."'>Group Home</a>";
 	}
 	else {
 ?>

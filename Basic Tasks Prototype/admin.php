@@ -33,24 +33,33 @@
 		<meta name="viewport" content="width=device-width, target-densitydpi=high-dpi" />
 	</head>
 	<body>
-		<p><a href = "home.php">Home</a> - <a href = "message.php">Questions</a></p>
-
-		<h2> List of admins for <?php echo $groupname ?> </h2>
+		<div class = "main-header"><a href="home.php"><img class="logo" src = "images/logo.png" /></a></div>
+		<h3> List of admins for <?php echo $groupname ?> </h3>
 		<?php 
 			$result = mysqli_query($con,"SELECT * FROM Admins NATURAL JOIN Users WHERE GroupId = '$groupid'");
-			while ($row =  mysqli_fetch_array($result)) {
-				echo "<div>".$row['Name']."(".$row['Username'].")"."</div>";
+			echo "<table align='center' style='text-align:center' cellpadding='5'>\n";
+			echo "<tr>\n";
+			echo "<th>Name</th>\n";
+			echo "<th>Username</th>\n";
+			echo "</tr>\n";
+			while ($row = mysqli_fetch_array($result)) {
+				echo "<tr>\n";
+				echo "<td>".$row["Name"]."</td>";
+				echo "<td>".$row["Username"]." </td>";
+				echo "</tr>\n";
 			}
+			echo "</table>\n";
+			echo "<a class='group-home' href='grouphome.php?groupid=".$groupid."'>Group Home</a>";
 		?>
 
 
 
-		<h2> Add a user to be a group admin </h2>
+		<h4> Add a user to be a group admin </h4>
 		<?php echo "<form id='myform' name='input' action='admin.php?groupid=".$groupid."' enctype='multipart/form-data' method='post' style = 'display: inline-block; text-align: center;'>"?>
 			<input type='text' name='admin' class='textbox' required placeholder='Username' maxlength='10'/>
-			<input type="submit" class="subbut" value="Add Admin"/>
+			<a class="question-1" onclick="document.getElementById('myform').submit();">Add Admin</a>
 		</form>
 		<div> <?php echo $warning ?> </div>
-
+		<div class='buffer'></div>
 	</body>
 </html>
