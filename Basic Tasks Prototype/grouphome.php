@@ -13,9 +13,9 @@
 
 	$result = mysqli_fetch_array(mysqli_query($con,"SELECT * FROM Questions WHERE GroupId='$GroupId' and Open=1"));
 	if ($result == null) {
-		$message = 'Ask Questions to Members';
+		$message = 'Ask Question';
 	} else {
-		$message = 'View Results on Questions Asked';
+		$message = 'View Current Question Results';
 	}
 
 
