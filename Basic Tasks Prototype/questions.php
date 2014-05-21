@@ -25,6 +25,7 @@
 		echo "<h3>Open Question</h3>\n";
 		echo "<h4>$q</h4>\n";
 		echo '<a class="question-1" href="results.php?qId='.$qId.'">Results</a>\n';
+		echo '<a class="question-5" href="close.php?qId='.$qId.'&gId='.$GroupId.'">Close</a>\n';
 	}
 	else {
 ?>
@@ -36,3 +37,4 @@
 <?php } ?>
 	</body>
 </html>
+<?php mysqli_close($con); ?>

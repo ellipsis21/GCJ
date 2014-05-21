@@ -8,14 +8,15 @@
 	}
 	$id = $_POST["id"];
 	$GroupId = $_POST["group"];
-	$questsion = $_POST["question"];
+	$question = $_POST["question"];
 	$type = $_POST["type"];
 
 	if(!empty($_FILES['pic']['name'])) {
 		$uploaddir = 'images/';
 		$num = rand();
 		$name = $_FILES["pic"]["name"][$key];
-		$uploadfile = "$uploaddir/$num$name";
+		$uploadfile = "$uploaddir$num.jpg";
+		echo "$uploadfile<br>";
 		if (move_uploaded_file($_FILES['pic']['tmp_name'], $uploadfile)) {
 			$picFile = $uploadfile;
 		} else {
@@ -28,7 +29,7 @@
 		$uploaddir = 'videos/';
 		$num = rand();
 		$name = $_FILES["video"]["name"][$key];
-		$uploadfile = "$uploaddir/$num$name";
+		$uploadfile = "$uploaddir$num.mov";
 		if (move_uploaded_file($_FILES['video']['tmp_name'], $uploadfile)) {
 			$vidFile = $uploadfile;
 		} else {
@@ -37,26 +38,26 @@
 		}
 	}
 	else $vidFile = "";
-	if(!mysqli_query($con,"INSERT INTO Questions ('Question, PicPath, VidPath, GroupId, UserId, Open, Type) VALUES ('$question', '$picFile', '$vidFile', $GroupId, $id, 1, '$type')")) echo "failure! " . mysqli_error($con);
-	
+	if(!mysqli_query($con,"INSERT INTO Questions (Question, PicPath, VidPath, GroupId, UserId, Open, Type) VALUES ('$question', '$picFile', '$vidFile', $GroupId, $id, 1, '$type')")) echo "failure! " . mysqli_error($con);
+	$responses = [];
+	if ($type == 'MC') {
+		for ($count = 1; $count <= 6; $count++) {
+			if (isset($_POST["response$count"])) {
+				$responses[$count-1] = $_POST["response$count"];
+			}
+		}
+	}
+	if ($type == 'YN') {
+		$responses[0] = "yes";
+		$responses[1] = "no";
+	}
 	$query = mysqli_query($con,"SELECT * FROM Questions WHERE GroupId='$GroupId' AND UserId='$id' AND Open=1");
 	if($questions = mysqli_fetch_array($query)) {
 		$qId = $questions['QuestionId'];
-		$responses = [];
-		if ($type == 'MC') {
-			for ($count = 1; $count <= 6; $count++) {
-				if (isset($_POST["response$count"])) {
-					$responses[$count-1] = $_POST["response$count"];
-				}
-			}
-		}
-		if ($type == 'YN') {
-			$responses[0] = "yes";
-			$responses[1] = "no";
-		}
 		$count = 1;
 		foreach($responses as $response) {
-			if(!mysqli_query($con,"INSERT INTO Options ('QuestionId, OptionNum, OptionText, Max) VALUES ($qId, $count, '$response', 0)")) echo "failure! " . mysqli_error($con);
+			if(!mysqli_query($con,"INSERT INTO Options (QuestionId, OptionNum, OptionText, Max) VALUES ($qId, $count, '$response', 0)")) echo "failure! " . mysqli_error($con);
+			echo "Added option to DB<br>";
 			$count++;
 		}
 		$account_sid = 'ACe45cbecec1c4d969f362becc4dae5ce1'; 
@@ -80,16 +81,13 @@
 			
 		}
 
-		$names = [];
 		$numbers = [];
 		$userName = "";
 		
 		$result = mysqli_query($con,"SELECT * FROM Members WHERE GroupId=$GroupId");
 		while($row = mysqli_fetch_array($result)) {
 			$number = "+1".$row['Phone'];
-			$name = $row['Name'];
 			$numbers[] = $number; 
-			$names[] = $name;
 		}
 		$result = mysqli_query($con,"SELECT * FROM Users WHERE UserId=$id");
 		if ($row = mysqli_fetch_array($result)) {
@@ -100,10 +98,10 @@
 		$body .= " (You can enter a comment after your # response).";
 
 		if (!empty($numbers)) {
-			for ($numbers as $n) {
+			foreach ($numbers as $n) {
 				$sms = $client->account->messages->sendMessage("+17542108538", $n, $body);
 			}
 		}
 	}
-	header("Location: questions.php?groupid=$GroupId");
+	//header("Location: questions.php?groupid=$GroupId");
 ?>
