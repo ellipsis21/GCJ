@@ -117,6 +117,25 @@ a:active.main {
 	width: 95%;
 }
 
+.datebox {
+	
+}
+.textbox2 {
+	display: inline-block;
+	margin-botton: 20px;
+	width: 90px;
+}
+.label1 {
+	display: inline-block;
+	margin-right: 5px;
+	padding-bottom: 20px;
+	font-size: 24px;
+}
+.label2 {
+	display: inline-block;
+	margin-right: 5px;
+}
+
 .subbut {
 	width: 95%;
 }

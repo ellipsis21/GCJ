@@ -52,7 +52,7 @@
 	
 		
 	*/
-	$result = mysqli_query($con, "SELECT * FROM Questions");
+	$result = mysqli_query($con, "SELECT * FROM Responses");
 	while($row = mysqli_fetch_array($result)) {
 	  print_r($row);
 	  echo "<br>";
