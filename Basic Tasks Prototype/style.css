@@ -1,11 +1,11 @@
 @font-face {
     font-family: Pontano Sans;
-    src: url("../fonts/PontanoSans-Regular.ttf") 
+    src: url("PontanoSans-Regular.ttf") 
 }
 
 @font-face {
     font-family: Source Sans Pro Bold;
-    src: url("../fonts/SourceSansPro-Bold.otf") 
+    src: url("SourceSansPro-Bold.otf") 
 }
 
 body {
@@ -149,25 +149,6 @@ a:active.main {
 .textbox {
 	margin-bottom: 20px;
 	width: 95%;
-}
-
-.datebox {
-	
-}
-.textbox2 {
-	display: inline-block;
-	margin-botton: 20px;
-	width: 90px;
-}
-.label1 {
-	display: inline-block;
-	margin-right: 5px;
-	padding-bottom: 20px;
-	font-size: 24px;
-}
-.label2 {
-	display: inline-block;
-	margin-right: 5px;
 }
 
 .subbut {
