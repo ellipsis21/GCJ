@@ -14,10 +14,6 @@ body {
 	color: #424242;
 }
 
-.mytable {
-	font-family: 'Open Sans', sans-serif;
-}
-
 input[type='text'],input[type='tel'],input[type='password'],textarea {
 	border: 1px solid #999999 !important;
 	font-size:24px;
@@ -36,6 +32,13 @@ input[type='text'],input[type='tel'],input[type='password'],textarea {
 	margin: 10px;
 	color: #F47264;
 	font-weight: bold;
+}
+
+.announcement {
+	margin: 10px;
+	color: #84CBC5;
+	font-weight: bold;
+	font-size: 14px;
 }
 
 form {
@@ -543,23 +546,5 @@ a:active.group-home {
 }
 
 .topbuffer {
-	height: 80px;
-}
-
-.outer {
-    display: table;
-    position: absolute;
-    height: 100%;
-    width: 100%;
-}
-
-.middle {
-    display: table-cell;
-    vertical-align: middle;
-}
-
-.inner {
-    margin-left: auto;
-    margin-right: auto; 
-    width: /*whatever width you want*/;
+	height: 100px;
 }
