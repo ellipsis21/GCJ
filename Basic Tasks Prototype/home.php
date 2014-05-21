@@ -22,9 +22,7 @@
 			$row = mysqli_fetch_array($result);
 			if ($_SESSION["NewUser"]) {
 				echo '<p>Thanks for signing up, '.$row["Name"].'!</p>';
-			} else {
-				echo '<p>Welcome back '.$row["Name"].'!</p>';
-			}
+			} 
 		?>
 		<h3>Select a group to manage:</h3>
 		<?php
