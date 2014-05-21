@@ -20,9 +20,7 @@
 			$_SESSION['NewUser'] = False;
 			header("Location: home.php");
 		}
-	} else {
-		$message = "Login Failed. Try again.";
-	}
+	} 
 ?>
 
 <html>
@@ -39,7 +37,7 @@
 			<form id="myform" name="input" action="index.php" enctype='multipart/form-data' method="post" style = "display: inline-block; text-align: center;">
 				<input type='text' name='username' class='textbox' placeholder='Username' autocapitalize="off" required>
 				<input type='password' name='password' class='textbox' placeholder='Password' required>
-				<div><a class="main" onclick="document.getElementById('myform').submit();">Sign In</a>
+				<a class="main" onclick="document.getElementById('myform').submit();">Sign In</a>
 				<a class="secondary" href="signup.html">Sign Up</a></div>
 			</form>
 		</div>

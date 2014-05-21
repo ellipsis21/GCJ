@@ -31,15 +31,14 @@
 		<meta name="viewport" content="width=device-width, target-densitydpi=high-dpi" />
 	</head>
 	<body>
-		<p><a href = "home.php">Home</a> - <a href = "message.php">Questions</a></p>
-
-		<h2 style="text-align: center;">Add a New Member</h2>
+		<div class = "main-header"><a href="home.php"><img class="logo" src = "images/logo.png" /></a></div>
+		<h3>Add a New Member</h3>
 		<?php
 		echo "<form id='myform' name='input' action='manage.php?groupid=".$groupid."' enctype='multipart/form-data' method='post' style = 'display: inline-block; text-align: center;'>";
 		?>
 			<input type='text' name='name' class='textbox' required placeholder='Member name'/>
 			<input type='tel' name='number' class='textbox' required placeholder='10 digit numbers'/>
-			<input type="submit" class="subbut" value="Add"/>
+			<a class="main" onclick="document.getElementById('myform').submit();">Add Member</a>
 		</form>
 
 		<h2 style="text-align: center;">Current Members of <?php echo $groupname ?></h2>
@@ -49,8 +48,10 @@
 				echo "<span class='phone'>".$row["Phone"]."</span>";
 				echo "<span class='removebtn'><a href='manage.php?groupid=".$groupid."&remove=".$row['Phone']."'>X</a></span></div>";
 			}
+			echo "<div class='buffer'></div>";
+			echo "<a class='group-home' href='grouphome.php?groupid=".$groupid."'>Group Home</a>";
 		?>
-
+		
 
 
 	</body>

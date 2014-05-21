@@ -32,7 +32,7 @@
 
 		// Insert self into Admins
 		if(!mysqli_query($con,"INSERT INTO Admins (GroupId, UserId) VALUES ('$groupid', '$userid')")) echo "failure! " . mysqli_error($con);
-		header("Location: home.php");
+		header("Location: manage.php?groupid=$groupid");
 	}
 ?>
 
@@ -61,21 +61,13 @@
 	</head>
 
 	<body>
+		<div class = "main-header"><a href="home.php"><img class="logo" src = "images/logo.png" /></a></div>
 		<form id="myform" name="input" action="group.php" enctype='multipart/form-data' method="post" style = "display: inline-block; text-align: center;">
-			<h2>Enter your group name</h2>
+			<h3>Enter your group name</h3>
 
 			<input type='text' name='groupname' class='textbox' placeholder='Group Name' autocapitalize="off" required>
 
-			<h2>Add members to your group!</h2>
-			<div id = "members">
-				<label> Member #1 </label>
-				<input type='text' name='name1' class='textbox' placeholder='Member name'/>
-				<input type='tel' name='number1' class='textbox' placeholder='10 digit numbers'/>
-			</div>
-			<input type='button' class='subbut' value = 'Add More Members' onclick='AddResOpt()'/>
-			<input type='hidden' id='numMembers' name='numMembers' value='1'/>
-
-			<input type="submit" class="subbut" value="Create Group"/>
+			<a class="question-1" onclick="document.getElementById('myform').submit();">Add Group</a>
 		</form>
 
 	</body>

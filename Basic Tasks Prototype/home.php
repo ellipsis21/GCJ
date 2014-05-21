@@ -15,8 +15,15 @@
 		<meta name="viewport" content="width=device-width, target-densitydpi=high-dpi" />
 	</head>
 	<body>
-		<p><a href = "home.php">Home</a> - <a href = "message.php">Questions</a></p>
-		<h2 style="text-align: center;">Select a group to manage:</h2>
+		<div class = "main-header"><a href="home.php"><img class="logo" src = "images/logo.png" /></a></div>
+		<?php
+			if ($_SESSION["NewUser"]) {
+				echo '<p>Thanks for signing up, '.$row["Name"].'!</p>';
+			} else {
+				echo '<p>Welcome back '.$row["Name"].'!</p>';
+			}
+		?>
+		<h3>Select a group to manage:</h3>
 		<?php
 			/*
 			$name = "";
@@ -67,20 +74,16 @@
 			$UserId = $_SESSION['UserId'];
 			$result = mysqli_query($con,"SELECT * FROM Users WHERE UserId='$UserId'");
 			if($row = mysqli_fetch_array($result)) {
-				if ($_SESSION["NewUser"]) {
-					echo '<p style="text-align: center;">Thanks for signing up, '.$row["Name"].'!</p>';
-				} else {
-					echo '<p style="text-align: center;">Welcome back '.$row["Name"].'!</p>';
-				}
-
 				$result = mysqli_query($con,"SELECT * FROM Groups NATURAL JOIN Admins WHERE UserId = '$UserId'");
+				$count = 1;
 				while ($row = mysqli_fetch_array($result)) {
-					echo "<a href='grouphome.php?groupid=".$row['GroupId']."'><div>".$row['Name']."</div><a>";
+					echo "<a class='group-$count' href='grouphome.php?groupid=".$row['GroupId']."'><div>".$row['Name']."</div><a>";
+					if ($count == 5) $count = 1;
+					else $count++;
 			  	}
 			}
 		?>
-		<div><a href="group.php">Create a new group</a></div>
-
+		<div><a class="question-1" href="group.php">Create a new group</a></div>
 
 	</body>
 </html>
