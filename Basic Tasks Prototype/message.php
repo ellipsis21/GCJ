@@ -84,13 +84,17 @@
 		$count = 1;
 		if ($type == 'TC') {
 			foreach($responses as $response) {
-				if(!mysqli_query($con,"INSERT INTO Options (QuestionId, OptionNum, OptionText, Max) VALUES ($qId, $count, '$response', ".$needed[$count-1].")")) echo "failure! " . mysqli_error($con);
+				if ($response != "") {
+					if(!mysqli_query($con,"INSERT INTO Options (QuestionId, OptionNum, OptionText, Max) VALUES ($qId, $count, '$response', ".$needed[$count-1].")")) echo "failure! " . mysqli_error($con);
+				}
 				$count++;
 			}
 		}
 		else {
 			foreach($responses as $response) {
-				if(!mysqli_query($con,"INSERT INTO Options (QuestionId, OptionNum, OptionText, Max) VALUES ($qId, $count, '$response', 0)")) echo "failure! " . mysqli_error($con);
+				if ($response != "") {
+					if(!mysqli_query($con,"INSERT INTO Options (QuestionId, OptionNum, OptionText, Max) VALUES ($qId, $count, '$response', 0)")) echo "failure! " . mysqli_error($con);
+				}
 				$count++;
 			}
 		}
@@ -139,7 +143,7 @@
 		if ($type != 'TC')$body = "Question from $userName: \n\n".$body;
 		else $body = "$userName wants you to sign up for a task: \n\n".$body;
 		if ($type == 'TD') $body.= " (Enter every date that works in the format '1,3,5')";
-		if ($type == 'YN') $body.= " (You can enter a comment after your response)";
+		elseif ($type == 'YN') $body.= " (You can enter a comment after your response)";
 		else $body .= " (You can enter a comment after your # response).";
 
 		if (!empty($numbers)) {

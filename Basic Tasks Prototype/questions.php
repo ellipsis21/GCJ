@@ -28,7 +28,7 @@
 		echo '<a class="question-1" href="results.php?qId='.$qId.'">Results</a>';
 		echo '<a class="question-2" href="reminder.php?qId='.$qId.'&gId='.$GroupId.'">Send Reminder</a>';
 		echo '<a class="question-5" href="close.php?qId='.$qId.'&gId='.$GroupId.'" style="margin:20px">Close Poll</a>';
-		echo "<a class='group-home' href='grouphome.php?groupid=".$GroupId."'>".$groupname."</a>";
+		echo "<a class='group-home' href='grouphome.php?groupid=".$GroupId."'>".$groupname."</a>";				echo "<div class='buffer'></div>";
 	}
 	else {
 ?>
