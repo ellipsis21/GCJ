@@ -84,7 +84,10 @@
 		
 		$body= "";
 		
-		$body.=$question . ": " . $url . "\n$vid\n\n";
+		$body.=$question; 
+		if($url != "") $body.= ": " . $url;
+		if($vid != "") $body.= "\n$vid"
+		$body.= "\n\n";
 		if ($type == 'YN') {
 			$body.= "Respond 'y' for Yes and 'n' for No.\n\n";
 		}
@@ -111,6 +114,7 @@
 		
 		$body = "Question from $userName: \n\n".$body;
 		if ($type == 'TD') $body.= " (Enter every date that works in the format '1,3,5')";
+		if ($type == 'YN') $body.= " (You can enter a comment after your response)";
 		else $body .= " (You can enter a comment after your # response).";
 
 		if (!empty($numbers)) {
