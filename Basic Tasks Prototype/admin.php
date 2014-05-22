@@ -37,18 +37,18 @@
 		<h3> List of admins for <?php echo $groupname ?> </h3>
 		<?php 
 			$result = mysqli_query($con,"SELECT * FROM Admins NATURAL JOIN Users WHERE GroupId = '$groupid'");
-			echo "<table align='center' style='text-align:center' cellpadding='5'>\n";
+			echo "<table class='mytable' align='center' style='text-align:center' cellpadding='5'>\n";
 			echo "<tr>\n";
 			echo "<th>Name</th>\n";
 			echo "<th>Username</th>\n";
 			echo "</tr>\n";
 			while ($row = mysqli_fetch_array($result)) {
 				echo "<tr>\n";
-				echo "<td>".$row["Name"]."</td>";
-				echo "<td>".$row["Username"]." </td>";
+				echo "<td class='adminname'>".$row["Name"]."</td>";
+				echo "<td class='adminusername'>".$row["Username"]." </td>";
 				echo "</tr>\n";
 			}
-			echo "</table>\n";
+			echo "</table><br/>\n";
 			echo "<a class='group-home' href='grouphome.php?groupid=".$groupid."'>".$groupname."</a>";
 		?>
 
@@ -63,4 +63,3 @@
 		<div class='buffer'></div>
 	</body>
 </html>
-<?php mysqli_close($con); ?>

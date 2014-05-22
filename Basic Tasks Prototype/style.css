@@ -67,7 +67,11 @@ h2 {
 }
 
 h3 {
-	font-size: 17pt;
+	font-size: 18pt;
+}
+
+h4 {
+	font-size: 16pt;
 }
 
 
@@ -88,7 +92,7 @@ h3 {
 
 .logo {
 	width: 85%;
-	margin-top: 5px;
+	margin-top: 10px;
 	max-width: 546px;
 }
 
@@ -521,7 +525,7 @@ a.group-home {
 	z-index: 99;
 	font-weight: bold;
 	text-transform: uppercase;
-	font-size: 19px;
+	font-size: 25px;
 	background: #84CBC5;
 	font-family: "Source Sans Pro Bold";
 	color: white;
@@ -569,4 +573,60 @@ a:active.group-home {
     margin-left: auto;
     margin-right: auto; 
     width: 100%;
+}
+
+.mytable {
+	width: 90%;
+	margin-bottom: 20px;
+}
+
+.mytable td {
+	border-bottom: 1px solid #E0E0E0;
+}
+
+td.phone {
+	width: 45%;
+}
+
+td.name {
+	width: 40%;
+	font-weight: bold;
+}
+
+td.remove {
+	width: 15%;
+	text-transform: uppercase;
+	font-size: 15pt;
+	font-family: "Source Sans Pro Bold";
+}
+
+td.remove a{
+	color: #F47264;
+	text-decoration: none;
+}
+
+.mytable th {
+	background-color: #84CBC5;
+	color: white;
+	font-family: "Source Sans Pro Bold";
+	font-size: 14pt;
+}
+
+td.adminname {
+	font-weight: bold;
+	width: 60%;
+}
+
+td.adminusername {
+	width: 40%;
+}
+
+.closedq {
+	margin-top: 30px;
+	font-family: "Source Sans Pro Bold";
+	font-size: 15pt;
+}
+
+.nogroup {
+	font-size: 15pt;
 }

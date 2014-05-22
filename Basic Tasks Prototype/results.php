@@ -135,8 +135,15 @@
 	<body>
 	<div class = "main-header"><a href="home.php"><img class="logo" src = "images/logo.png" /></a></div>
 
-	<?php echo "<div class='firstline'><span class='asked'> $creator asked </span> <span class='groupname'>".$group["Name"]." </span></div> <div class='question'>".$question["Question"]."</div>" ?>
+	<?php 
+		$type = $question["Type"];
 
+		if ($type != 'TC') {
+			echo "<div class='firstline'><span class='asked'> $creator asked </span> <span class='groupname'>".$group["Name"]." </span></div> <div class='question'>".$question["Question"]."</div>";		
+		} else {
+			echo "<div class='firstline'><span class='asked'> $creator assigned </span> <span class='groupname'>".$group["Name"]." ".count($responses)." tasks: </span> </div>";
+		}
+	?>
 
 	<svg class="chart"></svg>
 
@@ -150,7 +157,7 @@
 	//rawdata = [{'response': 'A', 'value': 5}, {'response': 'B', 'value': 0}, {'response': 'C', 'value': 1}, {'response': 'C', 'value': 6}, {'response': 'C', 'value': 0}];
 	colors = ["#11F3E7","#B4E50D","#E6DF2C", "#FF7C44", "#FF4785"];
 
-	type = <?php echo json_encode($question["Type"]) ?>;
+	var type =  <?php echo json_encode($type) ?>;
 
 	if (type == 'TD') {
 		$(".chart").after( "<table id='timetable'></table>" );
@@ -184,7 +191,7 @@
 			}
 		}
 
-		if (data[i] != 0) {
+		if (data[i] != 0 || type == 'TC') {
 			$("#membersresponse").html($("#membersresponse").html() + "<div class='options' id='options"+ i +"'><span class='option'>"+options[i]+"</span><span class='mem'></span></div>");
 			
 			list = "";
@@ -203,6 +210,14 @@
 			}
 		}
 	}
+
+
+	if (type == 'TC') {
+		$(".chart").remove();
+		$("#members").css('display', 'none');
+		$("#membersresponse").css('display', 'block');
+	}
+
 
 
 
@@ -413,4 +428,3 @@
 	</script>
 	</body>
 </html>
-<?php mysqli_close($con); ?>
