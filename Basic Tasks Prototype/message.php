@@ -86,7 +86,7 @@
 		
 		$body.=$question; 
 		if($url != "") $body.= ": " . $url;
-		if($vid != "") $body.= "\n$vid"
+		if($vid != "") $body.= "\n$vid";
 		$body.= "\n\n";
 		if ($type == 'YN') {
 			$body.= "Respond 'y' for Yes and 'n' for No.\n\n";
