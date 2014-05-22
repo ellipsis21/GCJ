@@ -85,10 +85,15 @@
 		$body= "";
 		
 		$body.=$question . ": " . $url . "\n$vid\n\n";
-		for ($count = 0; $count < 6; $count++) {
-			$num = $count+1;
-			if($responses[$count] != "")$body.= "Respond $num for: " . $responses[$count] . " \n\n";
-			
+		if ($type == 'YN') {
+			$body.= "Respond 'y' for Yes and 'n' for No.\n\n";
+		}
+		else {
+			for ($count = 0; $count < 6; $count++) {
+				$num = $count+1;
+				if($responses[$count] != "")$body.= "Respond $num for: " . $responses[$count] . " \n\n";
+				
+			}
 		}
 
 		$numbers = [];
