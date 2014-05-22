@@ -34,11 +34,7 @@
 			$optionNum = $row["OptionNum"];
 
 			if ($question["Type"] == 'YN') {
-				if ($optionNum == 1) {
-					$optionNum = 'Yes';
-				} else {
-					$optionNum = 'No';
-				}
+				$optionNum = $row["OptionText"];
 			}
 
 			$optionText = $row["OptionText"];
@@ -57,9 +53,9 @@
 			if ($question["Type"] == 'YN') {
 				if (preg_match('/(^[YyNn])\s*(.*)/',$response, $matches)) {
 					$res = strtolower($matches[1]);
-					$num = 'No';
+					$num = 'no';
 					if ($res == "y") {
-						$num = 'Yes';
+						$num = 'yes';
 					}
 
 					$index = deepsearch($responses,'optionNum', $num);
@@ -219,15 +215,15 @@
 
 	else if (type == 'YN') {
 
-		r = 160;
+		r = window.innerWidth/2.5;
 
-		move = (0.85 * window.innerWidth)/2;
+		move = (0.89 * window.innerWidth)/2;
 
 
 		var chart = d3.select(".chart")
 			.data([data])
 			.attr("width", '95%')
-			.attr("height", 320)
+			.attr("height", 2*r)
 			.append("svg:g")
 				.attr("class", "piechart")
 				.attr("transform", "translate(" + move + "," + r + ")");
@@ -256,7 +252,9 @@
 	                return "translate(" + arc.centroid(d) + ")"; 
 	            })
 	            .attr("text-anchor", "middle")  
-	            .text(function(d, i) { return options[i] + "(" + data[i] + ")"; })
+	            .text(function(d, i) {
+	            	if (data[i] == 0) return '';
+	            	return options[i] + "(" + data[i] + ")"; })
 	            	.attr("class", "pielabel"); 
 
 	    var percentage = 100.00 * data[0]/d3.sum(data);
