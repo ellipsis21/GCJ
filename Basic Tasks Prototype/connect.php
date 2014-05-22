@@ -37,4 +37,5 @@
 	  print_r($row);
 	  echo "<br>";
 	}
+	mysqli_close($con);
 ?>

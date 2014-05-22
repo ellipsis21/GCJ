@@ -22,6 +22,7 @@
 			header("Location: home.php");
 		}
 	} 
+	mysqli_close($con);
 ?>
 
 <html>

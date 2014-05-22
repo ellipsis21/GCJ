@@ -71,9 +71,16 @@
                 }
             }
         }
+<<<<<<< HEAD
     }
 
     //header("content-type: text/xml");
+=======
+    }    
+
+	mysqli_close($con);
+    header("content-type: text/xml");
+>>>>>>> a6ede1d42d5fece1079dd89a175015ef59cc743a
     echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
 
     //can have Responce after php code depending on cost of texts

@@ -152,5 +152,6 @@
 			}
 		}
 	}
+	mysqli_close($con);
 	header("Location: questions.php?groupid=$GroupId");
 ?>

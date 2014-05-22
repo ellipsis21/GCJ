@@ -63,3 +63,4 @@
 		<div class='buffer'></div>
 	</body>
 </html>
+<?php mysqli_close($con); ?>
