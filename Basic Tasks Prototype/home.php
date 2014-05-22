@@ -33,7 +33,7 @@
 				$result = mysqli_query($con,"SELECT * FROM Groups NATURAL JOIN Admins WHERE UserId = '$UserId'");
 
 				if (mysqli_num_rows($result) == 0) {
-					echo "<div class='nogroup'>You do not have any group. <br/> Create one to get started.</div>";
+					echo "<div class='nogroup'>You don't have any groups. <br/> Create one to get started.</div>";
 				} else { 
 					$count = 1;
 					while ($row = mysqli_fetch_array($result)) {
