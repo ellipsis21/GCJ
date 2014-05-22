@@ -1,5 +1,6 @@
 .labels {
 	font-weight: bold;
+	font-size: 20px;
 }
 
 .firstline {
@@ -49,6 +50,7 @@
 }
 
 .member {
+	font-weight: bold;
 	background-color: #909090;
 	color: white;
 	font-size: 9pt;
@@ -128,4 +130,5 @@ svg {
 #timetable #col0 {
 	text-align: left;
 	font-family: 'Source Sans Pro Bold';
+	box-shadow: none;
 }

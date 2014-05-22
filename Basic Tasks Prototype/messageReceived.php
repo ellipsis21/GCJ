@@ -13,10 +13,12 @@
 	$number = substr($number, 2);
     //GCJ put responce in DB
     $res = mysqli_query($con,"SELECT * FROM Members WHERE Phone='$number'");
+
     //assumes phone number is unique
     if($row = mysqli_fetch_array($res)) {
         $GroupId= $row['GroupId'];
         $result = mysqli_query($con,"SELECT * FROM Questions WHERE GroupId=$GroupId AND Open=1");
+        
         if($column = mysqli_fetch_array($result)) {
             $qId= $column['QuestionId'];
             // $questioner= $column['UserId'];
@@ -50,10 +52,8 @@
                     // }
                 // }
             // }
-
-        }
-    }    
-
+		}
+	}
     header("content-type: text/xml");
     echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
 

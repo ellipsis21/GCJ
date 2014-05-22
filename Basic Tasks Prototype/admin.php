@@ -49,12 +49,12 @@
 				echo "</tr>\n";
 			}
 			echo "</table>\n";
-			echo "<a class='group-home' href='grouphome.php?groupid=".$groupid."'>Group Home</a>";
+			echo "<a class='group-home' href='grouphome.php?groupid=".$groupid."'>".$groupname."</a>";
 		?>
 
 
 
-		<h4> Add a user to be a group admin </h4>
+		<h3> Add a user to be a group admin </h3>
 		<?php echo "<form id='myform' name='input' action='admin.php?groupid=".$groupid."' enctype='multipart/form-data' method='post' style = 'display: inline-block; text-align: center;'>"?>
 			<input type='text' name='admin' class='textbox' required placeholder='Username' maxlength='10'/>
 			<a class="question-1" onclick="document.getElementById('myform').submit();">Add Admin</a>
