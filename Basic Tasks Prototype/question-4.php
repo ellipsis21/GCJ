@@ -42,28 +42,28 @@ if (mysqli_connect_errno()) {
 				<th>Time</th>
 			</tr>
 			<tr>
-				<td><input type='date' name='date1' class='datebox' /></td>
-				<td><input type='text' name='time1' class='textbox2' placeholder="1pm"/></td>
+				<td><input type='date' name='date1' class='datebox'/></td>
+				<td><input type='text' name='time1' class='textbox2' placeholder="1pm" style="text-align: center"/></td>
 			</tr>
 			<tr>
-				<td><input type='date' name='date2' class='datebox' /></td>
-				<td><input type='text' name='time2' class='textbox2' /></td>
+				<td><input type='date' name='date2' class='datebox'/></td>
+				<td><input type='text' name='time2' class='textbox2'  style="text-align: center"/></td>
 			</tr>
 			<tr id='response3' style="display:none;">
-				<td><input type='date' name='date3' class='datebox' /></td>
-				<td><input type='text' name='time3' class='textbox2' /></td>
+				<td><input type='date' name='date3' class='datebox'/></td>
+				<td><input type='text' name='time3' class='textbox2'  style="text-align: center"/></td>
 			</tr>
 			<tr id='response4' style="display:none;">
-				<td><input type='date' name='date4' class='datebox' /></td>
-				<td><input type='text' name='time4' class='textbox2' /></td>
+				<td><input type='date' name='date4' class='datebox'/></td>
+				<td><input type='text' name='time4' class='textbox2'  style="text-align: center"/></td>
 			</tr>
 			<tr id='response5' style="display:none;">
-				<td><input type='date' name='date5' class='datebox' /></td>
-				<td><input type='text' name='time5' class='textbox2' /></td>
+				<td><input type='date' name='date5' class='datebox'/></td>
+				<td><input type='text' name='time5' class='textbox2'  style="text-align: center"/></td>
 			</tr>
 			<tr id='response6' style="display:none;">
-				<td><input type='date' name='date6' class='datebox' /></td>
-				<td><input type='text' name='time6' class='textbox2' /></td>
+				<td><input type='date' name='date6' class='datebox'/></td>
+				<td><input type='text' name='time6' class='textbox2'  style="text-align: center"/></td>
 			</tr>
 			</table>
 			<input type='hidden' name='group' value='<?php echo $GroupId ?>' />
