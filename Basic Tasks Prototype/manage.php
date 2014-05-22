@@ -42,12 +42,12 @@
 		<?php
 		echo "<form id='myform' name='input' action='manage.php?groupid=".$groupid."' enctype='multipart/form-data' method='post' style = 'display: inline-block; text-align: center;'>";
 		?>
-			<input type='text' name='name' class='textbox' required placeholder='Member name'/>
-			<input type='tel' name='number' class='textbox' required placeholder='10 digit numbers'/>
+			<input type='text' name='name' class='textbox' required placeholder='Member name' maxlength='30'/>
+			<input type='tel' name='number' class='textbox' required placeholder='10 digit numbers' maxlength='10'/>
 			<a class="question-1" onclick="document.getElementById('myform').submit();">Add Member</a>
 		</form>
 
-		<h3 style="text-align: center;">Current Members of <?php echo $groupname ?></h3>
+		<h3 style="text-align: center;">Current Members of <br/> <?php echo $groupname ?></h3>
 		<?php
 			echo "<table class='mytable' align='center' style='text-align:center' cellpadding='5'>\n";
 			echo "<tr>\n";
@@ -68,7 +68,7 @@
 			}
 			echo "</table>\n";
 			echo "<div class='buffer'></div>";
-			echo "<a class='group-home' href='grouphome.php?groupid=".$groupid."'>Group Home</a>";
+			echo "<a class='group-home' href='grouphome.php?groupid=".$groupid."'>".$groupname."</a>";
 		?>
 		
 

@@ -29,20 +29,9 @@
 	}
 	*/
 
-	$result = mysqli_query($con,"DELETE FROM Responses WHERE QuestionId = 14");
-	
-	$result = mysqli_query($con,"INSERT INTO Responses (QuestionId, Response, Phone) VALUES (14, '123 hello', '1')");
-	$result = mysqli_query($con,"INSERT INTO Responses (QuestionId, Response, Phone) VALUES (14, '1,2,3', '2')");
-	$result = mysqli_query($con,"INSERT INTO Responses (QuestionId, Response, Phone) VALUES (14, '1 2 3', '3')");
-	$result = mysqli_query($con,"INSERT INTO Responses (QuestionId, Response, Phone) VALUES (14, '1,2, 3 Hetm cool', '4')");
-	$result = mysqli_query($con,"INSERT INTO Responses (QuestionId, Response, Phone) VALUES (14, '321Muchsioch cool', '5')");
-	$result = mysqli_query($con,"INSERT INTO Responses (QuestionId, Response, Phone) VALUES (14, '2,3,1 Muczxvool', '6')");
-	$result = mysqli_query($con,"INSERT INTO Responses (QuestionId, Response, Phone) VALUES (14, '3, 2, 1', '1')");
-	$result = mysqli_query($con,"INSERT INTO Responses (QuestionId, Response, Phone) VALUES (14, '1, 2, 3 Hello', '2')");
-	
 	//$result = mysqli_query($con,"INSERT INTO Responses (QuestionId, Phone, Response) VALUES (10, 7143308621, 'N stop reminding me!')");
 	
-	$result = mysqli_query($con, "SELECT * FROM Responses");
+	$result = mysqli_query($con, "SELECT * FROM Options WHERE QuestionId = 20");
 
 	while($row = mysqli_fetch_array($result)) {
 	  print_r($row);

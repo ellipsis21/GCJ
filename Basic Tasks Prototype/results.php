@@ -105,14 +105,14 @@
 		}
 
 		function cmp($a, $b) { return count($b["value"]) - count($a["value"]);};
-		function cmpOptions($a,$b) { return $a['optionText'] - $b['optionText'];};
+		//function cmpOptions($a,$b) { return $a['optionText'] - $b['optionText'];};
 		
 
-		if ($question["Type"] == 'TD') {
-			usort($responses, "cmpOptions");
-		} else {
+		//if ($question["Type"] == 'TD') {
+		//	usort($responses, "cmpOptions");
+		//} else {
 			usort($responses, "cmp");
-		}
+		//}
 
 		//echo "<h2> Your friends recommend ".$responses[0]['response']." (".$responses[0]['value']." votes) </h2>";
 
@@ -184,21 +184,23 @@
 			}
 		}
 
-		$("#membersresponse").html($("#membersresponse").html() + "<div class='options' id='options"+ i +"'><span class='option'>"+options[i]+"</span><span class='mem'></span></div>");
-		
-		list = "";
-		rawdata[i].value.forEach(function(entry) {
-			list += entry + ", " ;
-		});
-		list = list.substring(0,list.length-2);
-		$("#options" + i + " .mem").html(list);
-		$("#options" + i + " .option").css('color', colors[i%5]);
-		if (type == 'TD') {
-			$("#options" + i + " .option").css('color', 'gray');
-			$("#options" + i + " .option").css('font-size', '13pt');
-			$("#options" + i + " .mem").css('font-size', '12pt');
-			$("#options" + i + " .mem").css('display', 'block');
+		if (data[i] != 0) {
+			$("#membersresponse").html($("#membersresponse").html() + "<div class='options' id='options"+ i +"'><span class='option'>"+options[i]+"</span><span class='mem'></span></div>");
+			
+			list = "";
+			rawdata[i].value.forEach(function(entry) {
+				list += entry + ", " ;
+			});
+			list = list.substring(0,list.length-2);
+			$("#options" + i + " .mem").html(list);
+			$("#options" + i + " .option").css('color', colors[i%5]);
+			if (type == 'TD') {
+				$("#options" + i + " .option").css('color', 'hsla(180, 100%, 45%, 1');
+				$("#options" + i + " .option").css('font-size', '13pt');
+				$("#options" + i + " .mem").css('font-size', '12pt');
+				$("#options" + i + " .mem").css('display', 'block');
 
+			}
 		}
 	}
 
@@ -224,15 +226,15 @@
 		  .data(data)
 		  .enter().append("svg:rect")
 		  .attr("width", w)
-		  .attr("height", 300/rawdata.length-40)
-		  .attr("y",  function(d, i) { return 300/rawdata.length * i + 40; })
+		  .attr("height", 300/data.length-40)
+		  .attr("y",  function(d, i) { return 300/data.length * i + 40; })
 		  .attr("fill", function(d, i) { return colors[i%5]; });
 
 		chart.selectAll("text")
 		    .data(data)
 		    .enter().append("svg:text")
 		    .attr("x", w)
-		    .attr("y", function(d, i) { return 300/rawdata.length * i + 40 + (300/rawdata.length-40)/ 1.9; })
+		    .attr("y", function(d, i) { return 300/data.length * i + 40 + (300/data.length-40)/ 1.9; })
 		    .attr("dx", -20) // padding-right
 		    .attr("dy", ".1em") // vertical-align: middle
 		    .attr("text-anchor", "end") // text-align: right
@@ -245,7 +247,7 @@
 		chart.selectAll("text.label")
 		    .data(options)
 		    .enter().append("svg:text")
-		   	.attr("y", function(d, i) { return 300/rawdata.length * i + 30; })
+		   	.attr("y", function(d, i) { return 300/data.length * i + 30; })
 		    .attr("dx", 20) // padding-right
 		    .attr("dy", ".1em") // vertical-align: middle
 		    .attr("class", "labels")

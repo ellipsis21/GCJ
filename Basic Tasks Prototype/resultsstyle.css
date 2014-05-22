@@ -49,6 +49,7 @@
 }
 
 .member {
+	font-weight: bold;
 	background-color: #909090;
 	color: white;
 	font-size: 9pt;
