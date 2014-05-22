@@ -1,12 +1,12 @@
 <?php 
-
 	session_start(); 
+	$UserId = $_SESSION['UserId'];
+	if ($UserId == "") header("Location: index.php");
 	$con=mysqli_connect("ggreiner.com","ggreiner_g","volley3","ggreiner_247");
 	// Check connection
 	if (mysqli_connect_errno()) {
 	  echo "Failed to connect to MySQL: " . mysqli_connect_error();
 	}
-
 ?>
 <html>
 	<head>
@@ -17,7 +17,6 @@
 	<body>
 		<div class = "main-header"><a href="home.php"><img class="logo" src = "images/logo.png" /></a></div>
 		<?php
-			$UserId = $_SESSION['UserId'];
 			$result = mysqli_query($con,"SELECT * FROM Users WHERE UserId='$UserId'");
 			$row = mysqli_fetch_array($result);
 			if ($_SESSION["NewUser"]) {
