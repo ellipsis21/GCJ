@@ -39,6 +39,7 @@
 	else $vidFile = "";
 	if(!mysqli_query($con,"INSERT INTO Questions (Question, PicPath, VidPath, GroupId, UserId, Open, Type) VALUES ('$question', '$picFile', '$vidFile', $GroupId, $id, 1, '$type')")) echo "failure! " . mysqli_error($con);
 	$responses = [];
+	$needed = [];
 	if ($type == 'MC') {
 		for ($count = 1; $count <= 6; $count++) {
 			if (isset($_POST["response$count"])) {
@@ -62,13 +63,40 @@
 			}
 		}
 	}
+	if ($type == 'TC') {
+		for ($count = 1; $count <= 6; $count++) {
+			if (isset($_POST["task$count"])) {
+				$task = $_POST["task$count"];
+				if ($task != "") {
+					$responses[$count-1] = $_POST["task$count"]." (".$_POST["need$count"]." needed)";
+					$needed[$count-1] = $_POST["need$count"];
+				}
+				else {
+					$needed[$count-1] = 0;
+					$responses[$count-1] = "";
+				}
+			}
+		}
+	}
 	$query = mysqli_query($con,"SELECT * FROM Questions WHERE GroupId='$GroupId' AND UserId='$id' AND Open=1");
 	if($questions = mysqli_fetch_array($query)) {
 		$qId = $questions['QuestionId'];
 		$count = 1;
-		foreach($responses as $response) {
-			if(!mysqli_query($con,"INSERT INTO Options (QuestionId, OptionNum, OptionText, Max) VALUES ($qId, $count, '$response', 0)")) echo "failure! " . mysqli_error($con);
-			$count++;
+		if ($type == 'TC') {
+			foreach($responses as $response) {
+				if ($response != "") {
+					if(!mysqli_query($con,"INSERT INTO Options (QuestionId, OptionNum, OptionText, Max) VALUES ($qId, $count, '$response', ".$needed[$count-1].")")) echo "failure! " . mysqli_error($con);
+				}
+				$count++;
+			}
+		}
+		else {
+			foreach($responses as $response) {
+				if ($response != "") {
+					if(!mysqli_query($con,"INSERT INTO Options (QuestionId, OptionNum, OptionText, Max) VALUES ($qId, $count, '$response', 0)")) echo "failure! " . mysqli_error($con);
+				}
+				$count++;
+			}
 		}
 		$account_sid = 'ACe45cbecec1c4d969f362becc4dae5ce1'; 
 		$auth_token = '2920745a17eb488e173b7ffe2310f958'; 
@@ -84,8 +112,8 @@
 		
 		$body= "";
 		
-		$body.=$question; 
-		if($url != "") $body.= ": " . $url;
+		if($type != "TC") $body.=$question.": "; 
+		if($url != "") $body.= $url;
 		if($vid != "") $body.= "\n$vid";
 		$body.= "\n\n";
 		if ($type == 'YN') {
@@ -112,9 +140,10 @@
 			$userName = $row['Name'];
 		}
 		
-		$body = "Question from $userName: \n\n".$body;
+		if ($type != 'TC')$body = "Question from $userName: \n\n".$body;
+		else $body = "$userName wants you to sign up for a task: \n\n".$body;
 		if ($type == 'TD') $body.= " (Enter every date that works in the format '1,3,5')";
-		if ($type == 'YN') $body.= " (You can enter a comment after your response)";
+		elseif ($type == 'YN') $body.= " (You can enter a comment after your response)";
 		else $body .= " (You can enter a comment after your # response).";
 
 		if (!empty($numbers)) {

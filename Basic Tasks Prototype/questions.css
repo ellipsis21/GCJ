@@ -1,5 +1,5 @@
 
-input[type='text'], textarea {
+input[type='text'], textarea, input[type='tel']  {
 	border: 1px solid #999999 !important;
 	font-size:18px;
 	padding: 3px;
