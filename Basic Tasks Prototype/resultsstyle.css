@@ -76,7 +76,7 @@ svg {
 	font-size: 15pt;
 	padding: 10px;
 	width: 70%;
-	margin: 10px auto 0px auto;
+	margin: 12px auto 0px auto;
 	background-color: #84CBC5;
 	color: white;
 	font-family: 'Source Sans Pro Bold';
@@ -107,4 +107,25 @@ svg {
 
 .options {
 	margin-bottom: 10px;
+}
+
+#timetable {
+	width: 90%;
+	margin: 0 auto;
+	margin-bottom: 30px;
+	border-spacing: 5px;
+    border-collapse: separate;
+}
+
+#timetable td {
+	vertical-align: center;
+	text-align: center;
+	height: 40px;
+	font-weight: bold;
+	font-size: 13.5pt;
+}
+
+#timetable #col0 {
+	text-align: left;
+	font-family: 'Source Sans Pro Bold';
 }

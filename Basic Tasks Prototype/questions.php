@@ -28,7 +28,6 @@
 		echo '<a class="question-1" href="results.php?qId='.$qId.'">Results</a>';
 		echo '<a class="question-2" href="reminder.php?qId='.$qId.'&gId='.$GroupId.'">Send Reminder</a>';
 		echo '<a class="question-5" href="close.php?qId='.$qId.'&gId='.$GroupId.'" style="margin:20px">Close Poll</a>';
-		echo '<div class="buffer"></div>';
 		echo "<a class='group-home' href='grouphome.php?groupid=".$GroupId."'>".$groupname."</a>";
 	}
 	else {
@@ -38,7 +37,9 @@
 		<a class="question-2" href="question-2.php?groupid=<?php echo $GroupId ?>">Yes/No</a>
 		<a class="question-3" href="question-3.php?groupid=<?php echo $GroupId ?>">Task Assignment</a>
 		<a class="question-4" href="question-4.php?groupid=<?php echo $GroupId ?>">Date Choice</a>
-<?php } ?>
+<?php }
+	echo "<a class='group-home' href='grouphome.php?groupid=".$GroupId."'>".$groupname."</a>";
+ ?>
 	</body>
 </html>
 <?php mysqli_close($con); ?>

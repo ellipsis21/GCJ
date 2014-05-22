@@ -67,7 +67,7 @@
 
 			<input type='text' name='groupname' class='textbox' placeholder='Group Name' autocapitalize="off" required>
 
-			<a class="question-1" onclick="document.getElementById('myform').submit();">Add Group</a>
+			<a class="question-1" onclick="document.getElementById('myform').submit();">Create Group</a>
 		</form>
 
 	</body>

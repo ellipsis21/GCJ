@@ -28,6 +28,10 @@
 		$result = mysqli_query($con,"SELECT * FROM Groups WHERE GroupId = $GroupId");
 		$group = mysqli_fetch_array($result);
 
+		$CreatorId = $question["UserId"];
+		$result = mysqli_fetch_array(mysqli_query($con,"SELECT Name FROM Users WHERE UserId = $CreatorId"));
+		$creator = $result["Name"];
+
 		$result = mysqli_query($con,"SELECT * FROM Options WHERE QuestionId = $QuestionId");
 		$responses = array();
 		while ($row = mysqli_fetch_array($result)) {
@@ -63,6 +67,27 @@
 					$responses[$index]['value'][] = $member;
 					$comment = $matches[2];
 				}
+			}
+			if ($question["Type"] == 'TD') {
+				if (preg_match('/(^\d[\d\s,]*)\s*(.*)/',$response, $matches)) {
+					$digits = $matches[1];
+					$digits = str_replace(' ', '', $digits);
+
+					if (strpos($digits,',') !== false) {
+						$nums = explode(',', $digits);
+					} else {
+						$nums = str_split($digits);
+					}
+					
+					foreach ($nums as $num) {
+						$index = deepsearch($responses,'optionNum', $num);
+						if ($index >= 0) {
+							$responses[$index]['value'][] = $member;
+						}
+					}
+					
+					$comment = $matches[2];
+				}
 			} else {
 				if (preg_match('/(^\d+)\s*(.*)/',$response, $matches)) {
 					$num = (int)$matches[1];
@@ -80,8 +105,14 @@
 		}
 
 		function cmp($a, $b) { return count($b["value"]) - count($a["value"]);};
-		usort($responses, "cmp");
+		function cmpOptions($a,$b) { return $a['optionText'] - $b['optionText'];};
+		
 
+		if ($question["Type"] == 'TD') {
+			usort($responses, "cmpOptions");
+		} else {
+			usort($responses, "cmp");
+		}
 
 		//echo "<h2> Your friends recommend ".$responses[0]['response']." (".$responses[0]['value']." votes) </h2>";
 
@@ -104,7 +135,7 @@
 	<body>
 	<div class = "main-header"><a href="home.php"><img class="logo" src = "images/logo.png" /></a></div>
 
-	<?php echo "<div class='firstline'><span class='asked'> You asked </span> <span class='groupname'>".$group["Name"]." </span></div> <div class='question'>".$question["Question"]."</div>" ?>
+	<?php echo "<div class='firstline'><span class='asked'> $creator asked </span> <span class='groupname'>".$group["Name"]." </span></div> <div class='question'>".$question["Question"]."</div>" ?>
 
 
 	<svg class="chart"></svg>
@@ -119,11 +150,39 @@
 	//rawdata = [{'response': 'A', 'value': 5}, {'response': 'B', 'value': 0}, {'response': 'C', 'value': 1}, {'response': 'C', 'value': 6}, {'response': 'C', 'value': 0}];
 	colors = ["#11F3E7","#B4E50D","#E6DF2C", "#FF7C44", "#FF4785"];
 
+	type = <?php echo json_encode($question["Type"]) ?>;
+
+	if (type == 'TD') {
+		$(".chart").after( "<table id='timetable'></table>" );
+		$(".chart").remove();
+	}
+
+
 	data = [];
 	options = [];
+
+	dates = [];
+	times = [];
+
 	for (var i = 0; i < rawdata.length; i++) {
 		data.push(rawdata[i].value.length);
 		options.push(rawdata[i].optionText);
+
+		if (type == 'TD') {
+			var Regexp = /([^s]+) at ([^s]+)/g;
+			var match = Regexp.exec(options[i]);
+			
+			var date = match[1];
+			var time = match[2];
+
+			var ind = dates.indexOf(date);
+			if (ind == -1) {
+				dates.push(date);
+				times.push([time]);
+			} else {
+				times[ind].push(time);
+			}
+		}
 
 		$("#membersresponse").html($("#membersresponse").html() + "<div class='options' id='options"+ i +"'><span class='option'>"+options[i]+"</span><span class='mem'></span></div>");
 		
@@ -134,10 +193,17 @@
 		list = list.substring(0,list.length-2);
 		$("#options" + i + " .mem").html(list);
 		$("#options" + i + " .option").css('color', colors[i%5]);
+		if (type == 'TD') {
+			$("#options" + i + " .option").css('color', 'gray');
+			$("#options" + i + " .option").css('font-size', '13pt');
+			$("#options" + i + " .mem").css('font-size', '12pt');
+			$("#options" + i + " .mem").css('display', 'block');
+
+		}
 	}
 
 
-	type = <?php echo json_encode($question["Type"]) ?>;
+
 	
 	if (type == 'MC') {
 		var w = d3.scale.linear()
@@ -260,6 +326,60 @@
 	    var percentage = 100.00 * data[0]/d3.sum(data);
 	    $("#summary").html("<b>" + percentage.toFixed(0) + "%</b> of members voted <b>" + options[0] + "</b>");
 	}
+
+	else if (type == 'TD') {
+		var numrows = dates.length;
+		var maxtimes = 0;
+		for (var i=0; i < times.length; i++) {
+			var entry = times[i];
+			if (entry.length > maxtimes) {
+				maxtimes = entry.length;
+			}
+		}
+		var numcols = maxtimes + 1;
+
+		for (var i=0; i < numrows; i++) {
+			$("#timetable").append( "<tr id='row"+i+"'></tr>" );
+
+			for (var j=0; j < numcols; j++) {
+				text = "";
+				color = "";
+				if (j == 0) {
+					text = dates[i];
+				} else if (j > 0) {
+					text = times[i][j-1];
+					if (text === undefined) {
+						text = "";
+					} else {
+						var optionText = $("#row" + i).find("#col0").text() + " at " + text;
+						var ind = options.indexOf(optionText);
+
+						var max = d3.max(data);
+						if (max == 0) max = 1;
+						
+						var val = data[ind];
+						var lum = 98 - 50*(val/max);
+						
+						var color = 'hsla(180, 100%, '+ lum + '%, 1)';
+
+						text = text + " (" + val + ")";
+					}
+				}
+
+				$('#row' + i).append( "<td id='col"+j+"'>"+text+"</td>" );
+				if (color) {
+					$("#row" + i).find("#col" + j).css('background-color', color);
+				}
+			}
+		}
+		
+		var max = d3.max(data);
+		var ind = data.indexOf(max);
+
+		$("#summary").html("<b>" + options[ind] + "</b><br/> was most preferred with <b>" + data[ind] + "</b> votes");
+
+	}
+	
 
     </script>
 

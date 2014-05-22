@@ -11,29 +11,11 @@
 	$result = mysqli_query($con,"CREATE TABLE Groups(GroupId INT NOT NULL AUTO_INCREMENT, PRIMARY KEY(GroupId), Name VARCHAR(30))");
 	$result = mysqli_query($con,"CREATE TABLE Admins(GroupId INT, UserId INT)");
 	$result = mysqli_query($con,"CREATE TABLE Members(GroupId INT, Name VARCHAR(30), Phone CHAR(10), PRIMARY KEY(Phone, GroupId))");
-	$result = mysqli_query($con,"CREATE TABLE Questions(QuestionId INT NOT NULL AUTO_INCREMENT, PRIMARY KEY(QuestionId), Question VARCHAR(200), PicPath VARCHAR(200), VidPath VARCHAR(200), GroupId INT, Open TINYINT(1))");
+	$result = mysqli_query($con,"CREATE TABLE Questions(QuestionId INT NOT NULL AUTO_INCREMENT, PRIMARY KEY(QuestionId), Type CHAR(2), Question VARCHAR(200), PicPath VARCHAR(200), VidPath VARCHAR(200), GroupId INT, UserId INT, Open TINYINT(1))");
 	$result = mysqli_query($con,"CREATE TABLE Options(QuestionId INT, OptionNum INT, OptionText VARCHAR(100), Max INT)");
 	$result = mysqli_query($con,"CREATE TABLE Responses(QuestionId INT, Phone CHAR(10), Response VARCHAR(100))");
 	*/
 
-
-	//$result = mysqli_query($con,"CREATE TABLE Questions(QuestionId INT NOT NULL AUTO_INCREMENT, PRIMARY KEY(QuestionId), Type CHAR(2), Question VARCHAR(200), PicPath VARCHAR(200), VidPath VARCHAR(200), GroupId INT, UserId INT)");
-	//$result = mysqli_query($con,"DROP TABLE Responses");
-	//$result = mysqli_query($con,"CREATE TABLE Responses(QuestionId INT, Phone CHAR(10), Response VARCHAR(100))");
-
-	//if(!mysqli_query($con,"INSERT INTO// Questions (Type, Question, GroupId, UserId) VALUES ('MC', 'What is your favorite Color?', 27, 1)")) echo "failure! " . mysqli_error($con);
-
-	//if (!$mysqli_query($con,"INSERT INTO Questions(Type, Question, GroupId, UserId, Open) VALUES ('MC', 'What is your favorite Color?', 27, 1, 1)")) echo mysqli_error($con);
-
-	//if(!mysqli_query($con,"INSERT INTO// Questions (Type, Question, GroupId, UserId) VALUES ('MC', 'What is your favorite Color?', 27, 1)")) echo "failure! " . mysqli_error($con);
-
-	//$result = mysqli_query($con,"DELETE FROM Options WHERE QuestionId = 1");
-
-	//$result = mysqli_query($con,"DELETE FROM Responses WHERE QuestionId = 1");
-
-	//$result = mysqli_query($con,"DROP TABLE Questions");
-
-	//$result = mysqli_query($con,"CREATE TABLE Questions(QuestionId INT NOT NULL AUTO_INCREMENT, PRIMARY KEY(QuestionId), Type CHAR(2), Question VARCHAR(200), PicPath VARCHAR(200), VidPath VARCHAR(200), GroupId INT, UserId INT, Open TINYINT(1))");
 
 	/*
 	$result = mysqli_query($con,"INSERT INTO Options (QuestionId, OptionNum, OptionText) VALUES (1, 1, 'Red')");
@@ -45,23 +27,25 @@
 	if (!$result) {
 		echo mysqli_error($con);
 	}
-	
-	$result = mysqli_query($con,"INSERT INTO Responses (QuestionId, Response, Phone) VALUES (1, '2', '2222')");
-	$result = mysqli_query($con,"INSERT INTO Responses (QuestionId, Response, Phone) VALUES (1, '2', '3333')");
-	$result = mysqli_query($con,"INSERT INTO Responses (QuestionId, Response, Phone) VALUES (1, '2', '4444')");
-	$result = mysqli_query($con,"INSERT INTO Responses (QuestionId, Response, Phone) VALUES (1, 'Hello! This is cool', '4444')");
-	$result = mysqli_query($con,"INSERT INTO Responses (QuestionId, Response, Phone) VALUES (1, 'Much cool Much cool', '4444')");
-	$result = mysqli_query($con,"INSERT INTO Responses (QuestionId, Response, Phone) VALUES (1, '2 Much cool Much cool', '4444')");
-
-	
 	*/
+
+	$result = mysqli_query($con,"DELETE FROM Responses WHERE QuestionId = 14");
+	
+	$result = mysqli_query($con,"INSERT INTO Responses (QuestionId, Response, Phone) VALUES (14, '123 hello', '1')");
+	$result = mysqli_query($con,"INSERT INTO Responses (QuestionId, Response, Phone) VALUES (14, '1,2,3', '2')");
+	$result = mysqli_query($con,"INSERT INTO Responses (QuestionId, Response, Phone) VALUES (14, '1 2 3', '3')");
+	$result = mysqli_query($con,"INSERT INTO Responses (QuestionId, Response, Phone) VALUES (14, '1,2, 3 Hetm cool', '4')");
+	$result = mysqli_query($con,"INSERT INTO Responses (QuestionId, Response, Phone) VALUES (14, '321Muchsioch cool', '5')");
+	$result = mysqli_query($con,"INSERT INTO Responses (QuestionId, Response, Phone) VALUES (14, '2,3,1 Muczxvool', '6')");
+	$result = mysqli_query($con,"INSERT INTO Responses (QuestionId, Response, Phone) VALUES (14, '3, 2, 1', '1')");
+	$result = mysqli_query($con,"INSERT INTO Responses (QuestionId, Response, Phone) VALUES (14, '1, 2, 3 Hello', '2')");
+	
+	//$result = mysqli_query($con,"INSERT INTO Responses (QuestionId, Phone, Response) VALUES (10, 7143308621, 'N stop reminding me!')");
+	
 	$result = mysqli_query($con, "SELECT * FROM Responses");
+
 	while($row = mysqli_fetch_array($result)) {
 	  print_r($row);
 	  echo "<br>";
 	}
-	
-
-
-
 ?>
