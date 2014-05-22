@@ -20,7 +20,6 @@
 	<body>
 		<div class = "main-header"><a href="home.php"><img class="logo" src = "images/logo.png" /></a></div>
 		<?php
-			$UserId = $_SESSION['UserId'];
 			$result = mysqli_query($con,"SELECT * FROM Users WHERE UserId='$UserId'");
 			$row = mysqli_fetch_array($result);
 			if ($_SESSION["NewUser"]) {
