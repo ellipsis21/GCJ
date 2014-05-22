@@ -10,6 +10,7 @@ if (mysqli_connect_errno()) {
 	$result = mysqli_fetch_array(mysqli_query($con,"SELECT * FROM Groups WHERE GroupId='$GroupId'"));
 	$groupname = $result['Name'];
 	$id = $_SESSION["UserId"];
+	mysqli_close($con);
 ?>
 
 <html>	

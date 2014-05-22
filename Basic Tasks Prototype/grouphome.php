@@ -17,7 +17,7 @@
 	} else {
 		$message = 'View Current Question Results';
 	}
-
+	mysqli_close($con);
 
 ?>
 <html>

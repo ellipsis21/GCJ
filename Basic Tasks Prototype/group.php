@@ -34,6 +34,7 @@
 		if(!mysqli_query($con,"INSERT INTO Admins (GroupId, UserId) VALUES ('$groupid', '$userid')")) echo "failure! " . mysqli_error($con);
 		header("Location: manage.php?groupid=$groupid");
 	}
+	mysqli_close($con);
 ?>
 
 
