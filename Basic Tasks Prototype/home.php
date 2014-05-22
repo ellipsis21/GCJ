@@ -1,5 +1,6 @@
 <?php 
 	session_start(); 
+	if (!isset($_SESSION['UserId'])) header("Location: index.php");
 	$UserId = $_SESSION['UserId'];
 	if ($UserId == "") header("Location: index.php");
 	$con=mysqli_connect("ggreiner.com","ggreiner_g","volley3","ggreiner_247");
