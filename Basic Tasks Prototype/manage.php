@@ -52,14 +52,14 @@
 			echo "<table class='mytable' align='center' style='text-align:center' cellpadding='5'>\n";
 			echo "<tr>\n";
 			echo "<th>Name</th>\n";
-			echo "<th>Number</th>\n";
+			echo "<th>Phone Number</th>\n";
 			echo "<th>Remove</th>\n";
 			echo "</tr>\n";
 			while ($row = mysqli_fetch_array($result)) {
 				echo "<tr>\n";
-				echo "<td>".$row["Name"]."</td>";
-				echo "<td>".$row["Phone"]." </td>";
-				echo "<td>";
+				echo "<td class='name'>".$row["Name"]."</td>";
+				echo "<td class='phone'>".$row["Phone"]." </td>";
+				echo "<td class='remove'>";
 				if ($row["Phone"] != $userphone) {
 					echo "<a href='manage.php?groupid=".$groupid."&remove=".$row['Phone']."'>x</a>";
 				}
@@ -75,4 +75,3 @@
 
 	</body>
 </html>
-<?php mysqli_close($con); ?>

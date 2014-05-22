@@ -10,12 +10,14 @@
 	$GroupId = $_GET['groupid'];
 	$UserId = $_SESSION['UserId'];
 	mysqli_query($con, "DELETE FROM Admins WHERE GroupId = '$GroupId' AND UserId = '$UserId'");
+	mysqli_query($con, "DELETE FROM Members WHERE GroupId = '$GroupId' AND UserId = '$UserId'");
+
 
 	$result = mysqli_fetch_array(mysqli_query($con, "SELECT * FROM Admins WHERE GroupId = '$GroupId'"));
 	if ($result == null) {
 		mysqli_query($con, "DELETE FROM Groups WHERE GroupId = '$GroupId'");
 		mysqli_query($con, "DELETE FROM Members WHERE GroupId = '$GroupId'");
 	}
-	mysqli_close($con);
+
 	header("Location: home.php");
 ?>

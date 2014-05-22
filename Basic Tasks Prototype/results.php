@@ -138,7 +138,7 @@
 	<?php 
 		$type = $question["Type"];
 
-		if ($type == 'TD') {
+		if ($type != 'TC') {
 			echo "<div class='firstline'><span class='asked'> $creator asked </span> <span class='groupname'>".$group["Name"]." </span></div> <div class='question'>".$question["Question"]."</div>";		
 		} else {
 			echo "<div class='firstline'><span class='asked'> $creator assigned </span> <span class='groupname'>".$group["Name"]." ".count($responses)." tasks: </span> </div>";

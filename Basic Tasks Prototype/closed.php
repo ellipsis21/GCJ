@@ -30,7 +30,7 @@
 		for ($i = 0; $i < count($qIds); $i++) {
 			$q = $qs[$i];
 			$qId = $qIds[$i];
-			echo "<h4>$q</h4>\n";
+			echo "<div class='closedq'>$q</div>\n";
 			echo '<a class="question-1" href="results.php?qId='.$qId.'">Results</a>';
 			echo '<br>';
 		}

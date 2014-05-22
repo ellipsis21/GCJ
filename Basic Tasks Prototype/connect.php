@@ -29,13 +29,12 @@
 	}
 	*/
 
-	//$result = mysqli_query($con,"INSERT INTO Responses (QuestionId, Phone, Response) VALUES (10, 7143308621, 'N stop reminding me!')");
-	
-	$result = mysqli_query($con, "SELECT * FROM Options WHERE QuestionId = 20");
+	$result = mysqli_query($con,"DELETE FROM Members WHERE Phone='6502836850' OR Phone='7143308621' OR Phone='7863527218'");
+
+	$result = mysqli_query($con, "SELECT * FROM Members");
 
 	while($row = mysqli_fetch_array($result)) {
 	  print_r($row);
 	  echo "<br>";
 	}
-	mysqli_close($con);
 ?>
