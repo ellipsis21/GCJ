@@ -87,7 +87,6 @@
 				});				
 			} else {
 				$(".warningmessage").text("This group has no open question at the moment. Go to Ask Question to create a new one.");
-				$(".warningmessage").css("top", "325px");
 
 				$("#current").click(function() {
 					$(".warningmessage").fadeIn().delay(3600).fadeOut();

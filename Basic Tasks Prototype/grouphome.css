@@ -6,7 +6,7 @@
 	display: inline-block;
 	height: 94px; /* 90 + 2*2 for border */
 	width: 30%;
-	font-size: 17px;
+	font-size: 20px;
 	line-height: 25px;
 	font-weight: bold;
 	color: white;
@@ -34,6 +34,7 @@
 }
 
 #ask {
+	margin-top: 30px;
 	margin-bottom: 10px;
 }
 
@@ -67,12 +68,12 @@ a {
 }
 
 .inst {
-	font-size: 16pt;
-	margin-top: 20px;
+	font-size: 17pt;
+	margin-top: 40px;
 }
 
 .groupname {
-	font-size: 22pt;
+	font-size: 25pt;
 	font-family: "Source Sans Pro Bold";
 	margin-top: 5px;
 	margin-bottom: 25px;
@@ -80,18 +81,18 @@ a {
 }
 
 .bigtile {
-	width: 91%;
+	width: 90%;
 	height: 114px;
 	margin: 0 auto;
 	color: white;
-	font-size: 25px;
-	line-height: 30px;
+	font-size: 29px;
+	line-height: 34px;
 	text-align: center;
 	font-weight: bold;
 }
 
 .buf2 {
-	height: 25px;
+	height: 21px;
 }
 
 .icon {
@@ -112,14 +113,14 @@ a {
 .warningmessage {
 	width: 80%;
 	text-align: center;
-	font-size: 13pt;
+	font-size: 15pt;
 	border-radius: 15px;
 	background-color: rgba(240,240,240,0.93);
 	padding: 15px;
 	position: absolute;
 	display: none;
 	margin: 0 auto;
-	top: 195px;
 	left: 0;
 	right: 0;
+	bottom: 80px;
 }
