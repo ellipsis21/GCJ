@@ -1,0 +1,125 @@
+#secondline {
+	width: 95%;
+	margin: 0 auto;
+}
+.smalltile {
+	display: inline-block;
+	height: 94px; /* 90 + 2*2 for border */
+	width: 30%;
+	font-size: 17px;
+	line-height: 25px;
+	font-weight: bold;
+	color: white;
+	box-shadow: 1px 1px 1px #B0B0B0;
+	text-decoration: none;
+}
+
+.buf {
+	height: 20px; /* 90 - 25*2 for each line / 2 */
+}
+
+#quit {
+	background: #77cd82;
+	border: 2px solid #77cd82;
+}
+
+#manage {
+	background: #B19CD9;
+	border: 2px solid #B19CD9;
+}
+
+#past {
+	background: #F47264;
+	border: 2px solid #F47264;
+}
+
+#ask {
+	margin-bottom: 10px;
+}
+
+#current {
+	margin-bottom: 30px;
+}
+
+.ic {
+	height: 100px;
+	margin: 7px;
+}
+
+a {
+	text-decoration: none;
+}
+
+
+#quit:hover, #quit:active {
+	color:#77cd82;
+	background: white;
+}
+
+#manage:hover, #manage:active {
+	color: #B19CD9;
+	background: white;
+}
+
+#past:hover, #past:active {
+	color: #F47264;
+	background: white;
+}
+
+.inst {
+	font-size: 16pt;
+	margin-top: 20px;
+}
+
+.groupname {
+	font-size: 22pt;
+	font-family: "Source Sans Pro Bold";
+	margin-top: 5px;
+	margin-bottom: 25px;
+	text-transform: uppercase;
+}
+
+.bigtile {
+	width: 91%;
+	height: 114px;
+	margin: 0 auto;
+	color: white;
+	font-size: 25px;
+	line-height: 30px;
+	text-align: center;
+	font-weight: bold;
+}
+
+.buf2 {
+	height: 25px;
+}
+
+.icon {
+	margin-left: 10%;
+	width: 30%;
+	float: left;
+	height: 114px;
+	text-align: right;
+	vertical-align: middle;
+}
+
+.label {
+	height: 114px;
+	width: 60%;
+	float: left;
+}
+
+.warningmessage {
+	width: 80%;
+	text-align: center;
+	font-size: 13pt;
+	border-radius: 15px;
+	background-color: rgba(240,240,240,0.93);
+	padding: 15px;
+	position: absolute;
+	display: none;
+	margin: 0 auto;
+	top: 195px;
+	left: 0;
+	right: 0;
+}
