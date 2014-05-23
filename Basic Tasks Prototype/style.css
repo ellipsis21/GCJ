@@ -17,7 +17,7 @@ body {
 
 input[type='text'],input[type='tel'],input[type='password'],textarea {
 	border: 1px solid #999999 !important;
-	font-size:24px;
+	font-size:22px;
 	padding: 5px;
 	width: 85%;
 	box-shadow: 2px 2px 2px #D0D0D0;
@@ -515,35 +515,43 @@ a:active.group-5 {
 	text-decoration:none;
 }
 
-a.group-home {
+div.group-home {
 	position:fixed;
 	width:100%;
 	bottom: 0;
-	opacity: 0.75;
 	left: 0;
-	padding: 10px 0;
 	z-index: 99;
 	font-weight: bold;
 	text-transform: uppercase;
-	font-size: 25px;
-	background: #84CBC5;
+	font-size: 18px;
 	font-family: "Source Sans Pro Bold";
 	color: white;
-	border:2px solid #84CBC5;
-	text-decoration:none;
 }
 
-a:hover.group-home {
-	text-decoration:none;
-	opacity: 1;
+.navicon {
+	height: 17px;
 }
 
-a:visited.group-home {
-	text-decoration:none;
+.all, .home {
+	padding: 10px 0;
+	display: inline-block;
+	opacity: 0.75;
+}
+.all {
+	width: 42%;
+	background: #84CBC5;
 }
 
-a:active.group-home {
-	text-decoration:none;
+.home {
+	width: 58%;
+	background: #599b95;
+}
+.group-home a {
+	text-decoration: none;
+	color: white;
+}
+
+.all:hover, .all:active, .home:active, .home:hover {
 	opacity: 1;
 }
 
@@ -609,7 +617,7 @@ td.remove a{
 	background-color: #84CBC5;
 	color: white;
 	font-family: "Source Sans Pro Bold";
-	font-size: 14pt;
+	font-size: 12.5pt;
 }
 
 td.adminname {
@@ -629,4 +637,8 @@ td.adminusername {
 
 .nogroup {
 	font-size: 15pt;
+}
+
+.loginbuffer {
+	margin-top: 200px;
 }

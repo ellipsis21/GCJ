@@ -1,5 +1,4 @@
 <?php 
-
 	session_start(); 
 	$con=mysqli_connect("ggreiner.com","ggreiner_g","volley3","ggreiner_247");
 	// Check connection
@@ -17,6 +16,7 @@
 		$open = false;
 	}
 
+	mysqli_close($con);
 ?>
 <html>
 	<head>
@@ -55,7 +55,6 @@
 					$(".warningmessage").fadeIn().delay(3600).fadeOut();
 				});
 
-
 				$("#current").css('background', color);
 				$("#current").css('border', '2px solid #84CBC5');
 				$("#current .ic").css('-webkit-filter', 'invert(100%)');
@@ -91,8 +90,6 @@
 				$("#current").click(function() {
 					$(".warningmessage").fadeIn().delay(3600).fadeOut();
 				});
-
-
 
 				$("#ask").css('background', color);
 				$("#ask").css('border', '2px solid #84CBC5');

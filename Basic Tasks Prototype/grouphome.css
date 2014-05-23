@@ -4,18 +4,17 @@
 }
 .smalltile {
 	display: inline-block;
-	height: 94px; /* 90 + 2*2 for border */
+	height: 84px; /* 80 + 2*2 for border */
 	width: 30%;
-	font-size: 20px;
+	font-size: 17px;
 	line-height: 25px;
 	font-weight: bold;
 	color: white;
-	box-shadow: 1px 1px 1px #B0B0B0;
 	text-decoration: none;
 }
 
 .buf {
-	height: 20px; /* 90 - 25*2 for each line / 2 */
+	height: 15px; /* 80 - 25*2 for each line / 2 */
 }
 
 #quit {
@@ -34,16 +33,16 @@
 }
 
 #ask {
-	margin-top: 30px;
+	margin-top: 20px;
 	margin-bottom: 10px;
 }
 
 #current {
-	margin-bottom: 30px;
+	margin-bottom: 20px;
 }
 
 .ic {
-	height: 100px;
+	height: 90px;
 	margin: 7px;
 }
 
@@ -68,44 +67,45 @@ a {
 }
 
 .inst {
-	font-size: 17pt;
-	margin-top: 40px;
+	font-size: 13pt;
+	margin-top: 20px;
 }
 
 .groupname {
-	font-size: 25pt;
+	font-size: 20pt;
 	font-family: "Source Sans Pro Bold";
 	margin-top: 5px;
-	margin-bottom: 25px;
+	line-height: 1.2;
+	margin-bottom: 15px;
 	text-transform: uppercase;
 }
 
 .bigtile {
 	width: 90%;
-	height: 114px;
+	height: 104px;
 	margin: 0 auto;
 	color: white;
-	font-size: 29px;
-	line-height: 34px;
+	font-size: 22px;
+	line-height: 30px;
 	text-align: center;
 	font-weight: bold;
 }
 
 .buf2 {
-	height: 21px;
+	height: 20px;
 }
 
 .icon {
 	margin-left: 10%;
 	width: 30%;
 	float: left;
-	height: 114px;
+	height: 104px;
 	text-align: right;
 	vertical-align: middle;
 }
 
 .label {
-	height: 114px;
+	height: 104px;
 	width: 60%;
 	float: left;
 }
@@ -113,14 +113,15 @@ a {
 .warningmessage {
 	width: 80%;
 	text-align: center;
-	font-size: 15pt;
+	font-size: 13pt;
 	border-radius: 15px;
-	background-color: rgba(240,240,240,0.93);
+	background-color: rgba(255,255,255,0.93);
 	padding: 15px;
 	position: absolute;
+	box-shadow: 2px 2px 2px #C0C0C0;
 	display: none;
 	margin: 0 auto;
 	left: 0;
 	right: 0;
-	bottom: 80px;
+	bottom: 20px;
 }

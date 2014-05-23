@@ -19,6 +19,8 @@ if (mysqli_connect_errno()) {
 		<link rel="stylesheet" type="text/css" href="style.css">
 		<link rel="stylesheet" type="text/css" href="questions.css">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+		<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 	</head>
 	<body>
 		<form id="myform" name="messager" action="message.php" enctype="multipart/form-data" method="post" style = "display: inline-block; text-align: center;">
@@ -28,9 +30,17 @@ if (mysqli_connect_errno()) {
 			<input type='hidden' name='group' value='<?php echo $GroupId ?>' />
 			<input type='hidden' name='id' value='<?php echo $id ?>' />
 			<input type='hidden' name='type' value='YN' />
-			<br><input name = "pic" type="file" accept="image/*" capture="camera" class="button">
-			<br><input name = "video" type="file" accept="video/*" capture="camera" class="button2">
+			<br><div id='image'>ATTACH IMAGE</div><input name = "pic" type="file" accept="image/*" capture="camera" class="hiddeninput" id="picinput">
+			<br><div id='video' class='group'>ATTACH VIDEO</div><input name = "video" type="file" accept="video/*" capture="camera" class="hiddeninput" id='videoinput'>
 			<br><a class="question-1" onclick="document.getElementById('myform').submit();">Send</a>
 		</form>
+		<script>
+			$("#image").click(function(){
+				$("#picinput").trigger("click");
+			});
+			$("#video").click(function(){
+				$("#videoinput").trigger("click");
+			});
+		</script>
 	</body>
 </html>

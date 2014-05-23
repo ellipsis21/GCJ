@@ -18,6 +18,9 @@
 		mysqli_query($con, "DELETE FROM Groups WHERE GroupId = '$GroupId'");
 		mysqli_query($con, "DELETE FROM Members WHERE GroupId = '$GroupId'");
 	}
+	
+	mysqli_close($con);
 
 	header("Location: home.php");
+
 ?>

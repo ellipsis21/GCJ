@@ -68,10 +68,11 @@
 			}
 			echo "</table>\n";
 			echo "<div class='buffer'></div>";
-			echo "<a class='group-home' href='grouphome.php?groupid=".$groupid."'>".$groupname."</a>";
+			echo "<div class='group-home'><div class='home'><a href='grouphome.php?groupid=".$groupid."'><img class='navicon' src='images/home.png'/> GROUP HOME</a></div><div class='all'><a href='home.php'><img class='navicon' src='images/group.png'/> ALL GROUPS </a></div> </div>";
 		?>
 		
 
 
 	</body>
 </html>
+<?php mysqli_close($con); ?>

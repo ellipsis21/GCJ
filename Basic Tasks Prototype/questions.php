@@ -28,7 +28,6 @@
 		echo '<a class="question-1" href="results.php?qId='.$qId.'">Results</a>';
 		echo '<a class="question-2" href="reminder.php?qId='.$qId.'&gId='.$GroupId.'">Send Reminder</a>';
 		echo '<a class="question-5" href="close.php?qId='.$qId.'&gId='.$GroupId.'" style="margin:20px">Close Poll</a>';
-		echo "<a class='group-home' href='grouphome.php?groupid=".$GroupId."'>".$groupname."</a>";				
 		echo "<div class='buffer'></div>";
 	}
 	else {
@@ -36,11 +35,10 @@
 		<h3>Choose a Question Type</h3>
 		<a class="question-1" href="question-1.php?groupid=<?php echo $GroupId ?>">Multiple Choice</a>
 		<a class="question-2" href="question-2.php?groupid=<?php echo $GroupId ?>">Yes/No</a>
-		<a class="question-3" href="question-3.php?groupid=<?php echo $GroupId ?>">Task Assignment</a>
 		<a class="question-4" href="question-4.php?groupid=<?php echo $GroupId ?>">Date Choice</a>
 		<div class='buffer'></div>
 <?php }
-	echo "<a class='group-home' href='grouphome.php?groupid=".$GroupId."'>".$groupname."</a>";
+	echo "<div class='group-home'><div class='home'><a href='grouphome.php?groupid=".$GroupId."'><img class='navicon' src='images/home.png'/> GROUP HOME</a></div><div class='all'><a href='home.php'><img class='navicon' src='images/group.png'/> ALL GROUPS </a></div> </div>";
  ?>
 	</body>
 </html>

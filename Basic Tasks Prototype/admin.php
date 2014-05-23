@@ -62,4 +62,5 @@
 		<div> <?php echo $warning ?> </div>
 		<div class='buffer'></div>
 	</body>
+	<?php mysqli_close($con); ?>
 </html>

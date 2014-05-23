@@ -6,21 +6,15 @@
 		<meta name="viewport" content="width=device-width, target-densitydpi=high-dpi" />
 	</head>
 	<body>
-		<div class="outer">
-		<div class="middle">
-		<div class="inner">
+		<div class="loginbuffer"></div>
 		<div class = "header"><a href="index.php"><img class="logo" src = "images/logo.png" /></a></div>
 		<?php if (!isset($_SESSION['username'])) { ?>
 		<p class = "subheader">An easy way gather data from student groups!</p>
 			<form id="myform" name="input" action="signup.php" enctype='multipart/form-data' method="post" style = "display: inline-block; text-align: center;">
 				<input type='text' maxlength ='30' required name='name' class='textbox' placeholder='Name'>
-				<input type='text' maxlength='10' required name='username' class='textbox' placeholder='Username' autocapitalize="off">
 				<input type='tel' maxlength='10' required name='phonenum' class='textbox' placeholder='Phone Number'>
 				<input type='password' maxlength='10' required name='password' class='textbox' placeholder='Password'>
 			</form>
 			<div><a class="main" onclick="document.getElementById('myform').submit();">Sign Up</a></div>
-		</div>
-		</div>
-		</div>
 	</body>
 </html>

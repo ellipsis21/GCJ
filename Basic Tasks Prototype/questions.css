@@ -16,3 +16,31 @@ input[type='text'], textarea, input[type='tel']  {
 	font-size: 22px;
 	text-align: center;
 }
+
+.hiddeninput {
+	display: none;
+}
+
+#video {
+	width: 180px;
+	padding: 10px 20px;
+	margin: 2px;
+	font-weight: bold;
+	color: white;
+	font-size: 18px;
+	background: #F47264;
+	border:2px solid #F47264;
+	display: inline-block;
+}
+
+#image {
+	width: 180px;
+	padding: 10px 20px;
+	margin: 2px;
+	font-weight: bold;
+	color: white;
+	font-size: 18px;
+	background: #F8D35E;
+	border:2px solid #F8D35E;
+	display: inline-block;
+}

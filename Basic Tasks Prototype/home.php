@@ -21,10 +21,11 @@
 		<div class = "main-header"><a href="home.php"><img class="logo" src = "images/logo.png" /></a></div>
 		<?php
 			$result = mysqli_query($con,"SELECT * FROM Users WHERE UserId='$UserId'");
-			$row = mysqli_fetch_array($result);
-			if ($_SESSION["NewUser"]) {
-				echo '<p>Thanks for signing up, '.$row["Name"].'!</p>';
-			} 
+			if($row = mysqli_fetch_array($result)) {
+				if ($_SESSION["NewUser"]) {
+					echo '<p>Thanks for signing up, '.$row["Name"].'!</p>';
+				} 
+			}
 		?>
 		<h3>Select a student group</h3>
 		<?php
@@ -49,3 +50,4 @@
 
 	</body>
 </html>
+<?php mysqli_close($con); ?>

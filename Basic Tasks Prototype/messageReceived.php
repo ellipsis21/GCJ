@@ -56,6 +56,7 @@
 	}
     header("content-type: text/xml");
     echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
+    mysqli_close($con);
 
     //can have Responce after php code depending on cost of texts
 ?> 

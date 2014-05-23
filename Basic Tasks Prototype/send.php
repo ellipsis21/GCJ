@@ -61,3 +61,4 @@ if (mysqli_connect_errno()) {
 ?>
 	</body>
 </html>
+<?php mysqli_close($con); ?>

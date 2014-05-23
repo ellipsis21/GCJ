@@ -19,6 +19,8 @@ if (mysqli_connect_errno()) {
 		<link rel="stylesheet" type="text/css" href="style.css">
 		<link rel="stylesheet" type="text/css" href="questions.css">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+		<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 		<script language="javascript">
 			function scroll() {
 				window.scrollTo(0,0);
@@ -50,9 +52,17 @@ if (mysqli_connect_errno()) {
 			<input type='hidden' name='type' value='MC' />
 			<a class='question-5'onclick='AddResOpt()'>Add Option</a>
 			<br>
-			<br><input name = "pic" type="file" accept="image/*" capture="camera" class="button">
-			<br><input name = "video" type="file" accept="video/*" capture="camera" class="button2">
+			<br><div id='image'>ATTACH IMAGE</div><input name = "pic" type="file" accept="image/*" capture="camera" class="hiddeninput" id="picinput">
+			<br><div id='video' class='group'>ATTACH VIDEO</div><input name = "video" type="file" accept="video/*" capture="camera" class="hiddeninput" id='videoinput'>
 			<br><a class="question-1" onclick="document.getElementById('myform').submit();">Send</a>
 		</form>
+		<script>
+			$("#image").click(function(){
+				$("#picinput").trigger("click");
+			});
+			$("#video").click(function(){
+				$("#videoinput").trigger("click");
+			});
+		</script>
 	</body>
 </html>

@@ -16,6 +16,8 @@
 	$row = mysqli_fetch_array($result);
 	$UserId = $row["UserId"];
 
+	mysqli_close($con);
+
 	session_start(); 
 	$_SESSION['UserId'] = $UserId;
 	$_SESSION['NewUser'] = True;

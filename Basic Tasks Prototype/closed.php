@@ -35,10 +35,10 @@
 			echo '<br>';
 		}
 	}
-	else echo "<h3>No Closed Questions for $groupname</h3>\n";
+	else echo "<h3>$groupname has not asked any question before</h3>\n";
 ?>
 	<div class="buffer"></div>
-	<?php echo "<a class='group-home' href='grouphome.php?groupid=".$GroupId."'>".$groupname."</a>" ?>
+	<?php echo "<div class='group-home'><div class='home'><a href='grouphome.php?groupid=".$GroupId."'><img class='navicon' src='images/home.png'/> GROUP HOME</a></div><div class='all'><a href='home.php'><img class='navicon' src='images/group.png'/> ALL GROUPS </a></div> </div>"; ?>
 	</body>
 </html>
 <?php mysqli_close($con); ?>
