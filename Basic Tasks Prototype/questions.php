@@ -35,7 +35,7 @@
 		<h3>Choose a Question Type</h3>
 		<a class="question-1" href="question-1.php?groupid=<?php echo $GroupId ?>">Multiple Choice</a>
 		<a class="question-2" href="question-2.php?groupid=<?php echo $GroupId ?>">Yes/No</a>
-		<a class="question-4" href="question-4.php?groupid=<?php echo $GroupId ?>">Date Choice</a>
+		<a class="question-3" href="question-4.php?groupid=<?php echo $GroupId ?>">Date Choice</a>
 		<div class='buffer'></div>
 <?php }
  ?>

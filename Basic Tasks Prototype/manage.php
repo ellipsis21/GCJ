@@ -69,7 +69,7 @@
 			echo "</table>\n";
 			echo "<div class='buffer'></div>";
  	?>
-	<div class='group-home'><div class='home' onclick="location.href='grouphome.php?groupid=$groupid';"><img class='navicon' src='images/home.png'/> GROUP HOME</div><div class='all' onclick="location.href='home.php';"><img class='navicon' src='images/group.png'/> ALL GROUPS </div> </div>";
+	<div class='group-home'><div class='home' onclick="location.href='grouphome.php?groupid=$groupid';"><img class='navicon' src='images/home.png'/> GROUP HOME</div><div class='all' onclick="location.href='home.php';"><img class='navicon' src='images/group.png'/> ALL GROUPS </div> </div>
 		
 
 
