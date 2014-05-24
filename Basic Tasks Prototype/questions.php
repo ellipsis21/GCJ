@@ -38,8 +38,9 @@
 		<a class="question-4" href="question-4.php?groupid=<?php echo $GroupId ?>">Date Choice</a>
 		<div class='buffer'></div>
 <?php }
-	echo "<div class='group-home'><div class='home'><a href='grouphome.php?groupid=".$GroupId."'><img class='navicon' src='images/home.png'/> GROUP HOME</a></div><div class='all'><a href='home.php'><img class='navicon' src='images/group.png'/> ALL GROUPS </a></div> </div>";
  ?>
+ 	<div class='group-home'><div class='home' onclick="location.href='grouphome.php?groupid=$GroupId';"><img class='navicon' src='images/home.png'/> GROUP HOME</div><div class='all' onclick="location.href='home.php';"><img class='navicon' src='images/group.png'/> ALL GROUPS </div> </div>
+
 	</body>
 </html>
 <?php mysqli_close($con); ?>

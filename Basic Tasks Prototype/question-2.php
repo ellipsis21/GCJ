@@ -26,7 +26,7 @@ if (mysqli_connect_errno()) {
 		<form id="myform" name="messager" action="message.php" enctype="multipart/form-data" method="post" style = "display: inline-block; text-align: center;">
 			<div class = "main-header"><a href="home.php"><img class="logo" src = "images/logo.png" /></a></div>
 			<h3>Yes/No Question To: <?php echo $groupname ?></h3>
-			<input type='text' id='question' name='question' class='textbox' placeholder='Question' />
+			<textarea form="myform" id='question' name='question' class='textbox' placeholder='Question' rows='3'></textarea>
 			<input type='hidden' name='group' value='<?php echo $GroupId ?>' />
 			<input type='hidden' name='id' value='<?php echo $id ?>' />
 			<input type='hidden' name='type' value='YN' />

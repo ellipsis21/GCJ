@@ -39,7 +39,7 @@ if (mysqli_connect_errno()) {
 		<form id="myform" name="messager" action="message.php" enctype="multipart/form-data" method="post" style = "display: inline-block; text-align: center;">
 			<div class = "main-header"><a href="home.php"><img class="logo" src = "images/logo.png" /></a></div>
 			<h3>Multiple Choice Question To: <?php echo $groupname ?></h3>
-			<input type='text' id='question' name='question' class='textbox' placeholder='Question' />
+			<textarea form="myform" id='question' name='question' class='textbox' placeholder='Question' rows='3'></textarea>
 			<h3>Response Options</h3>
 			<input type='text' name='response1' class='textbox' placeholder='Response 1' />
 			<input type='text' name='response2' class='textbox' placeholder='Response 2' />

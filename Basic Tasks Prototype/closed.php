@@ -38,7 +38,6 @@
 	else echo "<h3>$groupname has not asked any question before</h3>\n";
 ?>
 	<div class="buffer"></div>
-	<?php echo "<div class='group-home'><div class='home'><a href='grouphome.php?groupid=".$GroupId."'><img class='navicon' src='images/home.png'/> GROUP HOME</a></div><div class='all'><a href='home.php'><img class='navicon' src='images/group.png'/> ALL GROUPS </a></div> </div>"; ?>
-	</body>
+	<div class='group-home'><div class='home' onclick="location.href='grouphome.php?groupid=$GroupId';"><img class='navicon' src='images/home.png'/> GROUP HOME</div><div class='all' onclick="location.href='home.php';"><img class='navicon' src='images/group.png'/> ALL GROUPS </div> </div>
 </html>
 <?php mysqli_close($con); ?>
