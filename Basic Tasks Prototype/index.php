@@ -6,11 +6,11 @@
     }
 
     $message = "";
-    if (isset($_POST['username']) and $_POST['password']) {
-		$username = mysqli_real_escape_string($con, $_POST['username']);
+    if (isset($_POST['phone']) and $_POST['password']) {
+		$phone = mysqli_real_escape_string($con, $_POST['phone']);
 		$password = mysqli_real_escape_string($con, $_POST['password']);
 
-		$result = mysqli_query($con,"SELECT * FROM Users WHERE Username = '$username' AND Password = '$password'");
+		$result = mysqli_query($con,"SELECT * FROM Users WHERE Phone = '$phone' AND Password = '$password'");
 		$row = mysqli_fetch_array($result);
 
 		if ($row == null) {
@@ -34,14 +34,17 @@
 	</head>
 	<body>
 		<div class="loginbuffer"></div>
-		<div class = "header"><a href="index.php"><img class="logo" src = "images/logo.png" /></a></div>
-		<p class = "subheader">An easy way gather data from student groups!</p>
-			<div class="warning"><?php echo $message ?></div>
-			<form id="myform" name="input" action="index.php" enctype='multipart/form-data' method="post" style = "display: inline-block; text-align: center;">
-				<input type='text' name='username' class='textbox' placeholder='Username' autocapitalize="off" required>
-				<input type='password' name='password' class='textbox' placeholder='Password' required>
-				<div><a class="main" onclick="document.getElementById('myform').submit();">Sign In</a>
-				<a class="secondary" href="signup.html">Sign Up</a></div>
-			</form>
+		<div class="header"><a href="index.php"><img class="logo" src = "images/logo.png" /></a></div>
+		<div class="subheader">An easy way for group leaders to gather data!</div>
+		<div class="home-1">Send Questions</div>
+		<div class="home-sub">Ask members using various question types</div>
+		<div class="home-2">Get Responses</div>
+		<div class="home-sub">Members receive a text with a quick response option</div>
+		<div class="home-3">See Results</div>
+		<div class="home-sub">Results organized into graphs based on question type</div>
+		<div>
+			<a class="main" href="signup.html">Sign Up</a>
+			<a class="secondary" href="signin.html">Sign In</a>
+		</div>
 	</body>
 </html>

@@ -6,13 +6,12 @@
     }
 
 	$name = mysqli_real_escape_string($con, $_POST['name']);
-	$username = mysqli_real_escape_string($con, $_POST['username']);
 	$phone = mysqli_real_escape_string($con, $_POST['phonenum']);
 	$password = mysqli_real_escape_string($con, $_POST['password']);
 
-	$result = mysqli_query($con,"INSERT INTO Users (Name, Username, Phone, Password) VALUES('$name', '$username', '$phone', '$password')");
+	$result = mysqli_query($con,"INSERT INTO Users (Name, Phone, Password) VALUES('$name', '$phone', '$password')");
 
-	$result = mysqli_query($con,"SELECT UserId FROM Users WHERE Username = '$username'");
+	$result = mysqli_query($con,"SELECT UserId FROM Users WHERE Phone = '$phone'");
 	$row = mysqli_fetch_array($result);
 	$UserId = $row["UserId"];
 

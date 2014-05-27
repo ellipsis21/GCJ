@@ -34,8 +34,8 @@
 		<div class = 'groupname'><?php echo $groupname?></div>
 
 
-		<div class='bigtile' id ='ask'><div class='icon'><img class="ic" src = "images/questicon.png" /></div><div class='label'><div class='buf2'></div>Ask<br/>Question</div></div>
-		<div class='bigtile' id ='current'><div class='icon'><img class="ic" src = "images/graphicon.png" /></div><div class='label'><div class='buf2'></div>Current<br/>Question</div></div>
+		<div class='bigtile' id ='ask'><div class='icon'><img class="ic" src = "images/questicon2.png" /></div><div class='label'><div class='buf2'></div>Ask<br/>Question</div></div>
+		<div class='bigtile' id ='current'><div class='icon'><img class="ic" src = "images/graphicon2.png" /></div><div class='label'><div class='buf2'></div>Current<br/>Question</div></div>
 
 		<div id='secondline'>
 			<div class='smalltile' id ='past' onclick="window.location='closed.php?groupid=<?php echo $GroupId ?>'"><div class='buf'></div>Past<br/>Questions</div>
