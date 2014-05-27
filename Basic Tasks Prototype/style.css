@@ -678,3 +678,7 @@ td.adminusername {
 .loginbuffer {
 	margin-top: 20px;
 }
+
+#share {
+	font-size: 15px;
+}

@@ -68,9 +68,6 @@
 
 		<h3 style="text-align: center;">Current Members of <br/> <?php echo $groupname ?></h3>
 		<?php
-			if (mysqli_num_rows($result) == 0) {
-				echo "<div class='nogroup'> You do not have any group member.</div>";
-			}
 			echo "<table class='mytable' align='center' style='text-align:center' cellpadding='5'>\n";
 			echo "<tr>\n";
 			echo "<th>Name</th>\n";
