@@ -6,11 +6,11 @@
     }
 
     $message = "";
-    if (isset($_POST['username']) and $_POST['password']) {
-		$username = mysqli_real_escape_string($con, $_POST['username']);
+    if (isset($_POST['phone']) and $_POST['password']) {
+		$phone = mysqli_real_escape_string($con, $_POST['phone']);
 		$password = mysqli_real_escape_string($con, $_POST['password']);
 
-		$result = mysqli_query($con,"SELECT * FROM Users WHERE Username = '$username' AND Password = '$password'");
+		$result = mysqli_query($con,"SELECT * FROM Users WHERE Phone = '$phone' AND Password = '$password'");
 		$row = mysqli_fetch_array($result);
 
 		if ($row == null) {
