@@ -63,7 +63,8 @@
 			<a class="question-1" onclick="document.getElementById('myform').submit();"><?php echo $button ?></a>
 		</form>
 		<?php if (!isset($_GET['share'])) { ?>
-		<h3>Share Access to Signup</h3>
+		<div class='heading'>Share Access to Signup</div>
+		<div class='subheading'>Send the following link to your members <br/> for them to add themselves to the group.</div>
 		<input id="share" class="textbox" type="text" value="<?php echo $curUrl ?>" onFocus="this.selectionStart=0; this.selectionEnd=this.value.length;" onTouchEnd="this.selectionStart=0; this.selectionEnd=this.value.length;" onMouseUp="return false"/>
 
 		<h3 style="text-align: center;">Current Members of <br/> <?php echo $groupname ?></h3>

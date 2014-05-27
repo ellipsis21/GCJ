@@ -16,12 +16,11 @@ body {
 }
 
 input[type='text'],input[type='tel'],input[type='password'],textarea {
-	border: 1px solid #999999 !important;
+	border: 1px solid #999999;
 	font-size:22px;
 	padding: 5px;
 	width: 85%;
 	box-shadow: 2px 2px 2px #D0D0D0;
-	border-radius: 0 !important;
 	font-family: 'Pontano Sans';
 }
 
@@ -681,4 +680,22 @@ td.adminusername {
 
 #share {
 	font-size: 15px;
+	border-radius: 20px;
+	padding-left: 15px;
+	padding-right: 15px;
+	width: 95%;
+	border: 1px solid #84CBC5;
+	text-overflow:ellipsis;
+}
+
+.heading {
+	font-size: 18pt;
+	margin: 5px;
+	text-transform: uppercase;
+	font-family: "Source Sans Pro Bold";
+}
+
+.subheading {
+	font-size: 15px;
+	margin: 10px;
 }
