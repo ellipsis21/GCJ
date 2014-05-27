@@ -33,14 +33,15 @@
 		<meta name="viewport" content="width=device-width, target-densitydpi=high-dpi" />
 	</head>
 	<body>
-		<div class = "header"><a href="index.php"><img class="logo" src = "images/logo.png" /></a></div>
-		<div class = "subheader">An easy way gather data from student groups!</div>
+		<div class="loginbuffer"></div>
+		<div class="header"><a href="index.php"><img class="logo" src = "images/logo.png" /></a></div>
+		<div class="subheader">An easy way gather data from student groups!</div>
 		<div class="home-1">Send Questions</div>
-		<div class = "home-sub">Ask members using various question types</div>
+		<div class="home-sub">Ask members using various question types</div>
 		<div class="home-2">Get Responses</div>
-		<div class = "home-sub">Members receive a text with a quick response option</div>
+		<div class="home-sub">Members receive a text with a quick response option</div>
 		<div class="home-3">See Results</div>
-		<div class = "home-sub">Results organized into graphs based on question type</div>
+		<div class="home-sub">Results organized into graphs based on question type</div>
 		<div>
 			<a class="main" href="signup.html">Sign Up</a>
 			<a class="secondary" href="signin.html">Sign In</a>
