@@ -112,10 +112,7 @@
 		
 		$body= "";
 		
-		if($type != "TC") $body.=$question.": "; 
-		if($url != "") $body.= $url;
-		if($vid != "") $body.= "\n$vid";
-		$body.= "\n\n";
+		$body.=$question.": \n\n"; 
 		if ($type == 'YN') {
 			$body.= "Respond 'y' for Yes and 'n' for No.\n\n";
 		}
@@ -140,11 +137,12 @@
 			$userName = $row['Name'];
 		}
 		
-		if ($type != 'TC')$body = "Question from $userName: \n\n".$body;
-		else $body = "$userName wants you to sign up for a task: \n\n".$body;
+		$body = "Question from $userName using TellMeNow: \n\n".$body;
 		if ($type == 'TD') $body.= " (Enter every date that works in the format '1,3,5')";
 		elseif ($type == 'YN') $body.= " (You can enter a comment after your response)";
 		else $body .= " (You can enter a comment after your # response).";
+		if($url != "") $body.= "\nPic: $url";
+		if($vid != "") $body.= "\nVid: $vid";
 
 		if (!empty($numbers)) {
 			foreach ($numbers as $n) {
