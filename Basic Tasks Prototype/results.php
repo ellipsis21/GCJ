@@ -47,7 +47,7 @@
 		}
 
 		$comments = array();
-		$result = mysqli_query($con,"SELECT * FROM Members NATURAL JOIN (SELECT * FROM Responses WHERE QuestionId = $QuestionId) AS Responses2 WHERE GroupId = '$GroupId'");
+		$result = mysqli_query($con,"SELECT * FROM Members NATURAL JOIN (SELECT * FROM Responses WHERE QuestionId = $QuestionId AND Phone IN (SELECT Phone FROM Members WHERE GroupId = $GroupId)) AS Responses2 WHERE GroupId = '$GroupId'");
 
 		while($row = mysqli_fetch_array($result)) {
 			$response = $row["Response"];
@@ -212,6 +212,11 @@
 	}
 
 
+	if (d3.max(data) == 0) {
+		$("#members").css("display", "none");
+	}
+
+
 	if (type == 'TC') {
 		$(".chart").remove();
 		$("#members").css('display', 'none');
@@ -299,51 +304,55 @@
 	}
 
 	else if (type == 'YN') {
+		if (d3.max(data) == 0) {
+			$(".chart").css("display", "none");
+	    	$("#summary").html("<b> No one has voted yet. </b>");
+		} else {
+			r = window.innerWidth/2.5;
 
-		r = window.innerWidth/2.5;
-
-		move = (0.89 * window.innerWidth)/2;
-
-
-		var chart = d3.select(".chart")
-			.data([data])
-			.attr("width", '95%')
-			.attr("height", 2*r)
-			.append("svg:g")
-				.attr("class", "piechart")
-				.attr("transform", "translate(" + move + "," + r + ")");
+			move = (0.89 * window.innerWidth)/2;
 
 
-		var arc = d3.svg.arc()        
-        	.outerRadius(r);
- 
-    	var pie = d3.layout.pie()          
-        	.value(function(d) { return d; });   
- 
-	    var arcs = chart.selectAll("g.slice")
-	        .data(pie)
-	        .enter()                          
-	            .append("svg:g")               
-	                .attr("class", "slice");   
+			var chart = d3.select(".chart")
+				.data([data])
+				.attr("width", '95%')
+				.attr("height", 2*r)
+				.append("svg:g")
+					.attr("class", "piechart")
+					.attr("transform", "translate(" + move + "," + r + ")");
+
+
+			var arc = d3.svg.arc()        
+	        	.outerRadius(r);
 	 
-	        arcs.append("svg:path")
-	                .attr("fill", function(d, i) { return colors[i]; } )
-	                .attr("d", arc);                                  
+	    	var pie = d3.layout.pie()          
+	        	.value(function(d) { return d; });   
 	 
-	        arcs.append("svg:text")
-	                .attr("transform", function(d) {
-	                d.innerRadius = 0;
-	                d.outerRadius = r;
-	                return "translate(" + arc.centroid(d) + ")"; 
-	            })
-	            .attr("text-anchor", "middle")  
-	            .text(function(d, i) {
-	            	if (data[i] == 0) return '';
-	            	return options[i] + "(" + data[i] + ")"; })
-	            	.attr("class", "pielabel"); 
+		    var arcs = chart.selectAll("g.slice")
+		        .data(pie)
+		        .enter()                          
+		            .append("svg:g")               
+		                .attr("class", "slice");   
+		 
+		        arcs.append("svg:path")
+		                .attr("fill", function(d, i) { return colors[i]; } )
+		                .attr("d", arc);                                  
+		 
+		        arcs.append("svg:text")
+		                .attr("transform", function(d) {
+		                d.innerRadius = 0;
+		                d.outerRadius = r;
+		                return "translate(" + arc.centroid(d) + ")"; 
+		            })
+		            .attr("text-anchor", "middle")  
+		            .text(function(d, i) {
+		            	if (data[i] == 0) return '';
+		            	return options[i] + "(" + data[i] + ")"; })
+		            	.attr("class", "pielabel"); 
 
-	    var percentage = 100.00 * data[0]/d3.sum(data);
-	    $("#summary").html("<b>" + percentage.toFixed(0) + "%</b> of members voted <b>" + options[0] + "</b>");
+		    var percentage = 100.00 * data[0]/d3.sum(data);
+		    $("#summary").html("<b>" + percentage.toFixed(0) + "%</b> of members voted <b>" + options[0] + "</b>");
+		}
 	}
 
 	else if (type == 'TD') {

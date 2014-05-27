@@ -9,7 +9,12 @@
 	/*
 	$result = mysqli_quety($con,"CREATE TABLE Users(UserId INT NOT NULL AUTO_INCREMENT, PRIMARY KEY(UserId), Phone CHAR(10), Name VARCHAR(30), UNIQUE(Phone), Password VARCHAR(10))");
 	$result = mysqli_query($con,"CREATE TABLE Groups(GroupId INT NOT NULL AUTO_INCREMENT, PRIMARY KEY(GroupId), Name VARCHAR(50))");
-	$result = mysqli_query($con,"CREATE TABLE Members(GroupId INT, Name VARCHAR(30), Phone CHAR(10), PRIMARY KEY(Phone, GroupId, Admin TINYINT(1)))");
+	$result = mysqli_query($con,"CREATE TABLE Members(GroupId INT, Name VARCHAR(30), Phone CHAR(10), PRIMARY KEY(Phone, GroupId, Status TINYINT(1)))");
+
+	STATUS 1 - Admin
+	STATUS 0 - General Member
+	STATUS 2 - Member who quit
+
 	$result = mysqli_query($con,"CREATE TABLE Questions(QuestionId INT NOT NULL AUTO_INCREMENT, PRIMARY KEY(QuestionId), Type CHAR(2), Question VARCHAR(200), PicPath VARCHAR(200), VidPath VARCHAR(200), GroupId INT, UserId INT, Open TINYINT(1))");
 	$result = mysqli_query($con,"CREATE TABLE Options(QuestionId INT, OptionNum INT, OptionText VARCHAR(100), Max INT)");
 	$result = mysqli_query($con,"CREATE TABLE Responses(QuestionId INT, Phone CHAR(10), Response VARCHAR(100))");
@@ -28,15 +33,11 @@
 	}
 	*/
 
-	$result = mysqli_query($con,"DELETE FROM Members Where Phone ='6502836850'");
-
-
-	$result = mysqli_query($con, "SELECT * FROM Members");
+	$result = mysqli_query($con, "SELECT * FROM Members WHERE GroupId = 54");
 
 	while($row = mysqli_fetch_array($result)) {
 	  print_r($row);
-	  echo "<br>";
 	}
-
+	
 	mysqli_close($con);
 ?>

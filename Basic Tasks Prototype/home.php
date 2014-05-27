@@ -29,9 +29,12 @@
 		?>
 		<h3>Select a student group</h3>
 		<?php
-			$result = mysqli_query($con,"SELECT * FROM Users WHERE UserId='$UserId'");
-			if($row = mysqli_fetch_array($result)) {
-				$result = mysqli_query($con,"SELECT * FROM Groups NATURAL JOIN Admins WHERE UserId = '$UserId'");
+			$result = mysqli_fetch_array(mysqli_query($con,"SELECT * FROM Users WHERE UserId='$UserId'"));
+			$phone = $result["Phone"];
+
+			if($phone) {
+				$result = mysqli_query($con,"SELECT * From Groups WHERE GroupId in (SELECT GroupId from Members WHERE Phone = $phone and Status = 1)");
+
 
 				if (mysqli_num_rows($result) == 0) {
 					echo "<div class='nogroup'>You don't have any groups. <br/> Create one to get started.</div>";

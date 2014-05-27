@@ -21,12 +21,20 @@
 	if (isset($_POST['name'])) {
 		$membername = $_POST['name'];
 		$memberphone = $_POST['number'];
-		mysqli_query($con, "INSERT INTO Members(GroupId,Name,Phone) VALUES ('$groupid','$membername','$memberphone')");
+		mysqli_query($con, "INSERT INTO Members(GroupId,Name,Phone,Status) VALUES ('$groupid','$membername','$memberphone',0)");
 	}
+
+
+	if (isset($_GET['admin'])) {
+		$memberphone = $_GET['admin'];
+		mysqli_query($con, "UPDATE Members SET Status = 1 WHERE Phone='$memberphone' AND GroupId='$groupid'");
+		mysqli_error($con);
+	}
+
 
 	$result = mysqli_fetch_array(mysqli_query($con,"SELECT * FROM Groups WHERE GroupId='$groupid'"));
 	$groupname = $result['Name'];
-	$result = mysqli_query($con,"SELECT * FROM Members WHERE GroupId='$groupid'");
+	$result = mysqli_query($con,"SELECT * FROM Members WHERE GroupId='$groupid' ORDER BY Status");
 	
 	$curUrl = "http://ggreiner.com/cs247/bp/manage.php?groupid=$groupid&share";
 	
@@ -74,16 +82,24 @@
 			echo "<th>Name</th>\n";
 			echo "<th>Phone</th>\n";
 			echo "<th>Remove</th>\n";
+			echo "<th>Make Admin</th>\n";
 			echo "</tr>\n";
 			while ($row = mysqli_fetch_array($result)) {
 				echo "<tr>\n";
 				echo "<td class='name'>".$row["Name"]."</td>";
 				echo "<td class='phone'>".$row["Phone"]." </td>";
-				echo "<td class='remove'>";
-				if ($row["Phone"] != $userphone) {
+				if ($row["Status"] != 1) {
+					echo "<td class='remove'>";
 					echo "<a href='manage.php?groupid=".$groupid."&remove=".$row['Phone']."'>x</a>";
+					echo "</td>";
+
+					echo "<td class='admin'>";
+					echo "<a href='manage.php?groupid=".$groupid."&admin=".$row['Phone']."'>O</a>";
+					echo "</td>";
+				} else {
+					echo "<td colspan='2' class='adm'>IS ADMIN</td>";
 				}
-				echo "</td>";
+
 				echo "</tr>\n";
 			}
 			echo "</table>\n";
