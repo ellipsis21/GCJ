@@ -33,15 +33,17 @@
 		<meta name="viewport" content="width=device-width, target-densitydpi=high-dpi" />
 	</head>
 	<body>
-		<div class="loginbuffer"></div>
 		<div class = "header"><a href="index.php"><img class="logo" src = "images/logo.png" /></a></div>
-		<p class = "subheader">An easy way gather data from student groups!</p>
-			<div class="warning"><?php echo $message ?></div>
-			<form id="myform" name="input" action="index.php" enctype='multipart/form-data' method="post" style = "display: inline-block; text-align: center;">
-				<input type='text' name='username' class='textbox' placeholder='Username' autocapitalize="off" required>
-				<input type='password' name='password' class='textbox' placeholder='Password' required>
-				<div><a class="main" onclick="document.getElementById('myform').submit();">Sign In</a>
-				<a class="secondary" href="signup.html">Sign Up</a></div>
-			</form>
+		<div class = "subheader">An easy way gather data from student groups!</div>
+		<div class="home-1">Send Questions</div>
+		<div class = "home-sub">Ask members using various question types</div>
+		<div class="home-2">Get Responses</div>
+		<div class = "home-sub">Members receive a text with a quick response option</div>
+		<div class="home-3">See Results</div>
+		<div class = "home-sub">Results organized into graphs based on question type</div>
+		<div>
+			<a class="main" href="signup.html">Sign Up</a>
+			<a class="secondary" href="signin.html">Sign In</a>
+		</div>
 	</body>
 </html>

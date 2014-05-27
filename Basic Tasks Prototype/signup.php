@@ -12,7 +12,7 @@
 
 	$result = mysqli_query($con,"INSERT INTO Users (Name, Username, Phone, Password) VALUES('$name', '$username', '$phone', '$password')");
 
-	$result = mysqli_query($con,"SELECT UserId FROM Users WHERE Username = '$username'");
+	$result = mysqli_query($con,"SELECT UserId FROM Users WHERE Phone = '$phone'");
 	$row = mysqli_fetch_array($result);
 	$UserId = $row["UserId"];
 

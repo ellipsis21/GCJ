@@ -105,7 +105,7 @@ h4 {
 
 a.secondary {
 	display: inline-block;
-	width: 80px;
+	width: 75px;
 	padding: 10px 20px;
 	margin: 10px;
 	font-weight: bold;
@@ -230,6 +230,42 @@ a:active.main {
 	color: #F47264;
 	background: white;
 	text-decoration:none;
+}
+
+.home-1 {
+	color: #84CBC5;
+	font-size: 24px;
+	font-weight: bold;
+	text-align: center;
+	margin: 20px;
+	margin-bottom: 0px;
+}
+.home-sub {
+	padding-top: 0;
+	margin-left: 20%;
+	margin-right: 20%;
+	margin-top: 0;
+	margin-bottom: 20px;
+	font-size: 80%;
+	width: 60%;
+}
+
+.home-2 {
+	color: #F8D35E;
+	font-size: 24px;
+	font-weight: bold;
+	text-align: center;
+	margin: 20px;
+	margin-bottom: 0px;
+}
+
+.home-3 {
+	color: #F47264;
+	font-size: 24px;
+	font-weight: bold;
+	text-align: center;
+	margin: 20px;
+	margin-bottom: 0px;
 }
 
 .questions {
