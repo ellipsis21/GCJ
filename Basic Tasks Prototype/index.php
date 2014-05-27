@@ -35,7 +35,7 @@
 	<body>
 		<div class="loginbuffer"></div>
 		<div class="header"><a href="index.php"><img class="logo" src = "images/logo.png" /></a></div>
-		<div class="subheader">An easy way gather data from student groups!</div>
+		<div class="subheader">An easy way for group leaders to gather data!</div>
 		<div class="home-1">Send Questions</div>
 		<div class="home-sub">Ask members using various question types</div>
 		<div class="home-2">Get Responses</div>
