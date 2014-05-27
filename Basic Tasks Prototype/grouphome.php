@@ -26,7 +26,15 @@
 		<meta name="viewport" content="width=device-width, target-densitydpi=high-dpi" />
 		<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 		<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+		<script>
+			if (document.images) {
+				img1 = new Image();
+				img2 = new Image();
 
+				img1.src = "images/questicon3.png";
+				img2.src = "images/graphicon3.png";
+			}
+		</script>
 	</head>
 	<body>
 		<div class = "main-header"><a href="home.php"><img class="logo" src = "images/logo.png" /></a></div>
@@ -57,7 +65,6 @@
 
 				$("#current").css('background', color);
 				$("#current").css('border', '2px solid #84CBC5');
-				$("#current .ic").css('-webkit-filter', 'invert(100%)');
 				$("#current").click(function() {
 					window.location='questions.php?groupid=<?php echo $GroupId ?>';
 				});
@@ -70,17 +77,16 @@
 
 
 				function react2() {
-					$("#current .ic").css('-webkit-filter','none');
+					$("#current .ic").attr('src','images/graphicon3.png');
 					$("#current").css('background','white');
 					$("#current").css('color',color);
-					console.log('weird');
 				} 
 
 				$("#current").mouseover(react2);
 				$("#current").click(react2);
 
 				$("#current").mouseout(function() {
-					$("#current .ic").css('-webkit-filter','invert(100%)');
+					$("#current .ic").attr('src','images/graphicon.png');
 					$("#current").css('background',color);
 					$("#current").css('color','white');
 				});				
@@ -93,7 +99,6 @@
 
 				$("#ask").css('background', color);
 				$("#ask").css('border', '2px solid #84CBC5');
-				$("#ask .ic").css('-webkit-filter','invert(100%)');
 				$("#ask").click(function() {
 					window.location='questions.php?groupid=<?php echo $GroupId ?>';
 				});
@@ -105,7 +110,7 @@
 
 
 				function react() {
-					$("#ask .ic").css('-webkit-filter','none');
+					$("#ask .ic").attr('src','images/questicon3.png');
 					$("#ask").css('background','white');
 					$("#ask").css('color',color);
 				} 
@@ -113,9 +118,9 @@
 				$("#ask").mouseover(react);
 				$("#ask").click(react);
 				$("#ask").mouseout(function() {
-					$("#ask .ic").css('-webkit-filter','invert(100%)');
 					$("#ask").css('background',color);
 					$("#ask").css('color','white');
+					$("#ask .ic").attr('src','images/questicon.png');
 				});				
 			}
 		</script>
