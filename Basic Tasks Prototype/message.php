@@ -143,10 +143,10 @@
 		else $body .= " (You can enter a comment after your # response).";
 		if($url != "") $body.= "\nPic: $url";
 		if($vid != "") $body.= "\nVid: $vid";
-
+		
 		if (!empty($numbers)) {
 			foreach ($numbers as $n) {
-				$sms = $client->account->messages->sendMessage("+17542108538", $n, $body);
+				if (strlen($n) == 12) $sms = $client->account->messages->sendMessage("+17542108538", $n, $body);
 			}
 		}
 	}
