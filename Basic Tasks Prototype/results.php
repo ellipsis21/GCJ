@@ -413,7 +413,7 @@
 	
 
     </script>
-	<?php if ($open == 0) { ?>
+	<?php if ($open == 0 && !isset($_GET['share'])) { ?>
 		<h3>Share Results</h3>
 		<input id="share" class="textbox" type="text" value="<?php echo $curUrl ?>" onFocus="this.selectionStart=0; this.selectionEnd=this.value.length;" onTouchEnd="this.selectionStart=0; this.selectionEnd=this.value.length;" onMouseUp="return false"/>
 	<?php } ?>
@@ -429,9 +429,10 @@
 			}
 		}
 	?>
+	<?php if (!isset($_GET['share'])) { ?>
 	<div class='buffer'/>
 	<div class='group-home'><div class='home' onclick="location.href='grouphome.php?groupid=<?php echo $GroupId;?>';"><img class='navicon' src='images/home.png'/> GROUP HOME</div><div class='all' onclick="location.href='home.php';"><img class='navicon' src='images/group.png'/> ALL GROUPS </div> </div>
-
+	<?php } ?>
 
 
 
