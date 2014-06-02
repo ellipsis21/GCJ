@@ -25,10 +25,6 @@
 			
 			if($column = mysqli_fetch_array($result)) {
 				$qId= $column['QuestionId'];
-				$rQuery = mysqli_query($con,"SELECT * FROM Responses WHERE Phone='$number' AND QuestionID =$qId");
-				if (mysqli_fetch_array($rQuery) {
-					$message = substr($message, strpos($message, ' ') + 1);
-				}
 				if(!mysqli_query($con,"INSERT INTO Responses (QuestionID, Phone, Response) VALUES ('$qId', '$number', '$message')")) echo "failure! " . mysqli_error($con);
 			}
 		}
