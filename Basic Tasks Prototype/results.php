@@ -20,9 +20,10 @@
 
 	if(isset($_GET["qId"])) {
 		$QuestionId = $_GET["qId"];
-
+		$curUrl = "http://ggreiner.com/cs247/bp/results.php?qId=$QuestionId&share";
 		$result = mysqli_query($con,"SELECT * FROM Questions WHERE QuestionId = $QuestionId");
 		$question = mysqli_fetch_array($result);
+		$open = $question["Open"];
 
 		$GroupId = $question["GroupId"];
 		$result = mysqli_query($con,"SELECT * FROM Groups WHERE GroupId = $GroupId");
@@ -412,6 +413,10 @@
 	
 
     </script>
+	<?php if ($open == 0) { ?>
+		<h3>Share Results</h3>
+		<input id="share" class="textbox" type="text" value="<?php echo $curUrl ?>" onFocus="this.selectionStart=0; this.selectionEnd=this.value.length;" onTouchEnd="this.selectionStart=0; this.selectionEnd=this.value.length;" onMouseUp="return false"/>
+	<?php } ?>
 
     <div class = "commentheader"> Comments </div>
 
