@@ -56,7 +56,7 @@
 			$comment = $response;
 
 			if ($question["Type"] == 'YN') {
-				if (preg_match('/(^yes|no|Yes|No|[YyNn])\s*(.*)/',$response, $matches)) {
+				if (preg_match('/^(yes|no|Yes|No|[YyNn])\s*(.*)/',$response, $matches)) {
 					$res = strtolower($matches[1]);
 					$num = 'no';
 					if ($res == "y" || $res == "yes") {
