@@ -1,0 +1,34 @@
+.box {
+	position: fixed;
+	top: 250px;
+	width: 90%;
+	left: 5%;
+	background: rgba(245,245,245,0.93);
+	border-radius: 10px;
+	padding: 20px 0px 20px 0px;
+	box-shadow: 2px 2px 2px #C0C0C0;
+	display: none;
+}
+
+.confirmquestion {
+	font-size: 12.5pt;
+	margin: 0px 15px 15px 15px;
+}
+
+#yes {
+	background: #84CBC5;
+	color: white;
+	font-size: 17pt;
+	font-family: 'Source Sans Pro Bold';
+	margin: 10px 25px;
+	padding: 3px 30px;
+}
+
+#no {
+	background: #F47264;
+	color: white;
+	font-size: 17pt;
+	font-family: 'Source Sans Pro Bold';
+	margin: 10px 25px;
+	padding: 3px 30px;
+}

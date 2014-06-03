@@ -17,7 +17,7 @@
     //assumes phone number is unique
     if($row = mysqli_fetch_array($res)) {
 		if ($message == "STOP") {
-			$res = mysqli_query($con,"DELETE * FROM Members WHERE Phone='$number'");
+			$res = mysqli_query($con,"DELETE FROM Members WHERE Phone='$number'");
 		}
 		else {
 			$GroupId= $row['GroupId'];

@@ -647,12 +647,9 @@ td.remove, td.admin {
 	text-transform: uppercase;
 	font-size: 15pt;
 	font-family: "Source Sans Pro Bold";
+	color: #F47264;
 }
 
-td.remove a, td.admin a{
-	color: #F47264;
-	text-decoration: none;
-}
 
 .mytable th {
 	background-color: #84CBC5;
