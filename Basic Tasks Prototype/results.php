@@ -470,7 +470,19 @@
 
 	<?php if ($open == 0 && !isset($_GET['share'])) { ?>
 		<div class='heading2'>Share Results</div>
+		<div class='sub'>Copy and Paste as Link<div>
 		<input id="share" class="textbox" type="text" value="<?php echo $curUrl ?>" onFocus="this.selectionStart=0; this.selectionEnd=this.value.length;" onTouchEnd="this.selectionStart=0; this.selectionEnd=this.value.length;" onMouseUp="return false"/>
+		<div class='sub'>Send Link via SMS</div>
+			<form id='myform' method="post" action="share.php">
+			<textarea id='msg' form="myform" name='message' placeholder='Enter Additional Message'></textarea>
+			</textarea>
+			<input name='gId' type = 'hidden' value='<?php echo $GroupId?>'>
+			<input name='qId' type = 'hidden' value='<?php echo $QuestionId ?>'>
+			<input type='submit' id='submitbut' value='Send Text'/>
+			</form>
+		</div>
+
+
 	<?php } ?>
 
 

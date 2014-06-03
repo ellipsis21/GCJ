@@ -75,7 +75,7 @@ svg {
 }
 
 #members {
-	font-size: 13pt;
+	font-size: 12pt;
 	padding: 10px;
 	width: 70%;
 	margin: 12px auto 0px auto;
@@ -90,7 +90,7 @@ svg {
 	width: 85%;
 	margin: 0 auto;
 	margin-top: 15px;
-	font-size: 12pt;
+	font-size: 11.5pt;
 	text-align: left;
 }
 
@@ -102,7 +102,7 @@ svg {
 	font-family: 'Source Sans Pro Bold';
 	padding-left: 10px;
 	padding-right: 10px;
-	font-size: 17pt;
+	font-size: 15pt;
 	background-color: #FEFEFE;
 	margin-right: 10px;
 }
@@ -124,11 +124,34 @@ svg {
 	text-align: center;
 	height: 40px;
 	font-weight: bold;
-	font-size: 13.5pt;
+	font-size: 12.5pt;
 }
 
 #timetable #col0 {
 	text-align: left;
 	font-family: 'Source Sans Pro Bold';
 	box-shadow: none;
+}
+
+.sub {
+	font-size: 14pt;
+	font-weight: bold;
+	margin-top: 10px;
+}
+
+#msg {
+	font-size: 14pt;
+	text-align: center;
+}
+
+#submitbut {
+	width: 180px;
+	padding: 6px 16px;
+	margin: 10px;
+	font-weight: bold;
+	font-size: 18px;
+	background: #84CBC5;
+	color: white;
+	border:2px solid #84CBC5;
+	text-decoration:none;
 }

@@ -129,8 +129,8 @@
 
 		function admin(phone, name) {
 			console.log(name);
-			var prompt = "Are you sure you want to make " + name + " admin? <br/> Admin privilege can't be revoked until the member quits.";
-			$(".confirmquestion").text(prompt);
+			var prompt = "Are you sure you want to make <b>" + name + "<b> admin? <br/> Admin privilege can't be revoked until the member quits.";
+			$(".confirmquestion").html(prompt);
 			$(".box").fadeIn();
 
 			$("#yes").click(function() {
@@ -139,8 +139,8 @@
 		}
 		
 		function removemem(phone, name) {
-			var prompt = "Are you sure you want to remove " + name + "?";
-			$(".confirmquestion").text(prompt);
+			var prompt = "Are you sure you want to remove <b>" + name + "</b>?";
+			$(".confirmquestion").html(prompt);
 			$(".box").fadeIn();
 
 			$("#yes").click(function() {
