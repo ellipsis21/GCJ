@@ -12,7 +12,7 @@
     $number= $_REQUEST['From'];
 	$number = substr($number, 2);
     //GCJ put responce in DB
-    $res = mysqli_query($con,"SELECT * FROM Members WHERE Phone='$number' ORDER BY GroupId");
+    $res = mysqli_query($con,"SELECT * FROM Members WHERE Phone='$number' ORDER BY GroupId DESC");
 
     //assumes phone number is unique
     if($row = mysqli_fetch_array($res)) {
