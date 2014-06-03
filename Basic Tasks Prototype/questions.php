@@ -2,7 +2,10 @@
 	<head>
 		<title>CS 247 Basic Prototype</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="stylesheet" type="text/css" href="questions.css">
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+		<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 		<meta name="viewport" content="width=device-width, target-densitydpi=high-dpi" />
 	</head>
 	<body>
@@ -22,7 +25,6 @@
 	if($questions = mysqli_fetch_array($query)) {
 		$qId = $questions['QuestionId'];
 		$q = $questions['Question'];
-		if (isset($_GET['reminder'])) echo "<div class='announcement'>Reminder Sent!</div>";
 		echo "<h2>Open Question</h2>\n";
 		echo "<h3>$q</h3>\n";
 		echo '<a class="question-1" href="results.php?qId='.$qId.'">Results</a>';
@@ -40,7 +42,12 @@
 <?php }
  ?>
 	<div class='group-home'><div class='home' onclick="location.href='grouphome.php?groupid=<?php echo $GroupId;?>';"><img class='navicon' src='images/home.png'/> GROUP HOME</div><div class='all' onclick="location.href='home.php';"><img class='navicon' src='images/group.png'/> ALL GROUPS </div> </div>
-
+	<div class="warningmessage">Reminder sent!</div>
+	<?php
+		if (isset($_GET['reminder'])) {
+			echo '<script> $(".warningmessage").fadeIn().delay(3600).fadeOut(); </script>';
+		}
+	?>
 	</body>
 </html>
 <?php mysqli_close($con); ?>

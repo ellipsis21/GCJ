@@ -30,9 +30,11 @@ if (mysqli_connect_errno()) {
 			<input type='hidden' name='group' value='<?php echo $GroupId ?>' />
 			<input type='hidden' name='id' value='<?php echo $id ?>' />
 			<input type='hidden' name='type' value='YN' />
-			<br><div id='image'>ATTACH IMAGE</div><input name = "pic" type="file" accept="image/*" capture="camera" class="hiddeninput" id="picinput">
-			<br><div id='video' class='group'>ATTACH VIDEO</div><input name = "video" type="file" accept="video/*" capture="camera" class="hiddeninput" id='videoinput'>
-			<br><a class="question-1" onclick="document.getElementById('myform').submit();">Send</a>
+			<br>
+			<div class='imagevideobar'><span id='image'><img class="ic" src = "images/image.png" /></span><input name = "pic" type="file" accept="image/*" capture="camera" class="hiddeninput" id="picinput" onchange="changeImageColor()">
+			<span id='video' class='group'><img class="ic" src = "images/video.png" /></span><input name = "video" type="file" accept="video/*" capture="camera" class="hiddeninput" id='videoinput' onchange="changeVideoColor()">
+			</div>
+			<a class="question-1" onclick="document.getElementById('myform').submit();">Send</a>
 		</form>
 		<script>
 			$("#image").click(function(){
@@ -41,6 +43,12 @@ if (mysqli_connect_errno()) {
 			$("#video").click(function(){
 				$("#videoinput").trigger("click");
 			});
+			function changeImageColor() {
+				$("#image").css("background","#84CBC5");
+			}
+			function changeVideoColor() {
+				$("#video").css("background","#84CBC5");
+			}
 		</script>
 	</body>
 </html>

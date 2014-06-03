@@ -1,6 +1,7 @@
 <?php 
 
 	session_start(); 
+	require "twilio-php-latest/Services/Twilio.php";
 	$con=mysqli_connect("ggreiner.com","ggreiner_g","volley3","ggreiner_247");
 	// Check connection
 	if (mysqli_connect_errno()) {
@@ -11,8 +12,10 @@
 	$result = mysqli_fetch_array(mysqli_query($con,"SELECT * FROM Users WHERE UserId='$userid'"));
 	$userphone = $result['Phone'];
 
-
 	$groupid = $_GET['groupid'];
+	$result = mysqli_fetch_array(mysqli_query($con,"SELECT * FROM Groups WHERE GroupId='$groupid'"));
+	$groupname = $result['Name'];
+
 	if (isset($_GET['remove'])) {
 		$memberphone = $_GET['remove'];
 		mysqli_query($con, "DELETE FROM Members WHERE GroupId = '$groupid' AND Phone= '$memberphone'");
@@ -22,6 +25,12 @@
 		$membername = $_POST['name'];
 		$memberphone = $_POST['number'];
 		mysqli_query($con, "INSERT INTO Members(GroupId,Name,Phone,Status) VALUES ('$groupid','$membername','$memberphone',0)");
+
+		$account_sid = 'ACe45cbecec1c4d969f362becc4dae5ce1'; 
+		$auth_token = '2920745a17eb488e173b7ffe2310f958'; 
+		$client = new Services_Twilio($account_sid, $auth_token); 
+		$body = "You've been added to $groupname on TellMeNow. To unsubscribe, text STOP";
+		$sms = $client->account->messages->sendMessage("+17542108538", $memberphone, $body);
 	}
 
 
@@ -32,8 +41,6 @@
 	}
 
 
-	$result = mysqli_fetch_array(mysqli_query($con,"SELECT * FROM Groups WHERE GroupId='$groupid'"));
-	$groupname = $result['Name'];
 	$result = mysqli_query($con,"SELECT * FROM Members WHERE GroupId='$groupid' ORDER BY Status");
 	
 	$curUrl = "http://ggreiner.com/cs247/bp/manage.php?groupid=$groupid&share";

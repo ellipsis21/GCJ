@@ -73,6 +73,12 @@ h4 {
 	font-size: 16pt;
 }
 
+.welcome {
+	font-size: 14pt;
+	background: #84CBC5;
+	padding: 5px;
+	color: white;
+}
 
 .header {
 	width: 100%;
@@ -573,12 +579,12 @@ div.group-home {
 	opacity: 0.75;
 }
 .all {
-	width: 42%;
+	width: 50%;
 	background: #84CBC5;
 }
 
 .home {
-	width: 58%;
+	width: 50%;
 	background: #599b95;
 }
 .group-home a {
@@ -692,6 +698,14 @@ td.adminusername {
 .heading {
 	font-size: 18pt;
 	margin: 5px;
+	text-transform: uppercase;
+	font-family: "Source Sans Pro Bold";
+}
+
+
+.heading2 {
+	font-size: 18pt;
+	margin: 30px 5px 5px 5px;
 	text-transform: uppercase;
 	font-family: "Source Sans Pro Bold";
 }

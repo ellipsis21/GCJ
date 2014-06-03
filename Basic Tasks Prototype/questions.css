@@ -22,25 +22,48 @@ input[type='text'], textarea, input[type='tel']  {
 }
 
 #video {
-	width: 180px;
 	padding: 10px 20px;
 	margin: 2px;
 	font-weight: bold;
 	color: white;
 	font-size: 18px;
-	background: #F47264;
-	border:2px solid #F47264;
+	background: #D0D0D0;
 	display: inline-block;
 }
 
 #image {
-	width: 180px;
 	padding: 10px 20px;
 	margin: 2px;
 	font-weight: bold;
 	color: white;
 	font-size: 18px;
-	background: #F8D35E;
-	border:2px solid #F8D35E;
+	background: #D0D0D0;
 	display: inline-block;
+}
+
+
+.warningmessage {
+	width: 80%;
+	text-align: center;
+	font-size: 15pt;
+	font-weight: bold;
+	border-radius: 15px;
+	background-color: rgba(245,245,245,0.93);
+	padding: 15px;
+	position: absolute;
+	box-shadow: 2px 2px 2px #C0C0C0;
+	display: none;
+	margin: 0 auto;
+	left: 0;
+	right: 0;
+	bottom: 100px;
+}
+
+.ic {
+	width: 40px;
+	height: 40px;
+}
+
+.imagevideobar {
+	margin: 10px;
 }

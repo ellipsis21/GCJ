@@ -132,12 +132,15 @@
 			$number = "+1".$row['Phone'];
 			$numbers[] = $number; 
 		}
+		$result = mysqli_fetch_array(mysqli_query($con,"SELECT * FROM Groups WHERE GroupId=$GroupId"));
+		$groupName = $result["Name"];
+
 		$result = mysqli_query($con,"SELECT * FROM Users WHERE UserId=$id");
 		if ($row = mysqli_fetch_array($result)) {
 			$userName = $row['Name'];
 		}
 		
-		$body = "Question from $userName using TellMeNow: \n\n".$body;
+		$body = "[Question from $userName to $groupName using TellMeNow] \n\n".$body;
 		if ($type == 'TD') $body.= " (Enter every date that works in the format '1,3,5')";
 		elseif ($type == 'YN') $body.= " (You can enter a comment after your response)";
 		else $body .= " (You can enter a comment after your # response).";

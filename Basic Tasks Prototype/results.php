@@ -56,10 +56,10 @@
 			$comment = $response;
 
 			if ($question["Type"] == 'YN') {
-				if (preg_match('/(^[YyNn])\s*(.*)/',$response, $matches)) {
+				if (preg_match('/(^yes|no|Yes|No|[YyNn])\s*(.*)/',$response, $matches)) {
 					$res = strtolower($matches[1]);
 					$num = 'no';
-					if ($res == "y") {
+					if ($res == "y" || $res == "yes") {
 						$num = 'yes';
 					}
 
@@ -300,8 +300,26 @@
 		     .attr("y2", height)
 		     .attr("stroke", "#000");
 
-	    var percentage = 100.00 * data[0]/d3.sum(data);		
-		$("#summary").html("<b>" + options[0] + "</b> was most voted with <b>" + data[0] + "</b> votes");
+		if (data[0] > 0) {
+			var most = options[0];
+			var added = false;
+			var t = 1;
+			while (t < data.length) {
+				if (data[t] == data[0]) {
+					most = most + ", " + options[t++];
+					added = true;
+				} else {
+					break;
+				}
+			}
+			if (added) {
+				$("#summary").html("<b>" + most + "</b> were most voted with <b>" + data[0] + "</b> votes");
+			} else {
+				$("#summary").html("<b>" + most + "</b> was most voted with <b>" + data[0] + "</b> votes");
+			}
+		} else {
+			$("#summary").html("<b> No one has voted yet. </b>");
+		}
 	}
 
 	else if (type == 'YN') {
@@ -352,7 +370,12 @@
 		            	.attr("class", "pielabel"); 
 
 		    var percentage = 100.00 * data[0]/d3.sum(data);
-		    $("#summary").html("<b>" + percentage.toFixed(0) + "%</b> of members voted <b>" + options[0] + "</b>");
+
+		    if (percentage == 50.00) {
+		    	$("#summary").html("<b> Votes are tied. </b>");		    	
+		    } else if (percentage > 0) {
+		    	$("#summary").html("<b>" + percentage.toFixed(0) + "%</b> of members voted <b>" + options[0] + "</b>");
+		    }
 		}
 	}
 
@@ -404,20 +427,31 @@
 			}
 		}
 		
-		var max = d3.max(data);
-		var ind = data.indexOf(max);
-
-		$("#summary").html("<b>" + options[ind] + "</b><br/> was most preferred with <b>" + data[ind] + "</b> votes");
+		if (data[0] > 0) {
+			var most = options[0];
+			var added = false;
+			var t = 1;
+			while (t < data.length) {
+				if (data[t] == data[0]) {
+					most = most + ",</br>" + options[t++];
+					added = true;
+				} else {
+					break;
+				}
+			}
+			if (added) {
+				$("#summary").html("<b>" + most + "</b><br/> were most preferred with <b>" + data[0] + "</b> votes");
+			} else {
+				$("#summary").html("<b>" + most + "</b><br/> was most preferred with <b>" + data[0] + "</b> votes");
+			}
+		} else {
+			$("#summary").html("<b> No one has voted yet. </b>");
+		}
 
 	}
 	
 
     </script>
-	<?php if ($open == 0 && !isset($_GET['share'])) { ?>
-		<h3>Share Results</h3>
-		<input id="share" class="textbox" type="text" value="<?php echo $curUrl ?>" onFocus="this.selectionStart=0; this.selectionEnd=this.value.length;" onTouchEnd="this.selectionStart=0; this.selectionEnd=this.value.length;" onMouseUp="return false"/>
-	<?php } ?>
-
     <div class = "commentheader"> Comments </div>
 
 	<?php
@@ -434,6 +468,10 @@
 	<div class='group-home'><div class='home' onclick="location.href='grouphome.php?groupid=<?php echo $GroupId;?>';"><img class='navicon' src='images/home.png'/> GROUP HOME</div><div class='all' onclick="location.href='home.php';"><img class='navicon' src='images/group.png'/> ALL GROUPS </div> </div>
 	<?php } ?>
 
+	<?php if ($open == 0 && !isset($_GET['share'])) { ?>
+		<div class='heading2'>Share Results</div>
+		<input id="share" class="textbox" type="text" value="<?php echo $curUrl ?>" onFocus="this.selectionStart=0; this.selectionEnd=this.value.length;" onTouchEnd="this.selectionStart=0; this.selectionEnd=this.value.length;" onMouseUp="return false"/>
+	<?php } ?>
 
 
 	<script>
@@ -443,6 +481,7 @@
 			});
 		});
 	</script>
+	<div class='buffer'></div>
 	</body>
 </html>
 <?php mysqli_close($con); ?>

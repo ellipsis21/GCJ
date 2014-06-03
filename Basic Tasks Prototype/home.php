@@ -23,7 +23,7 @@
 			$result = mysqli_query($con,"SELECT * FROM Users WHERE UserId='$UserId'");
 			if($row = mysqli_fetch_array($result)) {
 				if ($_SESSION["NewUser"]) {
-					echo '<p>Thanks for signing up, '.$row["Name"].'!</p>';
+					echo "<div class='welcome'>Thanks for signing up, ".$row["Name"]."!</div>";
 				} 
 			}
 		?>
